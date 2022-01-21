@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { LandingPage } from "../components/LandingPage.component";
+import { Navbar } from "../components/Navbar.component";
 import { RouteChoicesPage } from "../components/RouteChoicesPage.component";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         />
       </Head>
       <body className="bg-hypertan overflow-x-hidden">
+        <Navbar></Navbar>
         <LandingPage></LandingPage>
         <RouteChoicesPage></RouteChoicesPage>
       </body>
