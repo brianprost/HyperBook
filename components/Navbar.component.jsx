@@ -87,7 +87,7 @@ export const Navbar = () => {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-gray-700 font-Montserrat font-bold text-right"
                             )}
                           >
                             Your Bookings
@@ -100,7 +100,7 @@ export const Navbar = () => {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-gray-700 font-Montserrat font-bold text-right"
                             )}
                           >
                             Sign out
