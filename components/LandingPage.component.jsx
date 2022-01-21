@@ -19,7 +19,7 @@ export const LandingPage = () => {
             </div>
           </div>
           <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
-            <h1 className="mb-8 text-4xl font-Montserrat font-semibold tracking-[1.1rem] text-hyperblue md:text-7xl ">
+            <h1 className="mb-8 text-4xl font-Montserrat font-bold tracking-normal text-hyperblue md:text-7xl drop-shadow-md">
               HYPERBOOK
             </h1>
             <p className="mb-8 text-2xl text-left font-serif leading-wide text-gray-600">
@@ -29,14 +29,13 @@ export const LandingPage = () => {
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
               <div className="mt-3 rounded-lg sm:mt-0">
                 <button
-                  className="items-center block px-10 py-4 text-base font-Montserrat font-bold tracking-wide text-center text-hypertan transition duration-500 ease-in-out transform bg-hyperblue rounded-xl hover:bg-blue-900
-                  "
+                  className="items-center block px-10 py-4 text-base font-Montserrat font-bold tracking-wide text-center text-hypertan shadow-lg transition duration-500 ease-in-out transform bg-hyperblue rounded-xl hover:bg-blue-900"
                 >
                   Book Now
                 </button>
               </div>
               <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
-                <button className="items-center block px-10 py-3.5 text-base font-Montserrat font-bold tracking-wide text-center text-hyperblue transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ">
+                <button className="items-center block px-10 py-3.5 text-base font-Montserrat font-bold tracking-wide text-center text-hyperblue transition duration-500 ease-in-out transform border-2 border-white shadow-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ">
                   Sign In
                 </button>
               </div>

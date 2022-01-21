@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowDownIcon } from "@heroicons/react/outline";
 
 export const RouteOptionCard = (props) => {
   return (
@@ -14,20 +15,7 @@ export const RouteOptionCard = (props) => {
             </span>
           </p>
           <div className="flex justify-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+            <ArrowDownIcon className="h-6 w-6 text-hyperblue" />
           </div>
           <p className="flex items-baseline my-4 justify-center">
             <span className="text-3xl font-mono font-bold tracking-wide p-2 text-center border-2 border-red-700 rounded-xl w-2/3 bg-zinc-100">
