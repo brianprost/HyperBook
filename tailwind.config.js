@@ -8,9 +8,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ["'Inter'", ...defaultTheme.fontFamily.sans],
-        mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono]
-      }
+        Montserrat: ["'Montserrat'", ...defaultTheme.fontFamily.sans],
+        mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
+        serif: ["'PT Serif Caption'", ...defaultTheme.fontFamily.serif]
+      },
+      colors: {
+        hyperred: "#c42217",
+        hyperblue: "#2b46bd",
+        hypertan: "#f2eddb",
+      },
     },
   },
   plugins: [],
