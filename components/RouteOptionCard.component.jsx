@@ -6,7 +6,7 @@ export const RouteOptionCard = (props) => {
     <div>
       <div className="relative flex flex-col p-8 bg-zinc-300 rounded-2xl border-[6px] border-red-700">
         <div className="flex-1 ">
-          <h3 className="text-5xl underline font-Montserrat font-black text-center mb-10">
+          <h3 className="text-5xl underline font-sans font-black text-center mb-10">
             {props.timeOfDay}
           </h3>
           <p className="flex items-baseline my-4 justify-center">

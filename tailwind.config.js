@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
@@ -10,7 +10,8 @@ module.exports = {
       fontFamily: {
         Montserrat: ["'Montserrat'", ...defaultTheme.fontFamily.sans],
         mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
-        serif: ["'PT Serif Caption'", ...defaultTheme.fontFamily.serif]
+        sans: ["'Encode Sans'", ...defaultTheme.fontFamily.sans],
+        serif: ["'PT Serif Caption'", ...defaultTheme.fontFamily.serif],
       },
       colors: {
         hyperred: "#c42217",

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { BookingPage } from "../components/BookingPage.component";
 import { LandingPage } from "../components/LandingPage.component";
 import { LoginPage } from "../components/LoginPage.component";
 import { Navbar } from "../components/Navbar.component";
@@ -16,13 +17,14 @@ export default function Home() {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter&family=IBM+Plex+Mono:wght@100..1000&family=Montserrat:wght@100..1000&family=PT+Serif+Caption&display=swap"
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100..1000&family=Montserrat:wght@700&family=PT+Serif+Caption&family=Encode+Sans&display=swap"
           rel="stylesheet"
         />
       </Head>
       <div className="bg-hypertan overflow-x-hidden">
         <Navbar></Navbar>
         <LandingPage></LandingPage>
+        <BookingPage></BookingPage>
         <RouteChoicesPage></RouteChoicesPage>
         <LoginPage></LoginPage>
       </div>
