@@ -4,7 +4,7 @@ import { BellIcon, MenuIcon, XIcon, UserIcon } from "@heroicons/react/outline";
 
 const navigation = [
   { name: "Home", href: "#", current: true },
-  { name: "Booking", href: "#book", current: false },
+  { name: "Book", href: "/book", current: false },
   { name: "How Hyperloop Works", href: "https://www.youtube.com/watch?v=zcikLQZI5wQ", current: false },
 ];
 
@@ -84,7 +84,7 @@ export const Navbar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/account/bookings"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700 font-Montserrat font-bold text-right"

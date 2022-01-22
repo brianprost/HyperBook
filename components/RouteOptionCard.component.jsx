@@ -6,7 +6,7 @@ export const RouteOptionCard = (props) => {
     <div>
       <div className="relative flex flex-col p-8 bg-zinc-300 rounded-2xl border-[6px] border-red-700">
         <div className="flex-1 ">
-          <h3 className="text-5xl underline font-sans font-extrabold text-center mb-10">
+          <h3 className="text-5xl underline font-Montserrat font-black text-center mb-10">
             {props.timeOfDay}
           </h3>
           <p className="flex items-baseline my-4 justify-center">
@@ -27,7 +27,7 @@ export const RouteOptionCard = (props) => {
           <a
             href="#"
             type="highlight"
-            className=" w-full items-center block px-10 py-3.5 text-xl font-sans font-extrabold text-center transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-zinc-200 hover:bg-red-700 hover:text-zinc-200
+            className=" w-full items-center block px-10 py-3.5 text-xl font-sans font-extrabold text-center transition duration-400 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-zinc-200 hover:bg-red-700 hover:text-zinc-200
         "
           >
             {props.tripPrice}

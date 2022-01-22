@@ -1,7 +1,7 @@
 import React from "react";
 import { RouteOptionCard } from "./RouteOptionCard.component";
 
-export const RouteChoicesPage = props => {
+export const RouteChoicesPage = (props) => {
   const routeOptions = [
     {
       tripID: "abc123",
@@ -29,18 +29,16 @@ export const RouteChoicesPage = props => {
   return (
     <section>
       <div className="relative items-center w-full mx-auto md:px-12 lg:px-16 max-w-7xl flex justify-center align-center h-screen">
-
-          <div className="relative p-10 space-y-12 overflow-hidden lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 rounded-xl">
-            {routeOptions.map((option) => (
-              <RouteOptionCard
-                key={option.tripID}
-                timeOfDay={option.timeOfDay}
-                departureTime={option.departureTime}
-                arrivalTime={option.arrivalTime}
-                tripPrice={option.tripPrice}
-              />
-            ))}
-
+        <div className="relative p-10 space-y-12 overflow-hidden lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 rounded-xl">
+          {routeOptions.map((option) => (
+            <RouteOptionCard
+              key={option.tripID}
+              timeOfDay={option.timeOfDay}
+              departureTime={option.departureTime}
+              arrivalTime={option.arrivalTime}
+              tripPrice={option.tripPrice}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -22,9 +22,9 @@ export const LandingPage = () => {
             <h1 className="mb-8 text-4xl font-Montserrat font-bold tracking-normal text-hyperblue md:text-7xl drop-shadow-md">
               HYPERBOOK
             </h1>
-            <p className="mb-8 text-2xl text-left font-serif leading-wide text-gray-600">
+            <p className="mb-8 text-2xl text-left font-serif leading-wide text-gray-600 antialiased">
               The easy and fun way to book travel on the newest method of
-              trasnportation.
+              transportation.
             </p>
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
               <div className="mt-3 rounded-lg sm:mt-0">
