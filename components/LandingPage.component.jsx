@@ -38,7 +38,7 @@ export const LandingPage = () => {
                 </Link>
               </div>
               <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
-                <Link href="/#account-bookings">
+                <Link href="/#login">
                   <a>
                     <button className="items-center block px-10 py-3.5 text-base font-Montserrat font-bold tracking-wide text-center text-hyperblue transition duration-500 ease-in-out transform border-2 border-white shadow-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ">
                       Sign In

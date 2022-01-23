@@ -1,9 +1,10 @@
+import Link from "next/link";
 import React from "react";
 import { CartItem } from "./CartItem.component";
 
 export const CheckoutPage = () => {
   return (
-    <div className="h-screen grid grid-cols-3">
+    <section id="checkout" className="h-screen grid grid-cols-3">
       <div className="lg:col-span-2 col-span-3 space-y-8 px-12">
         <div className="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-white shadow rounded-lg">
           <div className="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
@@ -122,9 +123,13 @@ export const CheckoutPage = () => {
             </label>
           </fieldset>
         </div>
-        <button className="submit-button px-4 py-3 rounded-full bg-hyperred text-white focus:ring focus:outline-none w-full text-xl font-Montserrat transition-colors">
-          Pay $65.72
-        </button>
+        <Link href={"#account-bookings"}>
+          <a>
+            <button className="submit-button px-4 py-3 rounded-full bg-hyperred text-white focus:ring focus:outline-none w-full text-xl font-Montserrat transition-colors">
+              Pay $65.72
+            </button>
+          </a>
+        </Link>
       </div>
       <div className="col-span-1 bg-white lg:block hidden">
         <h1 className="font-Montserrat py-6 border-b-2 text-xl text-gray-600 px-8">
@@ -161,6 +166,6 @@ export const CheckoutPage = () => {
           <span className="font-Montserrat">$65.72</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
