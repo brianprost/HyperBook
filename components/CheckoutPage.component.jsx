@@ -43,7 +43,7 @@ export const CheckoutPage = () => {
             </h2>
             <fieldset className="mb-3 bg-white shadow-lg rounded text-gray-600">
               <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-1/12 text-left px-2 font-Montserrat">
+                <span className="w-1/12 ml-1 text-left px-2 font-Montserrat">
                   Name
                 </span>
                 <input
@@ -54,7 +54,7 @@ export const CheckoutPage = () => {
                 />
               </label>
               <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-1/12 text-left px-2 font-Montserrat">
+                <span className="w-1/12 ml-1 text-left px-2 font-Montserrat">
                   Email
                 </span>
                 <input
@@ -66,7 +66,7 @@ export const CheckoutPage = () => {
                 />
               </label>
               <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-1/12 text-left px-2 font-Montserrat">
+                <span className="w-1/12 ml-1 text-left px-2 font-Montserrat">
                   Address
                 </span>
                 <input
@@ -76,7 +76,7 @@ export const CheckoutPage = () => {
                 />
               </label>
               <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-1/12 text-left px-2 font-Montserrat">
+                <span className="w-1/12 ml-1 text-left px-2 font-Montserrat">
                   City
                 </span>
                 <input
@@ -94,7 +94,7 @@ export const CheckoutPage = () => {
                 />
               </label>
               <label className="xl:w-1/4 xl:inline-flex items-center flex xl:border-none border-t border-gray-200 py-6">
-                <span className="font-Montserrat text-right px-2 xl:px-0 xl:text-none">
+                <span className="font-Montserrat ml-1 text-right px-2 xl:px-0 xl:text-none">
                   ZIP
                 </span>
                 <input
@@ -149,16 +149,16 @@ export const CheckoutPage = () => {
         <div className="px-8 border-b">
           <div className="flex justify-between py-4 text-gray-600">
             <span className="font-Montserrat">Subtotal</span>
-            <span className="font-mono text-hyperred">$62.00</span>
+            <span className="font-Montserrat text-hyperred">$62.00</span>
           </div>
           <div className="flex justify-between py-4 text-gray-600">
             <span className="font-Montserrat">Taxes</span>
-            <span className="font-mono text-hyperred">$3.72</span>
+            <span className="font-Montserrat text-hyperred">$3.72</span>
           </div>
         </div>
         <div className="font-semibold text-xl px-8 flex justify-between py-8 text-gray-600">
           <span className="font-Montserrat">Total</span>
-          <span className="font-mono">$65.72</span>
+          <span className="font-Montserrat">$65.72</span>
         </div>
       </div>
     </div>

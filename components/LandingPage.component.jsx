@@ -28,14 +28,18 @@ export const LandingPage = () => {
             </p>
             <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
               <div className="mt-3 rounded-lg sm:mt-0">
-                <button className="items-center block px-10 py-4 text-base font-sans font-bold tracking-wide text-center text-hypertan shadow-lg transition duration-500 ease-in-out transform bg-hyperblue rounded-xl hover:bg-blue-900">
-                  Book Now
-                </button>
+                <a href="/#book">
+                  <button className="items-center block px-10 py-4 text-base font-Montserrat font-bold tracking-wide text-center text-hypertan shadow-lg transition duration-500 ease-in-out transform bg-hyperblue rounded-xl hover:bg-blue-900">
+                    Book Now
+                  </button>
+                </a>
               </div>
               <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
-                <button className="items-center block px-10 py-3.5 text-base font-sans font-bold tracking-wide text-center text-hyperblue transition duration-500 ease-in-out transform border-2 border-white shadow-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ">
-                  Sign In
-                </button>
+                <a href="/#account-bookings">
+                  <button className="items-center block px-10 py-3.5 text-base font-Montserrat font-bold tracking-wide text-center text-hyperblue transition duration-500 ease-in-out transform border-2 border-white shadow-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ">
+                    Sign In
+                  </button>
+                </a>
               </div>
             </div>
           </div>

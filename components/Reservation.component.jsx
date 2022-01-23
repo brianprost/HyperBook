@@ -15,7 +15,7 @@ export const Reservation = (props) => {
         <div className="flex-1">
           <div className="flex pt-6 justify-between space-x-1 text-sm text-gray-500">
             <time dateTime={`${props.date}`}> {props.date} </time>
-            <span className="text-right font-mono uppercase text-hypertan bg-hyperred bg-opacity-90 border rounded-md px-2 py-1 mb-5">
+            <span className="text-right font-Montserrat uppercase text-hypertan bg-hyperred bg-opacity-90 border rounded-md px-2 py-1 mb-5">
               {props.confirmationCode}
             </span>
           </div>

@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon, UserIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon, UserIcon } from "@heroicons/react/outline";
 
 const navigation = [
   { name: "Home", href: "#", current: true },
-  { name: "Book", href: "/book", current: false },
+  { name: "Book", href: "/#book", current: false },
   {
     name: "How Hyperloop Works",
     href: "https://www.youtube.com/watch?v=zcikLQZI5wQ",
@@ -57,7 +57,7 @@ export const Navbar = () => {
                           item.current
                             ? "bg-hypertan bg-opacity-20 text-white"
                             : "text-gray-200 hover:bg-hypertan hover:bg-opacity-50 hover:text-hyperblue",
-                          "px-3 py-2 rounded-md text-sm font-sans font-semibold"
+                          "px-3 py-2 rounded-md text-sm font-Montserrat font-semibold"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -88,13 +88,13 @@ export const Navbar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/account/bookings"
+                            href="/#account-bookings"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700 font-sans font-bold text-right"
+                              "block px-4 py-2 text-sm text-gray-700 font-Montserrat font-bold text-right"
                             )}
                           >
-                            Your Bookings
+                            Your Account
                           </a>
                         )}
                       </Menu.Item>
@@ -104,7 +104,7 @@ export const Navbar = () => {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700 font-sans font-bold text-right"
+                              "block px-4 py-2 text-sm text-gray-700 font-Montserrat font-bold text-right"
                             )}
                           >
                             Sign out
@@ -129,7 +129,7 @@ export const Navbar = () => {
                     item.current
                       ? "bg-hypertan bg-opacity-20 text-white"
                       : " text-gray-200 hover:bg-hypertan hover:bg-opacity-50 hover:text-hyperblue",
-                    "block px-3 py-14 rounded-md text-2xl text-center font-sans font-black"
+                    "block px-3 py-14 rounded-md text-2xl text-center font-Montserrat font-black"
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >

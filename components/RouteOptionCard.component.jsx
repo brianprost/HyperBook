@@ -10,7 +10,7 @@ export const RouteOptionCard = (props) => {
             {props.timeOfDay}
           </h3>
           <p className="flex items-baseline my-4 justify-center">
-            <span className="text-3xl font-mono tracking-wide p-2 text-center border-2 border-red-700 rounded-xl w-2/3 bg-zinc-100">
+            <span className="text-3xl font-Montserrat tracking-wide p-2 text-center border-2 border-red-700 rounded-xl w-2/3 bg-zinc-100">
               {props.departureTime}
             </span>
           </p>
@@ -18,7 +18,7 @@ export const RouteOptionCard = (props) => {
             <ArrowDownIcon className="h-6 w-6 text-hyperblue" />
           </div>
           <p className="flex items-baseline my-4 justify-center">
-            <span className="text-3xl font-mono tracking-wide p-2 text-center border-2 border-red-700 rounded-xl w-2/3 bg-zinc-100">
+            <span className="text-3xl font-Montserrat tracking-wide p-2 text-center border-2 border-red-700 rounded-xl w-2/3 bg-zinc-100">
               {props.arrivalTime}
             </span>
           </p>
@@ -27,7 +27,7 @@ export const RouteOptionCard = (props) => {
           <a
             href="#"
             type="highlight"
-            className=" w-full items-center block px-10 py-3.5 text-xl font-mono font-extrabold text-center transition duration-400 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-zinc-200 hover:bg-red-700 hover:text-zinc-200
+            className=" w-full items-center block px-10 py-3.5 text-xl font-Montserrat font-extrabold text-center transition duration-400 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-zinc-200 hover:bg-red-700 hover:text-zinc-200
         "
           >
             {props.tripPrice}

@@ -1,28 +1,17 @@
 import React from "react";
 import { Reservation } from "./Reservation.component";
-import ChiBnaImage from "../public/img/CHI-BNA.webp";
 
 export const AccountPage = () => {
-  const accountName = "Billie Joe Gates"
+  const accountName = "Billie Joe Gates";
 
   return (
-    <section>
-      <div
-        className="
-          relative
-          items-center
-          w-full
-          px-5
-          py-12
-          mx-auto
-          md:px-12
-          lg:px-24
-          max-w-7xl
-        "
-      >
-        <h2 className="text-4xl text-right font-Montserrat mb-20">Hi, {accountName}</h2>
+    <section id="account-bookings">
+      <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl h-screen ">
+        <h2 className="text-4xl text-right font-Montserrat mb-20">
+          Hi, <span className="text-hyperred">{accountName}</span>
+        </h2>
         <div className="pb-5 border-b border-black">
-          <h3 className="text-lg font-medium leading-6 text-neutral-600">
+          <h3 className="text-lg font-Montserrat leading-6 text-neutral-600">
             Your reservations
           </h3>
         </div>
@@ -52,7 +41,6 @@ export const AccountPage = () => {
               confirmationCode="6PDQBF"
               displayImage="./img/SEA-SFO.webp"
             />
-            
           </div>
         </div>
       </div>

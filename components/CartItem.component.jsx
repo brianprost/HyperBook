@@ -16,7 +16,7 @@ export const CartItem = (props) => {
       </div>
       <div className="col-span-2 pt-3">
         <div className="flex items-center space-x-2 text-sm justify-end">
-          <span className="text-hyperred font-mono inline-block">
+          <span className="text-hyperred font-Montserrat inline-block">
             {props.tripPrice}
           </span>
         </div>
