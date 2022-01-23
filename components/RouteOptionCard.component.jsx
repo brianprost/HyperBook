@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowDownIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 
 export const RouteOptionCard = (props) => {
   return (
@@ -24,14 +25,15 @@ export const RouteOptionCard = (props) => {
           </p>
         </div>
         <div className="mt-6 rounded-lg">
-          <a
-            href="#"
-            type="highlight"
-            className=" w-full items-center block px-10 py-3.5 text-xl font-Montserrat font-extrabold text-center transition duration-400 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-zinc-200 hover:bg-red-700 hover:text-zinc-200
+          <Link href={"#"}>
+            <a
+              type="highlight"
+              className=" w-full items-center block px-10 py-3.5 text-xl font-Montserrat font-extrabold text-center transition duration-400 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-zinc-200 hover:bg-red-700 hover:text-zinc-200
         "
-          >
-            {props.tripPrice}
-          </a>
+            >
+              {props.tripPrice}
+            </a>
+          </Link>
         </div>
       </div>
     </div>
