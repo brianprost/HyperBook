@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
+import { AccountPage } from "../components/AccountPage.component";
 import { BookingPage } from "../components/BookingPage.component";
+import { CheckoutPage } from "../components/CheckoutPage.component";
 import { LandingPage } from "../components/LandingPage.component";
 import { LoginPage } from "../components/LoginPage.component";
 import { Navbar } from "../components/Navbar.component";
@@ -27,6 +29,8 @@ export default function Home() {
         <BookingPage></BookingPage>
         <RouteChoicesPage></RouteChoicesPage>
         <LoginPage></LoginPage>
+        <CheckoutPage></CheckoutPage>
+        <AccountPage></AccountPage>
       </div>
     </>
   );
