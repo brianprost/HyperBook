@@ -1,0 +1,30 @@
+city,state_abbreviation,state_name,lat,lng,timezone
+New York,NY,New York,40.6943,-73.9249,America/New_York
+Los Angeles,CA,California,34.1139,-118.4068,America/Los_Angeles
+Chicago,IL,Illinois,41.8373,-87.6862,America/Chicago
+Miami,FL,Florida,25.7839,-80.2102,America/New_York
+Dallas,TX,Texas,32.7936,-96.7662,America/Chicago
+Philadelphia,PA,Pennsylvania,40.0077,-75.1339,America/New_York
+Houston,TX,Texas,29.7863,-95.3889,America/Chicago
+Atlanta,GA,Georgia,33.7627,-84.4224,America/New_York
+Washington,DC,District of Columbia,38.9047,-77.0163,America/New_York
+Boston,MA,Massachusetts,42.3188,-71.0846,America/New_York
+Phoenix,AZ,Arizona,33.5722,-112.0891,America/Phoenix
+Seattle,WA,Washington,47.6211,-122.3244,America/Los_Angeles
+San Francisco,CA,California,37.7562,-122.443,America/Los_Angeles
+Detroit,MI,Michigan,42.3834,-83.1024,America/Detroit
+San Diego,CA,California,32.8312,-117.1225,America/Los_Angeles
+Minneapolis,MN,Minnesota,44.9635,-93.2678,America/Chicago
+Tampa,FL,Florida,27.9942,-82.4451,America/New_York
+Denver,CO,Colorado,39.7621,-104.8759,America/Denver
+Las Vegas,NV,Nevada,36.2333,-115.2654,America/Los_Angeles
+Portland,OR,Oregon,45.5372,-122.65,America/Los_Angeles
+San Antonio,TX,Texas,29.4658,-98.5253,America/Chicago
+St. Louis,MO,Missouri,38.6358,-90.2451,America/Chicago
+Sacramento,CA,California,38.5667,-121.4683,America/Los_Angeles
+Orlando,FL,Florida,28.4772,-81.3369,America/New_York
+Austin,TX,Texas,30.3004,-97.7522,America/Chicago
+Cincinnati,OH,Ohio,39.1413,-84.5061,America/New_York
+Nashville,TN,Tennessee,36.1715,-86.7843,America/Chicago
+Raleigh,NC,North Carolina,35.8325,-78.6435,America/New_York
+New Orleans,LA,Louisiana,30.0687,-89.9288,America/Chicago
