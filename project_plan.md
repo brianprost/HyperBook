@@ -1,5 +1,4 @@
 
-
 # Requirements Specification
 
 The following item provides details about the requirements specification and an overview of the HyperBook Application.
@@ -7,6 +6,9 @@ The following item provides details about the requirements specification and an 
 ### What is this project supposed to do? What is the input, the process, and the output?
 
 TBD
+
+[INSERT IMAGE]
+
 
 ### Scenarios
 
@@ -25,25 +27,20 @@ Software stack:
 - .NET Core (backend)
 - MariaDB/MySQL (database)
 
-
 ### Hardware Requirements
 
 Cloud-based hosting:
 
-- Azure App Service
+- Azure App Service (free student account)
 
 
 # Roles
 
-Brian Prost - Frontend, design
-
-Paul Davison - Database, technical documentation
-
-Marie George - Backend
-
-Dushyant Kumar - Backend
-
-Prachet Agrawal - Frontend
+- Brian Prost - Frontend, design
+- Paul Davison - Database, technical documentation
+- Marie George - Backend
+- Dushyant Kumar - Backend
+- Prachet Agrawal - Frontend
 
 
 # Schedule
@@ -54,9 +51,7 @@ Project plan completed (due by 1/25)
 
 ### Week 3
 
-User's Guide completed (due by 2/1)
-
-Test Plan completed (due by 2/1)
+User's Guide & Test Plan completed (due by 2/1)
 
 ### Week 4
 
