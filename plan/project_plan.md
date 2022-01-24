@@ -38,19 +38,19 @@ Outputs
 In the following example, a customer follows the steps to successfully book a reservation through the applicaiton:
 
 1. Customer can login to the page using their account credentials
-
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/main_page.png" width="800">
 
 2. Customer can select a destination that is available
-
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/destinations.png" width="800">
 
 3. Customer chooses a timeslot for the destination from one available
-
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/timeslots.png" width="800">
 
 4. Once a timeslot is chosen, customer can input payment information to pay for and reserve their itinerary
-
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/payment.png" width="800">
 
 5. After obtaining their itinerary, the customer can reference their reservation
-
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/reservation_list.png" width="800">
 
 
 # System Specification
