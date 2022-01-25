@@ -7,12 +7,12 @@ The following documentation provides an overview of the HyperBook Application an
 
 ### What is this project supposed to do? What is the input, the process, and the output?
 
-The HyperBoop Application provides customers with the ability to book an itinerary to use the Hyperloop travel service.  Each itinerary is made up of one or more routes assigned to particular timeslot(s).  When the customer chooses a particular itinerary, they can provide payment details to pay and reserve their travel plan.  Once completed, the user can lookup their itinerary to get details about it.
+The HyperBoop Application provides customers with the ability to book an itinerary to use the Hyperloop travel service.  Each itinerary is made up of one or more routes assigned to particular time slot(s).  When the customer chooses a particular itinerary, they can provide payment details to pay and reserve their travel plan.  Once completed, the user can lookup their itinerary to get details about it.
 
 Inputs
 - Locations
 - Routes
-- Timeslots
+- Time slots
 - Itinerary
 - Customer Account
 - Payment
@@ -22,8 +22,8 @@ Processing
 - Customer can login to the site
 - Customer can save billing address and profile information
 - Customer can identify all available routes from a starting location
-- Customer can look up a list of timeslots for a route
-- Application confirms availability for specific timeslots
+- Customer can look up a list of time slots for a route
+- Application confirms availability for specific time slots
 - Customer provides payment to hold an itinerary (simulate only)
 - Application confirms payment for itinerary
 - Application reserves itinerary for customer
@@ -51,11 +51,11 @@ In the following example, a customer follows the steps to successfully book a re
 
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/destinations.png" width="800">
 
-3. Customer chooses a timeslot for the destination from one available
+3. Customer chooses a time slot for the destination from one available
 
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/timeslots.png" width="800">
 
-4. Once a timeslot is chosen, customer can input payment information to pay for and reserve their itinerary
+4. Once a time slot is chosen, customer can input payment information to pay for and reserve their itinerary
 
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/payment.png" width="800">
 
