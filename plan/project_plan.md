@@ -1,5 +1,7 @@
 
-# HyperBook Requirements Specification
+# HyperBook Project Plan
+
+## Requirements Specification
 
 The following documentation provides an overview of the HyperBook Application and details about the requirements specification.
 
@@ -62,7 +64,7 @@ In the following example, a customer follows the steps to successfully book a re
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/reservation_list.png" width="800">
 
 
-# System Specification
+## System Specification
 
 The following items provide details on the software and hardware requirements used by the HyperBook Application.
 
