@@ -75,11 +75,11 @@ Cloud-based hosting:
 
 # Roles
 
-- Brian Prost - Frontend, design
-- Paul Davison - Database, technical documentation
-- Marie George - Backend
-- Dushyant Kumar - Backend
-- Prachet Agrawal - Frontend
+- Brian Prost - Frontend, Design
+- Paul Davison - Database, Technical Documentation
+- Marie George - Frontend, Backend
+- Dushyant Kumar - Frontend, Backend
+- Prachet Agrawal - Backend, Database
 
 
 # Schedule
