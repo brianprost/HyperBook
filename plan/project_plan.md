@@ -27,7 +27,8 @@ Processing
 - Application reserves itinerary for customer
 - Application sends email to customer to confirm payment and provide reservation details
 - Customer can lookup a booked reservation
-
+- (OPTIONAL) Customer can cancel/reschedule a reserved itinerary
+- (OPTIONAL) Application releases a reservation for a cancelled itinerary
 
 Outputs
 - Itinerary
