@@ -27,9 +27,9 @@ Processing
 - Application reserves itinerary for customer
 - Application sends email to customer to confirm payment and provide reservation details
 - Customer can lookup a booked reservation
+- Customer can cancel/reschedule a reserved itinerary
+- Application releases a reservation for a cancelled itinerary
 - (Stretch Goal) Application generates QR Code for customer to use for check in
-- (Stretch Goal) Customer can cancel/reschedule a reserved itinerary
-- (Stretch Goal) Application releases a reservation for a cancelled itinerary
 - (Stretch Goal) Application charges payment to external payment processor (simulate only)
 
 Outputs
