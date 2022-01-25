@@ -96,7 +96,7 @@ Cloud-based hosting:
 # Schedule
 
 | Week | Deliverable | Due Date |
-|----|----|----|
+|:----|:----|:----|
 | 2 | Project Plan | 1/25 |
 | 3 | User's Guide & Test Plan | 2/1 |
 | 4 | Design | 2/8 |
