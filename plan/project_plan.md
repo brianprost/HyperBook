@@ -7,7 +7,7 @@ The following documentation provides an overview of the HyperBook Application an
 
 ### What is this project supposed to do? What is the input, the process, and the output?
 
-The HyperLoop application provides customers with the ability to book an itinerary to use the Hyperloop travel service.  Each itinerary is made up of one or more routes assigned to particular timeslot(s).  When the customer chooses a particular itinerary, they can provide payment details to pay and reserve their travel plan.  Once completed, the user can lookup their itinerary to get details about it.
+The HyperBoop Application provides customers with the ability to book an itinerary to use the Hyperloop travel service.  Each itinerary is made up of one or more routes assigned to particular timeslot(s).  When the customer chooses a particular itinerary, they can provide payment details to pay and reserve their travel plan.  Once completed, the user can lookup their itinerary to get details about it.
 
 Inputs
 - Locations
@@ -41,7 +41,7 @@ Outputs
 
 ### Scenarios
 
-In the following example, a customer follows the steps to successfully book a reservation through the applicaiton:
+In the following example, a customer follows the steps to successfully book a reservation through the application:
 
 1. Customer can login to the page using their account credentials
 
