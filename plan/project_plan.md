@@ -22,15 +22,18 @@ Processing
 - Customer can identify all available routes from a starting location
 - Customer can look up a list of timeslots for a route
 - Application confirms availability for specific timeslots
-- Customer provides payment to hold an itinerary
+- Customer provides payment to hold an itinerary (simulate only)
 - Application confirms payment for itinerary
 - Application reserves itinerary for customer
 - Application sends email to customer to confirm payment and provide reservation details
 - Customer can lookup a booked reservation
-- (OPTIONAL) Customer can cancel/reschedule a reserved itinerary
-- (OPTIONAL) Application releases a reservation for a cancelled itinerary
+- (Stretch Goal) Application generates QR Code for customer to use for check in
+- (Stretch Goal) Customer can cancel/reschedule a reserved itinerary
+- (Stretch Goal) Application releases a reservation for a cancelled itinerary
+- (Stretch Goal) Application charges payment to external payment processor (simulate only)
 
 Outputs
+- Customer Account
 - Itinerary
 - Payment Confirmation
 
