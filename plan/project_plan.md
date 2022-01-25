@@ -1,7 +1,7 @@
 
-# Requirements Specification
+# HyperBook Requirements Specification
 
-The following item provides details about the requirements specification and an overview of the HyperBook Application.
+The following documentation provides an overview of the HyperBook Application and details about the requirements specification.
 
 ### What is this project supposed to do? What is the input, the process, and the output?
 
@@ -39,24 +39,29 @@ Outputs
 In the following example, a customer follows the steps to successfully book a reservation through the applicaiton:
 
 1. Customer can login to the page using their account credentials
+
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/main_page.png" width="800">
 
 2. Customer can select a destination that is available
+
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/destinations.png" width="800">
 
 3. Customer chooses a timeslot for the destination from one available
+
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/timeslots.png" width="800">
 
 4. Once a timeslot is chosen, customer can input payment information to pay for and reserve their itinerary
+
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/payment.png" width="800">
 
 5. After obtaining their itinerary, the customer can reference their reservation
+
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/reservation_list.png" width="800">
 
 
 # System Specification
 
-The following items provide details on the software and hardware requirements used by teh HyperBook Application.
+The following items provide details on the software and hardware requirements used by the HyperBook Application.
 
 ### Software Requirements
 
@@ -65,6 +70,7 @@ Software stack:
 - ReactJS (frontend)
 - .NET Core (backend)
 - MariaDB/MySQL (database)
+
 
 ### Hardware Requirements
 
@@ -84,31 +90,12 @@ Cloud-based hosting:
 
 # Schedule
 
-### Week 2
-
-Project plan completed (due by 1/25)
-
-### Week 3
-
-User's Guide & Test Plan completed (due by 2/1)
-
-### Week 4
-
-Design completed (due by 2/8)
-
-### Week 5
-
-Phase 1 Source completed (due by 2/15)
-
-### Week 6
-
-Phase 2 Source completed (due by 2/22)
-
-### Week 7
-
-Phase 3 Source completed (due by 3/1)
-
-### Week 8
-
-Final Report completed (due by 3/8)
-
+| Week | Deliverable | Due Date |
+|----|----|----|
+| 2 | Project Plan | 1/25 |
+| 3 | User's Guide & Test Plan | 2/1 |
+| 4 | Design | 2/8 |
+| 5 | Phase 1 Source | 2/15 |
+| 6 | Phase 2 Source | 2/22 |
+| 7 | Phase 3 Source | 3/1 |
+| 8 | Final Report | 3/8 |
