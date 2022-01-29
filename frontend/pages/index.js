@@ -15,9 +15,9 @@ export default function Home() {
       <Navbar></Navbar>
       <LandingPage></LandingPage>
       <LoginPage></LoginPage>
-      <Map></Map>
-      {/* hiding because we have a map now!
-      <BookingPage></BookingPage> */}
+      {/* <Map></Map> */}
+      {/* hiding because we have a map now! */}
+      <BookingPage></BookingPage> 
       <RouteChoicesPage></RouteChoicesPage>
       <CheckoutPage></CheckoutPage>
       <AccountPage></AccountPage>
