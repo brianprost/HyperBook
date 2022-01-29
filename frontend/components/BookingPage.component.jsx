@@ -8,7 +8,7 @@ export const BookingPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://hyperbookappapi.azurewebsites.net/api/HyperBook/GetCities")
+    fetch("https://hyperbookappapi.azurewebsites.net/api/HyperBook/GetCitiesWithInfo")
       .then((res) => res.json())
       .then((Cities) => {
         setCities(Cities);
@@ -26,15 +26,12 @@ export const BookingPage = () => {
           Destinations
         </h2>
         <div className="grid w-full gap-12 mx-auto lg:grid-cols-4">
-          {cities.map((wine) => (
-            <Link href={"/#route-choices"} key={wine.id}>
+          {cities.map((city) => (
+            <Link href={"/#route-choices"} key={city.longitude + city.longitude}>
               <a>
                 <CityOption
-                  city={wine.location}
-                  winery={wine.winery}
-                  key={wine.id}
-                  image={wine.image}
-                  wine={wine.wine}
+                  city={city.city}
+                  key={city.longitude + city.longitude}
                 />
               </a>
             </Link>

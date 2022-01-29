@@ -1,14 +1,7 @@
 import React from "react";
 export const CityOption = (props) => {
   return (
-    <div className="group p-2 border-4 border-hyperred rounded-xl hover:bg-hyperred hover:border-hyperblue">
-      <div className="w-full h-full flex justify-center">
-      <img
-        src={`${props.image}`}
-        alt={`${props.wine}`}
-        className="rounded-xl"
-      />
-      </div>
+    <div className="group p-2 h-full border-4 border-hyperred rounded-xl hover:bg-hyperred hover:border-hyperblue">
       <h1
         className="text-xl font-Montserrat leading-none tracking-tighter text-hyperred text-center lg:text-3xl select-none 
       group-hover:text-hypertan group-hover:scale-105"
