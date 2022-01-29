@@ -1,23 +1,23 @@
 
-= HyperBook Test Plan & User Guide
+# HyperBook Test Plan & User Guide
 
 Title page stuff goes here
 
-=== Table of Contents
+### Table of Contents
 
 Table of contents stuff goes here
 
-== Introduction
+## Introduction
 
 
-== Purpose & Objectives
+## Purpose & Objectives
 
 
-== Description of Test Procedures
+## Description of Test Procedures
 
 
-== User's Guide
+## User's Guide
 
 
-== References
+## References
 
