@@ -14,10 +14,11 @@ export default function Home() {
     <div className="bg-hypertan overflow-x-hidden">
       <Navbar></Navbar>
       <LandingPage></LandingPage>
-      <Map></Map>
-      <BookingPage></BookingPage>
-      <RouteChoicesPage></RouteChoicesPage>
       <LoginPage></LoginPage>
+      <Map></Map>
+      {/* hiding because we have a map now!
+      <BookingPage></BookingPage> */}
+      <RouteChoicesPage></RouteChoicesPage>
       <CheckoutPage></CheckoutPage>
       <AccountPage></AccountPage>
     </div>

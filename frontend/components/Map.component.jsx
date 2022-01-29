@@ -1,34 +1,36 @@
-import React from "react";
+import React, { useState, useEfect } from "react";
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
+  Line,
 } from "react-simple-maps";
-import { geoCentroid } from "d3-geo";
 
-import allStates from "../data/allStates.json";
 import cities from "../data/cities.json";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
-const offsets = {
-  VT: [50, -8],
-  NH: [34, 2],
-  MA: [30, -1],
-  RI: [28, 2],
-  CT: [35, 10],
-  NJ: [34, 1],
-  DE: [33, 0],
-  MD: [47, 10],
-  DC: [49, 21],
-};
-
-const markers = [
-  { markerOffset: -15, name: "New York", coordinates: [-73.9249, 40.6943] },
-];
-
 export const Map = () => {
+  const [departureCity, setDepartureCity] = useState(false);
+  const [destinationCity, setDestinationCity] = useState(false);
+
+  // todo draw a line
+
+  // const drawLine = useEffect((destinationCity, departureCity) => {
+  //   if (departureCity && destinationCity) {
+  //     return () => {
+  //       <Line
+  //         from={[-118.4068, 34.1139]}
+  //         to={[-73.9249, 40.6943]}
+  //         stroke="#c42217"
+  //         strokeWidth={4}
+  //         strokeLinecap="round"
+  //       />;
+  //     };
+  //   }
+  // }, []);
+
   return (
     <div className="container mx-auto">
       <ComposableMap projection="geoAlbersUsa">
@@ -51,8 +53,23 @@ export const Map = () => {
             </>
           )}
         </Geographies>
-        {cities.map(({ city, longitude, latitude }) => (
-          <Marker key={city} coordinates={[longitude, latitude]}>
+        {cities.map((city) => (
+          <Marker
+            key={city.city}
+            coordinates={[city.longitude, city.latitude]}
+            onClick={() => {
+              // there's probably a better place for this
+              if (destinationCity && departureCity) {
+                console.log("cities have already been selected");
+              } else if (!departureCity) {
+                setDepartureCity(city.city);
+                console.log(`departureCity set to: ${city.city}`);
+              } else if (!destinationCity) {
+                setDestinationCity(city.city);
+                console.log(`destinationCity set to: ${city.city}`);
+              }
+            }}
+          >
             <circle
               r={6}
               fill="#c42217"
@@ -73,10 +90,11 @@ export const Map = () => {
                 fontSize: "0.6rem",
               }}
             >
-              {city}
+              {city.city}
             </text>
           </Marker>
         ))}
+        {/* eventually a line will go here: */}
       </ComposableMap>
     </div>
   );

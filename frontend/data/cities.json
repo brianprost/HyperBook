@@ -1,232 +1,232 @@
 [
   {
     "city": "New York",
-    "latitude": 40.6943,
     "longitude": -73.9249,
+    "latitude": 40.6943,
     "state_abbreviation": "NY",
     "state_name": "New York",
     "timezone": "America/New_York"
   },
   {
     "city": "Los Angeles",
-    "latitude": 34.1139,
     "longitude": -118.4068,
+    "latitude": 34.1139,
     "state_abbreviation": "CA",
     "state_name": "California",
     "timezone": "America/Los_Angeles"
   },
   {
     "city": "Chicago",
-    "latitude": 41.8373,
     "longitude": -87.6862,
+    "latitude": 41.8373,
     "state_abbreviation": "IL",
     "state_name": "Illinois",
     "timezone": "America/Chicago"
   },
   {
     "city": "Miami",
-    "latitude": 25.7839,
     "longitude": -80.2102,
+    "latitude": 25.7839,
     "state_abbreviation": "FL",
     "state_name": "Florida",
     "timezone": "America/New_York"
   },
   {
     "city": "Dallas",
-    "latitude": 32.7936,
     "longitude": -96.7662,
+    "latitude": 32.7936,
     "state_abbreviation": "TX",
     "state_name": "Texas",
     "timezone": "America/Chicago"
   },
   {
     "city": "Philadelphia",
-    "latitude": 40.0077,
     "longitude": -75.1339,
+    "latitude": 40.0077,
     "state_abbreviation": "PA",
     "state_name": "Pennsylvania",
     "timezone": "America/New_York"
   },
   {
     "city": "Houston",
-    "latitude": 29.7863,
     "longitude": -95.3889,
+    "latitude": 29.7863,
     "state_abbreviation": "TX",
     "state_name": "Texas",
     "timezone": "America/Chicago"
   },
   {
     "city": "Atlanta",
-    "latitude": 33.7627,
     "longitude": -84.4224,
+    "latitude": 33.7627,
     "state_abbreviation": "GA",
     "state_name": "Georgia",
     "timezone": "America/New_York"
   },
   {
     "city": "Washington",
-    "latitude": 38.9047,
     "longitude": -77.0163,
+    "latitude": 38.9047,
     "state_abbreviation": "DC",
     "state_name": "District of Columbia",
     "timezone": "America/New_York"
   },
   {
     "city": "Boston",
-    "latitude": 42.3188,
     "longitude": -71.0846,
+    "latitude": 42.3188,
     "state_abbreviation": "MA",
     "state_name": "Massachusetts",
     "timezone": "America/New_York"
   },
   {
     "city": "Phoenix",
-    "latitude": 33.5722,
     "longitude": -112.0891,
+    "latitude": 33.5722,
     "state_abbreviation": "AZ",
     "state_name": "Arizona",
     "timezone": "America/Phoenix"
   },
   {
     "city": "Seattle",
-    "latitude": 47.6211,
     "longitude": -122.3244,
+    "latitude": 47.6211,
     "state_abbreviation": "WA",
     "state_name": "Washington",
     "timezone": "America/Los_Angeles"
   },
   {
     "city": "San Francisco",
-    "latitude": 37.7562,
     "longitude": -122.443,
+    "latitude": 37.7562,
     "state_abbreviation": "CA",
     "state_name": "California",
     "timezone": "America/Los_Angeles"
   },
   {
     "city": "Detroit",
-    "latitude": 42.3834,
     "longitude": -83.1024,
+    "latitude": 42.3834,
     "state_abbreviation": "MI",
     "state_name": "Michigan",
     "timezone": "America/Detroit"
   },
   {
     "city": "San Diego",
-    "latitude": 32.8312,
     "longitude": -117.1225,
+    "latitude": 32.8312,
     "state_abbreviation": "CA",
     "state_name": "California",
     "timezone": "America/Los_Angeles"
   },
   {
     "city": "Minneapolis",
-    "latitude": 44.9635,
     "longitude": -93.2678,
+    "latitude": 44.9635,
     "state_abbreviation": "MN",
     "state_name": "Minnesota",
     "timezone": "America/Chicago"
   },
   {
     "city": "Tampa",
-    "latitude": 27.9942,
     "longitude": -82.4451,
+    "latitude": 27.9942,
     "state_abbreviation": "FL",
     "state_name": "Florida",
     "timezone": "America/New_York"
   },
   {
     "city": "Denver",
-    "latitude": 39.7621,
     "longitude": -104.8759,
+    "latitude": 39.7621,
     "state_abbreviation": "CO",
     "state_name": "Colorado",
     "timezone": "America/Denver"
   },
   {
     "city": "Las Vegas",
-    "latitude": 36.2333,
     "longitude": -115.2654,
+    "latitude": 36.2333,
     "state_abbreviation": "NV",
     "state_name": "Nevada",
     "timezone": "America/Los_Angeles"
   },
   {
     "city": "Portland",
-    "latitude": 45.5372,
     "longitude": -122.65,
+    "latitude": 45.5372,
     "state_abbreviation": "OR",
     "state_name": "Oregon",
     "timezone": "America/Los_Angeles"
   },
   {
     "city": "San Antonio",
-    "latitude": 29.4658,
     "longitude": -98.5253,
+    "latitude": 29.4658,
     "state_abbreviation": "TX",
     "state_name": "Texas",
     "timezone": "America/Chicago"
   },
   {
     "city": "St. Louis",
-    "latitude": 38.6358,
     "longitude": -90.2451,
+    "latitude": 38.6358,
     "state_abbreviation": "MO",
     "state_name": "Missouri",
     "timezone": "America/Chicago"
   },
   {
     "city": "Sacramento",
-    "latitude": 38.5667,
     "longitude": -121.4683,
+    "latitude": 38.5667,
     "state_abbreviation": "CA",
     "state_name": "California",
     "timezone": "America/Los_Angeles"
   },
   {
     "city": "Orlando",
-    "latitude": 28.4772,
     "longitude": -81.3369,
+    "latitude": 28.4772,
     "state_abbreviation": "FL",
     "state_name": "Florida",
     "timezone": "America/New_York"
   },
   {
     "city": "Austin",
-    "latitude": 30.3004,
     "longitude": -97.7522,
+    "latitude": 30.3004,
     "state_abbreviation": "TX",
     "state_name": "Texas",
     "timezone": "America/Chicago"
   },
   {
     "city": "Cincinnati",
-    "latitude": 39.1413,
     "longitude": -84.5061,
+    "latitude": 39.1413,
     "state_abbreviation": "OH",
     "state_name": "Ohio",
     "timezone": "America/New_York"
   },
   {
     "city": "Nashville",
-    "latitude": 36.1715,
     "longitude": -86.7843,
+    "latitude": 36.1715,
     "state_abbreviation": "TN",
     "state_name": "Tennessee",
     "timezone": "America/Chicago"
   },
   {
     "city": "Raleigh",
-    "latitude": 35.8325,
     "longitude": -78.6435,
+    "latitude": 35.8325,
     "state_abbreviation": "NC",
     "state_name": "North Carolina",
     "timezone": "America/New_York"
   },
   {
     "city": "New Orleans",
-    "latitude": 30.0687,
     "longitude": -89.9288,
+    "latitude": 30.0687,
     "state_abbreviation": "LA",
     "state_name": "Louisiana",
     "timezone": "America/Chicago"
