@@ -13,7 +13,10 @@ February 1, 2022
 
 ### Table of Contents
 
-[fill in]
+1. [Introduction](#introduction)
+2. [Purpose & Objectives](#purpose--objectives)
+3. [Description of Test Procedures](#description-of-test-procedures)
+4. [User's Guide](#users-guide)
 
 
 ## Introduction
@@ -39,7 +42,7 @@ In addition, a user guide is provided which includes details about the typical u
 
 ## Description of Test Procedures
 
-### API Testing
+#### API Testing
 
 The HyperBook Application makes use of .NET Core API endpoints hosted in Azure for backend functionality.  These will be tested for proper functionality including the following checks:
 
@@ -47,14 +50,14 @@ The HyperBook Application makes use of .NET Core API endpoints hosted in Azure f
 - POST requests are validated by the application, and processed correctly to update any relevant data.
 
 
-### Integration Testing
+#### Integration Testing
 
 The HyperBook Application consists of multiple components including frontend, backend, and database.  These will be tested together to ensure seamless functionality using the following methodology:
 
 - Big Bang Approach: All components of the application will be tested together to ensure interoperability between frontend/backend, and backend/database.
 
 
-### System Testing
+#### System Testing
 
 Once built out, the HyperBook application will be deployed fully to the relevant Azure services.  System testing will include the following checks:
 
