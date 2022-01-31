@@ -80,7 +80,7 @@ Once built out, the HyperBook application will be deployed fully to the relevant
 
 - Users will be provided with credentials to access the HyperBook Application which is demonstrated [here](https://hyperloop-booking-demo.vercel.app/#login).
 
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/ss1_login.png" width="500">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss1_login.png" width="500">
 
 #### Accessing profile page
   
@@ -88,7 +88,7 @@ Once built out, the HyperBook application will be deployed fully to the relevant
   1. Add/modify profile settings such as name, contact details, and address.
   2. View saved itineraries that have been booked.
 
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/ss2_profile.png" width="500">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss2_profile.png" width="500">
 
 #### Booking a trip
 
@@ -98,9 +98,9 @@ Once built out, the HyperBook application will be deployed fully to the relevant
   3. The user chooses the preferred available timeslot for each leg of the trip between cities.  This will iterate for each intermediate stop between cities until the destination city is reached.
   4. The user will proceed to the [payment process](https://hyperloop-booking-demo.vercel.app/#checkout) and reserve the itinerary once payment is confirmed.
 
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/ss3_book1.png" width="500">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss3_book1.png" width="500">
 
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/ss3_book2.png" width="500">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss3_book2.png" width="500">
   
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/ss4_payment.png" width="500">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss4_payment.png" width="500">
 
