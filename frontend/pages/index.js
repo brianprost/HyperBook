@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 const Home = () => {
 
   const router = useRouter();
-  console.log(router);
 
   return (
     <section>
