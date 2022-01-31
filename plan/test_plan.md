@@ -13,7 +13,7 @@ February 1, 2022
 
 ### Table of Contents
 
-<fill in>
+[fill in]
 
 
 ## Introduction
@@ -93,8 +93,3 @@ Once built out, the HyperBook application will be deployed fully to the relevant
   
 <img src="https://github.com/brianprost/HyperBook/blob/main/plan/ss4_payment.png" width="500">
 
-
-## References
-
-<fill in>
-  
