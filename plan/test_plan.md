@@ -10,6 +10,7 @@ Professor Rabiha Kayed
 
 February 1, 2022
 
+<div style="page-break-after: always;"></div>
 
 ### Table of Contents
 
@@ -24,6 +25,7 @@ February 1, 2022
     2. [Accessing profile page](#accessing-profile-page)
     3. [Booking a trip](#booking-a-trip)
 
+<div style="page-break-after: always;"></div>
 
 ## Introduction
 
