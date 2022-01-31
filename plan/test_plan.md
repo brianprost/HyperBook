@@ -16,7 +16,13 @@ February 1, 2022
 1. [Introduction](#introduction)
 2. [Purpose & Objectives](#purpose--objectives)
 3. [Description of Test Procedures](#description-of-test-procedures)
+    1. [API Testing](#api-testing)
+    2. [Integration Testing](#integration-testing)
+    3. [System Testing](#system-testing)
 4. [User's Guide](#users-guide)
+    1. [Logging into the HyperBook Application](#logging-into-the-hyperbook-application)
+    2. [Accessing profile page](#accessing-profile-page)
+    3. [Booking a trip](#booking-a-trip)
 
 
 ## Introduction
