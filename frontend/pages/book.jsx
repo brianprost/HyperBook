@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import {
   ComposableMap,
@@ -10,7 +11,10 @@ import {
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
-export const BookingPage = () => {
+const BookingPage = () => {
+  const router = useRouter();
+  console.log(router);
+
   const [cities, setCities] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [departureCity, setDepartureCity] = useState(false);
@@ -72,6 +76,7 @@ export const BookingPage = () => {
                   } else if (!destinationCity) {
                     setDestinationCity(city.city);
                     console.log(`destinationCity set to: ${city.city}`);
+                    router.push("/route-choices");
                   }
                 }}
               >
@@ -106,3 +111,5 @@ export const BookingPage = () => {
     </section>
   );
 };
+
+export default BookingPage;

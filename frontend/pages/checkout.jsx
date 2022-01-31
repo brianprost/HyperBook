@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import { CartItem } from "./CartItem.component";
+import { CartItem } from "../components/CartItem.component";
 
-export const CheckoutPage = () => {
+const CheckoutPage = () => {
   return (
     <section id="checkout" className="h-screen grid grid-cols-3">
       <div className="lg:col-span-2 col-span-3 space-y-8 px-12">
@@ -123,7 +123,7 @@ export const CheckoutPage = () => {
             </label>
           </fieldset>
         </div>
-        <Link href={"#account-bookings"}>
+        <Link href={"/account"}>
           <a>
             <button className="submit-button px-4 py-3 rounded-full bg-hyperred text-white focus:ring focus:outline-none w-full text-xl font-Montserrat transition-colors">
               Pay $65.72
@@ -169,3 +169,5 @@ export const CheckoutPage = () => {
     </section>
   );
 };
+
+export default CheckoutPage;

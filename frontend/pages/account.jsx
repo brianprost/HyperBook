@@ -1,7 +1,7 @@
 import React from "react";
-import { Reservation } from "./Reservation.component";
+import { Reservation } from "../components/Reservation.component";
 
-export const AccountPage = () => {
+const AccountPage = () => {
   const accountName = "Billie Joe Gates";
 
   return (
@@ -47,3 +47,5 @@ export const AccountPage = () => {
     </section>
   );
 };
+
+export default AccountPage;

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export const LoginPage = () => {
+const LoginPage = () => {
   return (
     <section id="login">
       <div className="flex flex-col justify-center min-h-screen py-12 sm:px-6 lg:px-8">
@@ -55,7 +55,7 @@ export const LoginPage = () => {
               </div>
 
               <div>
-                <Link href={"#checkout"}>
+                <Link href={"/checkout"}>
                   <a>
                     <button
                       // type="submit"
@@ -74,3 +74,5 @@ export const LoginPage = () => {
     </section>
   );
 };
+
+export default LoginPage;
