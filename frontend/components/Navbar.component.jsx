@@ -4,8 +4,8 @@ import { MenuIcon, XIcon, UserIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "Book", href: "/#book", current: false },
+  { name: "Home", href: "/", current: true },
+  { name: "Book", href: "/book", current: false },
   {
     name: "How Hyperloop Works",
     href: "https://www.youtube.com/watch?v=zcikLQZI5wQ",
