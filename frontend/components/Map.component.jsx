@@ -1,4 +1,5 @@
-import React, { useState, useEfect } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import {
   ComposableMap,
   Geographies,
@@ -7,29 +8,30 @@ import {
   Line,
 } from "react-simple-maps";
 
-import cities from "../data/cities.json";
-
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 export const Map = () => {
+  const [cities, setCities] = useState(null);
+  const [isLoading, setLoading] = useState(false);
   const [departureCity, setDepartureCity] = useState(false);
   const [destinationCity, setDestinationCity] = useState(false);
 
-  // todo draw a line
+  const router = useRouter();
 
-  // const drawLine = useEffect((destinationCity, departureCity) => {
-  //   if (departureCity && destinationCity) {
-  //     return () => {
-  //       <Line
-  //         from={[-118.4068, 34.1139]}
-  //         to={[-73.9249, 40.6943]}
-  //         stroke="#c42217"
-  //         strokeWidth={4}
-  //         strokeLinecap="round"
-  //       />;
-  //     };
-  //   }
-  // }, []);
+  useEffect(() => {
+    setLoading(true);
+    fetch(
+      "https://hyperbookappapi.azurewebsites.net/api/HyperBook/GetCitiesWithInfo"
+    )
+      .then((res) => res.json())
+      .then((Cities) => {
+        setCities(Cities);
+        setLoading(false);
+      });
+  }, []);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (!cities) return <p>No profile Cities</p>;
 
   return (
     <div className="container mx-auto">
@@ -67,6 +69,7 @@ export const Map = () => {
               } else if (!destinationCity) {
                 setDestinationCity(city.city);
                 console.log(`destinationCity set to: ${city.city}`);
+                router.push("/route-choices");
               }
             }}
           >

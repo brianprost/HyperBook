@@ -1,7 +1,7 @@
 import React from "react";
-import { RouteOptionCard } from "./RouteOptionCard.component";
+import { RouteOptionCard } from "../components/RouteOptionCard.component";
 
-export const RouteChoicesPage = (props) => {
+const RouteChoicesPage = (props) => {
   const routeOptions = [
     {
       tripID: "abc123",
@@ -44,3 +44,5 @@ export const RouteChoicesPage = (props) => {
     </section>
   );
 };
+
+export default RouteChoicesPage;
