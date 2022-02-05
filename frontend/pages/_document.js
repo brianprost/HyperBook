@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { Navbar } from "../components/Navbar.component";
 
 export default function Document() {
   return (
@@ -17,7 +16,6 @@ export default function Document() {
         />
       </Head>
       <body className="bg-hypertan overflow-x-hidden">
-        <Navbar />
         <Main />
         <NextScript />
       </body>
