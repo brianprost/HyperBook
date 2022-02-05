@@ -36,9 +36,17 @@ The purpose of this document is to provide a detailed specification for the Hype
 
 ## Details of Design Plan
 
-High level diagram of application design.
+High level diagram of application design showing division between the frontend and backend systems.
 
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/arch_diag.png" width="600">
+
+
+#### Entity Relationship Diagram
+
+Diagram detailing the entities used by the application and their relationships to one another.
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/er_diag.png" width="600">
+
 
 #### Application Components
 
