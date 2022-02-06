@@ -8,6 +8,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/encode-sans": "^4.5.1",
+    "@fontsource/montserrat": "^4.5.4",
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
     "autoprefixer": "^10.4.2",
