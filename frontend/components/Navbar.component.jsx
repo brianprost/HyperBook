@@ -60,7 +60,7 @@ export const Navbar = () => {
                           router.pathname == item.href
                             ? "bg-hypertan bg-opacity-20 text-white"
                             : "text-gray-200 hover:bg-hypertan hover:bg-opacity-50 hover:text-hyperblue",
-                          "px-3 py-2 rounded-md text-sm font-Montserrat font-semibold"
+                          "px-3 py-2 rounded-md text-sm font-Montserrat font-bold"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
