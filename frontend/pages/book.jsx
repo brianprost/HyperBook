@@ -45,7 +45,7 @@ const BookingPage = () => {
   return (
     <section id="book" className="flex flex-col h-5/6 justify-between">
       <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl mb-auto">
-        <h2 className="text-6xl font-Montserrat font-bold text-black text-center">
+        <h2 className="text-6xl font-bold text-black text-center">
           Destinations
         </h2>
         <div className="-my-10">
@@ -104,7 +104,7 @@ const BookingPage = () => {
                     textAnchor="middle"
                     y={-10}
                     style={{
-                      fontFamily: "Montserrat",
+                      fontFamily: "MontserratVariable",
                       fontWeight: "700",
                       fill: "#000",
                       fontSize: "0.6rem",
@@ -120,10 +120,10 @@ const BookingPage = () => {
         </div>
       </div>
       <div className="flex items-center justify-evenly h-auto bg-hyperred p-2 w-3/4 mx-auto rounded-xl">
-        <div className="bg-hypertan bg-opacity-20 text-hypertan text-2xl px-4 rounded-xl font-Montserrat font-bold">
+        <div className="bg-hypertan bg-opacity-20 text-hypertan text-2xl px-4 rounded-xl font-bold">
           From: <span className="text-white">{departureCity}</span>
         </div>
-        <div className="bg-hypertan bg-opacity-20 text-hypertan text-2xl px-4 rounded-xl font-Montserrat font-bold">
+        <div className="bg-hypertan bg-opacity-20 text-hypertan text-2xl px-4 rounded-xl font-bold">
           To: <span className="text-white">{destinationCity}</span>
         </div>
       </div>

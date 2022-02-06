@@ -7,11 +7,11 @@ const AccountPage = () => {
   return (
     <section id="account-bookings">
       <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl h-screen ">
-        <h2 className="text-4xl text-right font-Montserrat font-bold mb-20">
+        <h2 className="text-4xl text-right font-bold mb-20">
           Hi, <span className="text-hyperred">{accountName}</span>
         </h2>
         <div className="pb-5 border-b border-black">
-          <h3 className="text-lg font-Montserrat font-bold leading-6 text-neutral-600">
+          <h3 className="text-lg font-bold leading-6 text-neutral-600">
             Your reservations
           </h3>
         </div>

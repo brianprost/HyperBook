@@ -31,7 +31,7 @@ const CheckoutPage = () => {
           <div className="absolute sm:relative sm:top-auto sm:right-auto ml-auto right-4 top-4 text-gray-400 hover:text-gray-800 cursor-pointer">
             <button
               type="button"
-              className="bg-hyperred font-Montserrat font-bold px-3 py-1 text-hypertan rounded-xl"
+              className="bg-hyperred font-bold px-3 py-1 text-hypertan rounded-xl"
             >
               Autofill
             </button>
@@ -39,12 +39,12 @@ const CheckoutPage = () => {
         </div>
         <div className="rounded-lg">
           <form id="payment-form" method="POST" action="">
-            <h2 className="uppercase tracking-wide text-lg  font-Montserrat font-bold text-gray-700 my-2">
+            <h2 className="uppercase tracking-wide text-lg font-bold text-gray-700 my-2">
               Shipping & Billing Information
             </h2>
             <fieldset className="mb-3 bg-white shadow-lg rounded text-gray-600">
               <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-1/12 ml-1 text-left px-2 font-Montserrat font-bold">
+                <span className="w-1/12 ml-1 text-left px-2 font-bold">
                   Name
                 </span>
                 <input
@@ -55,7 +55,7 @@ const CheckoutPage = () => {
                 />
               </label>
               <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-1/12 ml-1 text-left px-2 font-Montserrat font-bold">
+                <span className="w-1/12 ml-1 text-left px-2 font-bold">
                   Email
                 </span>
                 <input
@@ -67,7 +67,7 @@ const CheckoutPage = () => {
                 />
               </label>
               <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-1/12 ml-1 text-left px-2 font-Montserrat font-bold">
+                <span className="w-1/12 ml-1 text-left px-2 font-bold">
                   Address
                 </span>
                 <input
@@ -77,7 +77,7 @@ const CheckoutPage = () => {
                 />
               </label>
               <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-1/12 ml-1 text-left px-2 font-Montserrat font-bold">
+                <span className="w-1/12 ml-1 text-left px-2 font-bold">
                   City
                 </span>
                 <input
@@ -87,9 +87,7 @@ const CheckoutPage = () => {
                 />
               </label>
               <label className="inline-flex w-2/4 border-gray-200 py-6">
-                <span className="text-right px-2 font-Montserrat font-bold">
-                  State
-                </span>
+                <span className="text-right px-2 font-bold">State</span>
                 <input
                   name="state"
                   className="focus:outline-none px-3 w-full"
@@ -97,7 +95,7 @@ const CheckoutPage = () => {
                 />
               </label>
               <label className="xl:w-1/4 xl:inline-flex items-center flex xl:border-none border-t border-gray-200 py-6">
-                <span className="font-Montserrat font-bold ml-1 text-right px-2 xl:px-0 xl:text-none">
+                <span className=" font-bold ml-1 text-right px-2 xl:px-0 xl:text-none">
                   ZIP
                 </span>
                 <input
@@ -110,14 +108,12 @@ const CheckoutPage = () => {
           </form>
         </div>
         <div className="rounded-md">
-          <h2 className="uppercase tracking-wide text-lg font-Montserrat font-bold text-gray-700 my-2">
+          <h2 className="uppercase tracking-wide text-lg font-bold text-gray-700 my-2">
             Payment Information
           </h2>
           <fieldset className="mb-3 bg-white shadow-lg rounded text-gray-600">
             <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-              <span className="text-right px-2 font-Montserrat font-bold">
-                Card
-              </span>
+              <span className="text-right px-2 font-bold">Card</span>
               <input
                 name="card"
                 className="focus:outline-none px-3 w-full"
@@ -129,14 +125,14 @@ const CheckoutPage = () => {
         </div>
         <Link href={"/account"}>
           <a>
-            <button className="submit-button px-4 py-3 rounded-full bg-hyperred text-white focus:ring focus:outline-none w-full text-xl font-Montserrat font-bold transition-colors">
+            <button className="submit-button px-4 py-3 rounded-full bg-hyperred text-white focus:ring focus:outline-none w-full text-xl font-bold transition-colors">
               Pay $65.72
             </button>
           </a>
         </Link>
       </div>
       <div className="col-span-1 bg-white lg:block hidden">
-        <h1 className="font-Montserrat font-bold py-6 border-b-2 text-xl text-gray-600 px-8">
+        <h1 className=" font-bold py-6 border-b-2 text-xl text-gray-600 px-8">
           Order Summary
         </h1>
         <ul className="py-6 border-b space-y-6 px-8">
@@ -157,21 +153,17 @@ const CheckoutPage = () => {
         </ul>
         <div className="px-8 border-b">
           <div className="flex justify-between py-4 text-gray-600">
-            <span className="font-Montserrat font-bold">Subtotal</span>
-            <span className="font-Montserrat font-bold text-hyperred">
-              $62.00
-            </span>
+            <span className=" font-bold">Subtotal</span>
+            <span className=" font-bold text-hyperred">$62.00</span>
           </div>
           <div className="flex justify-between py-4 text-gray-600">
-            <span className="font-Montserrat font-bold">Taxes</span>
-            <span className="font-Montserrat font-bold text-hyperred">
-              $3.72
-            </span>
+            <span className=" font-bold">Taxes</span>
+            <span className=" font-bold text-hyperred">$3.72</span>
           </div>
         </div>
         <div className="font-semibold text-xl px-8 flex justify-between py-8 text-gray-600">
-          <span className="font-Montserrat font-bold">Total</span>
-          <span className="font-Montserrat font-bold">$65.72</span>
+          <span className=" font-bold">Total</span>
+          <span className=" font-bold">$65.72</span>
         </div>
       </div>
     </section>
