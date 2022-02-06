@@ -8,9 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // TODO change to all Montserrat but variable sizes
-        Montserrat: ["'Montserrat'", ...defaultTheme.fontFamily.sans],
-        sans: ["'Encode SansVariable'", ...defaultTheme.fontFamily.sans],
+        sans: ["'MontserratVariable'", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         hyperred: "#c42217",

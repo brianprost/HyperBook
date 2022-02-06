@@ -6,9 +6,9 @@ const LoginPage = () => {
     <section id="login">
       <div className="flex flex-col justify-center min-h-screen py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-3xl font-sans font-extrabold text-center text-neutral-900">
+          <h2 className="mt-6 text-4xl font-sans font-semibold text-center text-neutral-900">
             Log in to your
-            <p className="text-4xl font-Montserrat text-hyperred tracking-widest my-4">
+            <p className="text-4xl font-bold text-hyperred drop-shadow my-4">
               HYPERBOOK
             </p>
             account
@@ -31,7 +31,7 @@ const LoginPage = () => {
                     type="email"
                     autoComplete="email"
                     required=""
-                    className="block w-full px-5 py-3 text-base text-hyperred placeholder-gray-300 transition duration-500 ease-in-out transform border border-hyperblue rounded-lg bg-hyperred bg-opacity-5 focus:outline-none focus:border-hyperblue focus:ring-2 focus:ring-hyperred focus:ring-offset-2 focus:ring-offset-gray-300 font-Montserrat"
+                    className="block w-full px-5 py-3 text-base text-hyperred placeholder-gray-300 transition duration-500 ease-in-out transform border border-hyperblue rounded-lg bg-hyperred bg-opacity-5 focus:outline-none focus:border-hyperblue focus:ring-2 focus:ring-hyperred focus:ring-offset-2 focus:ring-offset-gray-300 font-bold"
                   />
                 </div>
               </div>

@@ -28,7 +28,8 @@ const RouteChoicesPage = (props) => {
 
   return (
     <section id="route-choices">
-      <div className="relative items-center w-full mx-auto md:px-12 lg:px-16 max-w-7xl flex justify-center align-center h-screen">
+      {/* TODO center this instead of a large margin top. flex box be flexing weird rn... */}
+      <div className="relative mx-auto md:px-12 lg:px-16 max-w-7xl flex justify-evenly items-center mt-20">
         <div className="relative p-10 space-y-12 overflow-hidden lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 rounded-xl">
           {routeOptions.map((option) => (
             <RouteOptionCard
