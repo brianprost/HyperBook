@@ -27,7 +27,7 @@ const Home = () => {
             <h1 className="mb-8 text-4xl font-bold text-hyperblue md:text-7xl drop-shadow-md">
               HYPERBOOK
             </h1>
-            <p className="mb-8 text-2xl text-left font-sans leading-wide text-gray-600 antialiased">
+            <p className="mb-8 text-2xl text-left text-gray-600 antialiased font-[330]">
               The easy and fun way to book travel on the newest method of
               transportation.
             </p>

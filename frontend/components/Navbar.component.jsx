@@ -60,7 +60,7 @@ export const Navbar = () => {
                           router.pathname == item.href
                             ? "bg-hypertan bg-opacity-20 text-white"
                             : "text-gray-200 hover:bg-hypertan hover:bg-opacity-50 hover:text-hyperblue",
-                          "px-3 py-2 rounded-md text-sm font-bold"
+                          "px-3 py-2 rounded-md text-sm font-semibold"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -94,7 +94,7 @@ export const Navbar = () => {
                             <a
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700 font-bold text-right"
+                                "block px-4 py-2 text-sm text-gray-700 font-semibold text-right"
                               )}
                             >
                               Your Account
@@ -108,7 +108,7 @@ export const Navbar = () => {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700 font-bold text-right"
+                              "block px-4 py-2 text-sm text-gray-700 font-semibold text-right"
                             )}
                           >
                             Sign out

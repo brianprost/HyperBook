@@ -6,9 +6,9 @@ const LoginPage = () => {
     <section id="login">
       <div className="flex flex-col justify-center min-h-screen py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-3xl font-sans font-extrabold text-center text-neutral-900">
+          <h2 className="mt-6 text-4xl font-sans font-semibold text-center text-neutral-900">
             Log in to your
-            <p className="text-4xl font-bold text-hyperred tracking-widest my-4">
+            <p className="text-4xl font-bold text-hyperred drop-shadow my-4">
               HYPERBOOK
             </p>
             account
