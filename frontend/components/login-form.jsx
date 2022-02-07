@@ -1,6 +1,7 @@
 import { FormLabel } from './form-label'
-import { useFormik } from 'formik';
+import { useFormik } from 'formik'
 import * as yup from "yup"
+import { loginUser } from '../services/UserService'
 
 
 const LoginValidation = yup.object().shape({
@@ -12,7 +13,7 @@ const LoginValidation = yup.object().shape({
       .string()
       .min(8)
       .max(16)
-      .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
+      //.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
       .required(),
 })
   
@@ -20,13 +21,18 @@ const LoginValidation = yup.object().shape({
 const LoginForm = () => {
     const formik = useFormik({
         initialValues: {
-          email: '',
-          password: '',
+            email: '',
+            password: '',
         },
         validationSchema: LoginValidation,
         onSubmit: (values) => {
-          // Once form submited ex. {Email: 'John@example.com', Password: 'secret'}
-          console.log(values)
+            let user = { 
+                username: values.email, 
+                password: values.password
+            };
+            
+            const data = loginUser(user);
+            console.log(data);
         },
     })  
     return (
