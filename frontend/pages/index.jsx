@@ -1,13 +1,14 @@
-import Head from "next/head";
-import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Home = () => {
   const router = useRouter();
 
+  const [sectionClassName, setSectionClassName] = useState(null);
+
   return (
-    <section className="">
+    <section className={sectionClassName}>
       <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
         <div className="flex flex-wrap items-center mx-auto max-w-7xl">
           <div className="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
@@ -35,7 +36,10 @@ const Home = () => {
               <div className="mt-3 rounded-lg sm:mt-0">
                 <button
                   className="items-center block px-10 py-4 text-base font-bold tracking-wide text-center text-hypertan shadow-lg transition duration-500 ease-in-out transform bg-hyperblue rounded-xl hover:bg-blue-900"
-                  onClick={() => router.push("/book")}
+                  onClick={() => {
+                    setSectionClassName("animate-backOutUp");
+                    router.push("/book");
+                  }}
                 >
                   Book Now
                 </button>

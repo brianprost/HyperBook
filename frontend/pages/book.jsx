@@ -36,8 +36,13 @@ const BookingPage = () => {
 
   if (isLoading)
     return (
-      <div className="flex justify-center">
-        <p className="mt-32 text-4xl">Loading...</p>
+      <div className="mt-32 flex flex-col justify-center items-center">
+        <img
+          src="/img/hyperbook-icon.webp"
+          alt="hyperbook logo spin"
+          className="h-52 w-52 animate-pulse animate-infinite"
+        />
+        <p className="mt-12 text-4xl select-none font-bold hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-black hover:to-hyperred">Loading <span className="inline-block animate-tada animate-infinite bg-clip-text text-transparent bg-gradient-to-r from-hyperred to-black">...</span></p>
       </div>
     );
   if (!cities) return <p>No Cities</p>;

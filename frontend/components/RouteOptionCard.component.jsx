@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export const RouteOptionCard = (props) => {
   return (
-    <div className="relative flex flex-col p-8 bg-zinc-300 rounded-2xl border-[6px] border-red-700">
-      <h3 className="text-4xl xl:text-5xl underline font-bold text-center tracking-tighter px-auto mb-10">
+    <div className="relative flex flex-col p-8 bg-zinc-300 rounded-2xl border-[6px] border-red-700 animate-slideInDown">
+      <h3 className="text-4xl xl:text-5xl underline font-[725] text-center tracking-tighter px-auto mb-10 drop-shadow-sm">
         {props.timeOfDay}
       </h3>
       <p className="flex items-baseline my-4 justify-center">
