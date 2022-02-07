@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import ReactTooltip from "react-tooltip";
 // temporarily including map on page instead of component
 // import { Map } from "../components/Map.component";
 import {
@@ -19,6 +20,8 @@ const BookingPage = () => {
   const [isLoading, setLoading] = useState(false);
   const [departureCity, setDepartureCity] = useState(false);
   const [destinationCity, setDestinationCity] = useState(false);
+  const [titleText, setTitleText] = useState("Destinations");
+  const [tooltipContent, setTooltipContent] = useState("");
 
   const router = useRouter();
 
@@ -42,20 +45,33 @@ const BookingPage = () => {
           alt="hyperbook logo spin"
           className="h-52 w-52 animate-pulse animate-infinite"
         />
-        <p className="mt-12 text-4xl select-none font-bold hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-black hover:to-hyperred">Loading <span className="inline-block animate-tada animate-infinite bg-clip-text text-transparent bg-gradient-to-r from-hyperred to-black">...</span></p>
+        <p className="mt-12 text-4xl select-none font-bold hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-black hover:to-hyperred">
+          Loading{" "}
+          <span className="inline-block animate-tada animate-infinite bg-clip-text text-transparent bg-gradient-to-r from-hyperred to-black">
+            ...
+          </span>
+        </p>
       </div>
     );
-  if (!cities) return <p>No Cities</p>;
+  if (!cities) return <p>No Cities :(</p>;
 
   return (
     <section id="book" className="flex flex-col h-5/6 justify-between">
       <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl mb-auto">
         <h2 className="text-6xl font-bold text-black text-center">
-          Destinations
+          {titleText}
         </h2>
         <div className="-my-10">
           <div className="w-5/6 mx-auto">
-            <ComposableMap projection="geoAlbersUsa">
+            <ComposableMap
+              data-tip=""
+              projection="geoAlbersUsa"
+              style={{
+                default: { outline: "none" },
+                hover: { outline: "none" },
+                pressed: { outline: "none" },
+              }}
+            >
               <Geographies geography={geoUrl}>
                 {({ geographies }) => (
                   <>
@@ -79,19 +95,32 @@ const BookingPage = () => {
                 <Marker
                   key={city.city}
                   coordinates={[city.longitude, city.latitude]}
+                  onMouseEnter={() => {
+                    setTooltipContent(`${city.city}`);
+                  }}
+                  onMouseLeave={() => {
+                    setTooltipContent("");
+                  }}
                   onClick={async () => {
                     // there's probably a better place for this
                     if (destinationCity && departureCity) {
                       console.log("cities have already been selected");
                     } else if (!departureCity) {
                       setDepartureCity(city.city);
+                      setTitleText(`${city.city} to `);
                       console.log(`departureCity set to: ${city.city}`);
                     } else if (!destinationCity) {
                       setDestinationCity(city.city);
+                      setTitleText(`${titleText + city.city}`);
                       await delay(1000);
                       console.log(`destinationCity set to: ${city.city}`);
                       router.push("/route-choices");
                     }
+                  }}
+                  style={{
+                    default: { outline: "none" },
+                    hover: { outline: "none" },
+                    pressed: { outline: "none" },
                   }}
                 >
                   <circle
@@ -101,11 +130,11 @@ const BookingPage = () => {
                     strokeWidth={1}
                     style={{
                       default: { outline: "none" },
-                      hover: { outline: "#fff solid 20px" },
+                      hover: { outline: "none" },
                       pressed: { outline: "none" },
                     }}
                   />
-                  <text
+                  {/* <text
                     textAnchor="middle"
                     y={-10}
                     style={{
@@ -116,13 +145,14 @@ const BookingPage = () => {
                     }}
                   >
                     {city.city}
-                  </text>
+                  </text> */}
                 </Marker>
               ))}
               {/* eventually a line will go here: */}
             </ComposableMap>
           </div>
         </div>
+            <ReactTooltip>{tooltipContent}</ReactTooltip>
       </div>
       <div className="flex items-center justify-evenly h-auto bg-hyperred p-2 w-3/4 mx-auto rounded-xl">
         <div className="bg-hypertan bg-opacity-20 text-hypertan text-2xl px-4 rounded-xl font-bold">
