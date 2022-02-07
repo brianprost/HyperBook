@@ -6,13 +6,13 @@ const AccountPage = () => {
 
   return (
     <section id="account-bookings">
-      <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl h-screen ">
-        <h2 className="text-4xl text-right font-Montserrat mb-20">
-          Hi, <span className="text-hyperred">{accountName}</span>
+      <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl h-auto ">
+        <h2 className="text-4xl text-right font-bold mb-20">
+          Hi, <span className="text-hyperred font-extrabold">{accountName}</span>
         </h2>
         <div className="pb-5 border-b border-black">
-          <h3 className="text-lg font-Montserrat leading-6 text-neutral-600">
-            Your reservations
+          <h3 className="text-xl font-bold leading-6 text-neutral-800">
+            Your Trips
           </h3>
         </div>
         <div className="relative mx-auto max-w-7xl">

@@ -17,9 +17,10 @@ February 8, 2022
 1. [Introduction](#introduction)
 2. [Purpose & Objectives](#purpose--objectives)
 3. [Details of Design Plan](#details-of-design-plan)
-    1. [Application Components](#application-components)
-    2. [Data Flow](#data-flow)
-    3. [User Interface Design](#user-interface-design)
+    1. [Entity Relationship Diagram](#entity-relationship-diagram)
+    2. [Application Components](#application-components)
+    3. [Data Flow](#data-flow)
+    4. [User Interface Design](#user-interface-design)
 4. [Supporting Design Information](#supporting-design-information)
     1. [Test Cases](#test-cases)
     2. [Performance Estimates](#performance-estimates)
@@ -36,16 +37,53 @@ The purpose of this document is to provide a detailed specification for the Hype
 
 ## Details of Design Plan
 
-High level diagram of application and relevant information.
+High level diagram of application design showing division between the frontend and backend systems.
 
-<ADD_HIGH_LEVEL_DIAGRAM_HERE>
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/arch_diag.png" width="600">
+
+
+#### Entity Relationship Diagram
+
+Diagram detailing the entities used by the application and their relationships to one another.
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/er_diag.png" width="600">
 
 
 #### Application Components
 
-Classes, methods, fields, interfaces?
+##### List of API Methods
 
-<ADD_COMPONENT_DIAGRAM_HERE>
+- login
+	- Parameters: email, password
+	- Response: Success/Failure Code
+		- If Success: user_id, email
+	- Logic: You have to match the email and password against the user details in the DB. Use SHA-512 with salt for hashing the password and storing in DB.
+- get_username
+	- Parameters: user_id
+	- Response: first_name, last_name
+	- Logic: To get the full name and may be other static details about the user to show on the account page of the user.
+- get_bookings
+	- Parameters: user_id
+	- Response: list of bookings. Each booking is an object(Name, To, From, DateTime, Placeholder Image)
+	- Logic: API to get the list of bookings of the specified user arranged in an order. The most recent booking should be first in the list.
+- get_destinations
+	- Parameters: none
+	- Response: list of all destinations. Each destination is an object(destination_id, name)
+- get_valid_destinations
+	- Parameters: destination_id
+	- Response: List of valid destination that the user can travel to from the specified destination
+- get_itinerary
+	- Parameters: From destination_id, To destination_id
+	- Response: All possible itineraries for the above mentioned destinations. Each itinerary is an object(Label, Time, Price)
+	- Logic: We will pass the from & to destinations selected by the user to get the itineraries(time & price) for the user to select.
+- get_account_info
+	- Parameters: user_id
+	- Response: first_name, last_name, email, address_line, city, state, zip_code
+	- Logic: When we pass in the user_id we will get the account details as mentioned above for that user to autofill in the payment screen.
+- get_states
+	- Parameters: none
+	- Response: list of all states in the US
+	- Logic: This to populate the dropdown of the state field in the payment screen. This will return all US states.
 
 
 #### Data Flow

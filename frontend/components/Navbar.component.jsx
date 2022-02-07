@@ -2,22 +2,24 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon, UserIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-
-const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "Book", href: "/book", current: false },
-  {
-    name: "How Hyperloop Works",
-    href: "https://www.youtube.com/watch?v=zcikLQZI5wQ",
-    current: false,
-  },
-];
+import { useRouter } from "next/router";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export const Navbar = () => {
+  const router = useRouter();
+
+  const navigation = [
+    { name: "Home", href: "/" },
+    { name: "Book", href: "/book" },
+    {
+      name: "How Hyperloop Works",
+      href: "https://www.youtube.com/watch?v=zcikLQZI5wQ",
+    },
+  ];
+
   return (
     <Disclosure as="nav" className="bg-hyperred">
       {({ open }) => (
@@ -55,10 +57,10 @@ export const Navbar = () => {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current
+                          router.pathname == item.href
                             ? "bg-hypertan bg-opacity-20 text-white"
                             : "text-gray-200 hover:bg-hypertan hover:bg-opacity-50 hover:text-hyperblue",
-                          "px-3 py-2 rounded-md text-sm font-Montserrat font-semibold"
+                          "px-3 py-2 rounded-md text-sm font-semibold"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -72,7 +74,7 @@ export const Navbar = () => {
                 <Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                      <span className="sr-only">Open account menu</span>
+                      <span className="sr-only">Your account menu</span>
                       <UserIcon className="bg-hypertan h-8 w-8 p-1 text-hyperred rounded-full" />
                     </Menu.Button>
                   </div>
@@ -92,7 +94,7 @@ export const Navbar = () => {
                             <a
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700 font-Montserrat font-bold text-right"
+                                "block px-4 py-2 text-sm text-gray-700 font-semibold text-right"
                               )}
                             >
                               Your Account
@@ -106,7 +108,7 @@ export const Navbar = () => {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700 font-Montserrat font-bold text-right"
+                              "block px-4 py-2 text-sm text-gray-700 font-semibold text-right"
                             )}
                           >
                             Sign out
@@ -131,7 +133,7 @@ export const Navbar = () => {
                     item.current
                       ? "bg-hypertan bg-opacity-20 text-white"
                       : " text-gray-200 hover:bg-hypertan hover:bg-opacity-50 hover:text-hyperblue",
-                    "block px-3 py-14 rounded-md text-2xl text-center font-Montserrat font-black"
+                    "block px-3 py-14 rounded-md text-2xl text-center  font-black"
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >
