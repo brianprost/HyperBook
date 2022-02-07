@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React from "react";
 import {
   ComposableMap,
   Geographies,
@@ -10,31 +9,9 @@ import {
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
-export const Map = () => {
-  const [cities, setCities] = useState(null);
-  const [isLoading, setLoading] = useState(false);
-  const [departureCity, setDepartureCity] = useState(false);
-  const [destinationCity, setDestinationCity] = useState(false);
-
-  const router = useRouter();
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(
-      "https://hyperbookappapi.azurewebsites.net/api/HyperBook/GetCitiesWithInfo"
-    )
-      .then((res) => res.json())
-      .then((Cities) => {
-        setCities(Cities);
-        setLoading(false);
-      });
-  }, []);
-
-  if (isLoading) return <p>Loading...</p>;
-  if (!cities) return <p>No profile Cities</p>;
-
+export const Map = ({ cities, departureCity, destinationCity }) => {
   return (
-    <div className="container mx-auto">
+    <div className="w-5/6 mx-auto">
       <ComposableMap projection="geoAlbersUsa">
         <Geographies geography={geoUrl}>
           {({ geographies }) => (

@@ -1,6 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const withAnimations = require('animated-tailwindcss');
 
-module.exports = {
+module.exports = withAnimations({
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -8,10 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Montserrat: ["'Montserrat'", ...defaultTheme.fontFamily.sans],
-        mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
-        sans: ["'Encode Sans'", ...defaultTheme.fontFamily.sans],
-        serif: ["'PT Serif Caption'", ...defaultTheme.fontFamily.serif],
+        sans: ["'MontserratVariable'", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         hyperred: "#c42217",
@@ -21,4 +19,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+});
