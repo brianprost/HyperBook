@@ -102,36 +102,29 @@ Diagram detailing the entities used by the application and their relationships t
 	- Logic: When we pass in the user_id we will get the account details as mentioned above for that user to autofill in the payment screen.
 
 
-#### Data Flow
-
-Data structures, data file structures, input formats, output formats?
-
-<ADD_DATA_FLOW_DIAGRAM_HERE>
-
-
 #### User Interface Design
 
-The following diagrams are provided which represent the web frontend of the application, which is where users can interact with the HyperBook Application.
+The following diagrams are provided which represent the web frontend of the application, which is how users can interact with the HyperBook Application.
 
 Home Page:
 
-<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_home.png" width="600">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_home.png" width="800">
 
 Login Page:
 
-<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_login.png" width="600">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_login.png" width="800">
 
 Booking Pages:
 
-<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_booking.png" width="600">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_booking.png" width="800">
 
 Payment Page:
 
-<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_payment.png" width="600">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_payment.png" width="800">
 
 Reservation Page:
 
-<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_reservation.png" width="600">
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_reservation.png" width="800">
 
 
 #### Test Cases
