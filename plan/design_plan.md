@@ -21,9 +21,7 @@ February 8, 2022
     2. [Application Components](#application-components)
     3. [Data Flow](#data-flow)
     4. [User Interface Design](#user-interface-design)
-4. [Supporting Design Information](#supporting-design-information)
-    1. [Test Cases](#test-cases)
-    2. [Performance Estimates](#performance-estimates)
+    5. [Test Cases](#test-cases)
 
 ## Introduction
 
