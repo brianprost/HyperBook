@@ -57,33 +57,51 @@ Diagram detailing the entities used by the application and their relationships t
 	- Parameters: email, password
 	- Response: Success/Failure Code
 		- If Success: user_id, email
+		- If Failure: redirect back to login
 	- Logic: You have to match the email and password against the user details in the DB. Use SHA-512 with salt for hashing the password and storing in DB.
 - get_username
 	- Parameters: user_id
 	- Response: first_name, last_name
 	- Logic: To get the full name and may be other static details about the user to show on the account page of the user.
-- get_bookings
+- get_trips
 	- Parameters: user_id
-	- Response: list of bookings. Each booking is an object(Name, To, From, DateTime, Placeholder Image)
+	- Response: list of trips. Each reservation is an object of:
+		- trip_id
+		- departure_city
+		- destination_city
+		- price_paid
+		- trip_image
+			- A side by side image, as seen in the demo
+		- date_of_travel
 	- Logic: API to get the list of bookings of the specified user arranged in an order. The most recent booking should be first in the list.
+- get_cities
+	- Parameters: none
+	- Response: an object of all operating cities, each of which contains:
+		- city_id
+		- city_name
+		- coordinates [lon, lat]
 - get_destinations
-	- Parameters: none
-	- Response: list of all destinations. Each destination is an object(destination_id, name)
-- get_valid_destinations
-	- Parameters: destination_id
-	- Response: List of valid destination that the user can travel to from the specified destination
-- get_itinerary
-	- Parameters: From destination_id, To destination_id
-	- Response: All possible itineraries for the above mentioned destinations. Each itinerary is an object(Label, Time, Price)
-	- Logic: We will pass the from & to destinations selected by the user to get the itineraries(time & price) for the user to select.
-- get_account_info
+	- Parameters: city_id
+	- Response: a list of city_id’s that can be traveled to from the city_id passed
+- get_pod_schedules
+	- Parameters: departure_city_id, destination_city_id
+	- Response: an object of three PodSchedules, each of which contains:
+		- pod_schedule_id
+		- departure_time
+		- arrival_time
+		- price
+	- Logic: With the cities passed, return a list of pod_schedules between the two cities. There will only ever be 3 pod_schedules per valid city itinerary.
+- get_account_autofill_info
 	- Parameters: user_id
-	- Response: first_name, last_name, email, address_line, city, state, zip_code
+	- Response: object of:
+		- name
+		- email
+		- addressline1
+		- addressline2
+		- city
+		- state
+		- zip_code
 	- Logic: When we pass in the user_id we will get the account details as mentioned above for that user to autofill in the payment screen.
-- get_states
-	- Parameters: none
-	- Response: list of all states in the US
-	- Logic: This to populate the dropdown of the state field in the payment screen. This will return all US states.
 
 
 #### Data Flow
@@ -100,17 +118,21 @@ Diagram of interface.
 <ADD_INTERFACE_DESIGN_HERE>
 
 
-## Supporting Design Information
-
 #### Test Cases
 
-Details here.
+The HyperBook Application makes use of .NET Core API endpoints hosted in Azure for backend functionality.  These will be tested for proper functionality including the following checks:
 
-<ADD_TEST_CASES_HERE>
+- GET requests return expected values with correct data types and structures.
+- POST requests are validated by the application, and processed correctly to update any relevant data.
 
+Specific tests to be performed using the functionality of the frontend are detailed below:
 
-#### Performance Estimates
+| Tested Function           | Input                      | Expected Output            | Actual Output | Pass? |
+|---------------------------|----------------------------|----------------------------|---------------|-------|
+| Logging in to application | User, Password             | One success, one failure   | TBD           |  TDB  |
+| Choose travel options     | FromCity, ToCity, Schedule | Valid trip                 | TBD           |  TDB  |
+| Pay and book a trip       | Valid trip, payment info   | Confirmation email, status | TBD           |  TDB  |
+| Cancel a prior trip       | Booked trip                | Cancellation of trip       | TBD           |  TDB  |
+| Modify account info       | Address info, phone        | Successful change          | TBD           |  TDB  |
+| List a user's trips       | Logged in, choose menu     | List of booked trips       | TBD           |  TDB  |
 
-Details here.
-
-<ADD_PERFORMANCE_ESTIMATE_HERE>
