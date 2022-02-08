@@ -1,6 +1,5 @@
 const axios = require('axios');
 
-
 const base_url = "https://hyperbookappapi.azurewebsites.net";
 
 export async function loginUser(p1, p2) {

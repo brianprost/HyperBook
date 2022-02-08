@@ -24,7 +24,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0 animate-fadeInUp">
+          <div className="flex flex-col items-center mt-12 mb-16 text-left lg:flex-grow justify-center lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0 animate-fadeInUp">
             <h1 className="mb-8 text-4xl font-bold text-hyperblue md:text-7xl drop-shadow-md">
               HYPERBOOK
             </h1>
