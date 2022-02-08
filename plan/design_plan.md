@@ -111,9 +111,27 @@ Data structures, data file structures, input formats, output formats?
 
 #### User Interface Design
 
-Diagram of interface.
+The following diagrams are provided which represent the web frontend of the application, which is where users can interact with the HyperBook Application.
 
-<ADD_INTERFACE_DESIGN_HERE>
+Home Page:
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_home.png" width="600">
+
+Login Page:
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_login.png" width="600">
+
+Booking Pages:
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_booking.png" width="600">
+
+Payment Page:
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_payment.png" width="600">
+
+Reservation Page:
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_reservation.png" width="600">
 
 
 #### Test Cases
