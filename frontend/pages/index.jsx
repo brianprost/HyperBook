@@ -32,16 +32,31 @@ const Home = () => {
               The easy and fun way to book travel on the newest method of
               transportation.
             </p>
-            <div className="mt-0 lg:mt-4">
-              <button
-                className="block px-10 py-3.5 text-xl font-[780] text-center transition duration-400 ease-in-out transform border-2 border-white text-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-hyperred hover:bg-zinc-200 hover:text-hyperred hover:border-hyperred"
-                onClick={() => {
-                  setSectionClassName("animate-backOutUp");
-                  router.push("/login");
-                }}
-              >
-                Book Now
-              </button>
+            <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
+              <div className="mt-3 rounded-lg sm:mt-0">
+                <button
+                  className="items-center block px-10 py-4 text-base font-bold tracking-wide text-center text-hypertan shadow-lg transition duration-500 ease-in-out transform bg-hyperblue rounded-xl hover:bg-blue-900"
+                  onClick={() => {
+                    setSectionClassName("animate-backOutUp");
+                    if(localStorage?.getItem("isAuthenticated") === "true") {
+                        router.push("/book");
+                    }else {
+                        router.push("/login");
+                    }
+                  }}
+                >
+                  Book Now
+                </button>
+              </div>
+              <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
+                <Link href="/login">
+                  <a>
+                    <button className="items-center block px-10 py-3.5 text-base font-bold tracking-wide text-center text-hyperblue transition duration-500 ease-in-out transform border-2 border-white shadow-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ">
+                      Sign In
+                    </button>
+                  </a>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
