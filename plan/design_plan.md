@@ -17,15 +17,15 @@ February 8, 2022
 1. [Introduction](#introduction)
 2. [Purpose & Objectives](#purpose--objectives)
 3. [Details of Design Plan](#details-of-design-plan)
-    1. [Entity Relationship Diagram](#entity-relationship-diagram)
-    2. [Application Components](#application-components)
-    3. [Data Flow](#data-flow)
+    1. [Architecture Diagram](#architecture-diagram)
+    2. [Entity Relationship Diagram](#entity-relationship-diagram)
+    3. [Application Components](#application-components)
     4. [User Interface Design](#user-interface-design)
     5. [Test Cases](#test-cases)
 
 ## Introduction
 
-This document provides a breakdown of the project design plan for the HyperBook Application.  The HyperBoop Application provides customers with the ability to book an itinerary to use the Hyperloop travel service.  Each itinerary is made up of one or more routes assigned to particular time slot(s).  When the customer chooses a particular itinerary, they can provide payment details to pay and reserve their travel plan.  Once completed, the user can lookup their itinerary to get details about it.
+This document provides a breakdown of the project design plan for the HyperBook Application.  The HyperBook Application provides customers with the ability to book an itinerary to use the Hyperloop travel service.  Each itinerary is made up of one or more routes assigned to particular time slot(s).  When the customer chooses a particular itinerary, they can provide payment details to pay and reserve their travel plan.  Once completed, the user can lookup their itinerary to get details about it.
 
 
 ## Purpose & Objectives
@@ -35,21 +35,40 @@ The purpose of this document is to provide a detailed specification for the Hype
 
 ## Details of Design Plan
 
+The HyperBook Application is a single page application (SPA) which includes a frontend and backend.  Frontend components are rendered within user's web browsers, and including login functionality as well as basic account management.  The backend is implemented using API endpoints hosted in the Azure cloud along with an Azure SQL instance.
+
+The specific components used include:
+
+- Frontend
+    - Vercel (platform provider)
+    - React
+    - NextJS
+    - react-simple-maps
+    - PostCSS & Autoprefixer
+
+- Backend
+    - .NET Core 5
+    - Azure App Service (cloud service)
+    - Azure SQL
+
+
+### Architecture Diagram
+
 High level diagram of application design showing division between the frontend and backend systems.
 
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/arch_diag.png" width="600">
 
 
-#### Entity Relationship Diagram
+### Entity Relationship Diagram
 
 Diagram detailing the entities used by the application and their relationships to one another.
 
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/er_diag.png" width="600">
 
 
-#### Application Components
+### Application Components
 
-##### List of API Methods
+#### List of API Methods
 
 - login
 	- Parameters: email, password
@@ -102,7 +121,7 @@ Diagram detailing the entities used by the application and their relationships t
 	- Logic: When we pass in the user_id we will get the account details as mentioned above for that user to autofill in the payment screen.
 
 
-#### User Interface Design
+### User Interface Design
 
 The following diagrams are provided which represent the web frontend of the application, which is how users can interact with the HyperBook Application.
 
@@ -127,7 +146,7 @@ Reservation Page:
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/hyperbook_ui_reservation.png" width="800">
 
 
-#### Test Cases
+### Test Cases
 
 The HyperBook Application makes use of .NET Core API endpoints hosted in Azure for backend functionality.  These will be tested for proper functionality including the following checks:
 
