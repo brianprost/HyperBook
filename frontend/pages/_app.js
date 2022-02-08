@@ -5,14 +5,14 @@ import { Navbar } from "../components/Navbar.component";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <title>Hyperbook</title>
-      </Head>
-      <Navbar />
-      <Component {...pageProps} />
-    </>
+    return (
+        <>
+            <Head>
+                <title>Hyperbook</title>
+            </Head>
+            <Navbar />
+            <Component {...pageProps} />
+        </>
   );
 }
 

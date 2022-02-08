@@ -38,7 +38,11 @@ const Home = () => {
                   className="items-center block px-10 py-4 text-base font-bold tracking-wide text-center text-hypertan shadow-lg transition duration-500 ease-in-out transform bg-hyperblue rounded-xl hover:bg-blue-900"
                   onClick={() => {
                     setSectionClassName("animate-backOutUp");
-                    router.push("/book");
+                    if(localStorage?.getItem("isAuthenticated") === "true") {
+                        router.push("/book");
+                    }else {
+                        router.push("/login");
+                    }
                   }}
                 >
                   Book Now

@@ -2,7 +2,8 @@ import { FormLabel } from './form-label'
 import { useFormik } from 'formik'
 import * as yup from "yup"
 import { loginUser } from '../services/UserService'
-
+import router from 'next/router'
+import { useState } from 'react'
 
 const LoginValidation = yup.object().shape({
     email: yup
@@ -16,9 +17,14 @@ const LoginValidation = yup.object().shape({
       //.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
       .required(),
 })
-  
 
 const LoginForm = () => {
+    const [isError, setIsError] = useState(false);
+
+    const setCookie = (cname, cvalue) => {
+        document.cookie = cname + '=' + cvalue + ';';
+    }
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -26,13 +32,22 @@ const LoginForm = () => {
         },
         validationSchema: LoginValidation,
         onSubmit: (values) => {
-            let user = { 
-                username: values.email, 
-                password: values.password
-            };
-            
-            const data = loginUser(user);
-            console.log(data);
+            let email = values.email;
+            let password = values.password;
+            loginUser(email, password)
+            .then((res) => {
+                if(res.data === 'Success') {
+                    localStorage.setItem("isAuthenticated", "true");
+                    //setCookie("isAuthenticated", "true");
+                    router.push("/book");
+                }
+            })
+            .catch((err) => {
+                setCookie("isAuthenticated", "false");
+                setIsError(true);
+                //alert("Username or Password are incorrect");
+                console.error(err);
+            })
         },
     })  
     return (
@@ -48,9 +63,12 @@ const LoginForm = () => {
                     </h2>
                 </div>
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                    <div className="px-4 py-8 sm:px-10">
-
-                    </div>
+                    {
+                        isError && 
+                        <div className="px-4 py-8">
+                            Username or Password are incorrect!
+                        </div>
+                    }
                     <form className="space-y-6" onSubmit={formik.handleSubmit}>
                         <div>
                             <label
