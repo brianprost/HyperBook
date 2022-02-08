@@ -144,14 +144,6 @@ const BookingPage = () => {
         </div>
         <ReactTooltip>{tooltipContent}</ReactTooltip>
       </div>
-      <div className="flex items-center justify-evenly h-auto bg-hyperred p-2 w-3/4 mx-auto rounded-xl">
-        <div className="bg-hypertan bg-opacity-20 text-hypertan text-2xl px-4 rounded-xl font-bold">
-          From: <span className="text-white">{departureCity}</span>
-        </div>
-        <div className="bg-hypertan bg-opacity-20 text-hypertan text-2xl px-4 rounded-xl font-bold">
-          To: <span className="text-white">{destinationCity}</span>
-        </div>
-      </div>
     </section>
   );
 };
