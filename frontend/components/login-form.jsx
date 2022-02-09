@@ -33,16 +33,15 @@ const LoginForm = () => {
             let password = values.password;
             loginUser(email, password)
             .then((res) => {
-                if(res.data === 'Success') {
-                    localStorage.setItem("isAuthenticated", "true");
-                    //setCookie("isAuthenticated", "true");
+                if(res.status == 200 && res.statusText === 'OK') {
+                    setCookie("isAuthenticated", "true");
+                    setCookie("userId", res.data.userId);
+                    //localStorage?.setItem("userId", res.data.userId);
                     router.push("/book");
                 }
             })
             .catch((err) => {
-                setCookie("isAuthenticated", "false");
                 setIsError(true);
-                //alert("Username or Password are incorrect");
                 console.error(err);
             })
         },

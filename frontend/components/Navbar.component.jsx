@@ -8,12 +8,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export const Navbar = () => {
+export const Navbar = (props) => {
+  const isUser = props.isUser;
   const router = useRouter();
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Book", href: "/book" },
+    { name: "Book", href: `${isUser ? "/book" : "/login"}`},
     {
       name: "How Hyperloop Works",
       href: "https://www.youtube.com/watch?v=zcikLQZI5wQ",
@@ -90,7 +91,7 @@ export const Navbar = () => {
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <Link href={"/#account-bookings"}>
+                          <Link href = {isUser ? "/account" : "/login"}>
                             <a
                               className={classNames(
                                 active ? "bg-gray-100" : "",
@@ -105,13 +106,13 @@ export const Navbar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href = {isUser ? "/home" : "/login"}
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700 font-semibold text-right"
                             )}
                           >
-                            Sign out
+                            {isUser ? "Logout" : "Login"}
                           </a>
                         )}
                       </Menu.Item>

@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Reservation } from "../components/Reservation.component";
+import { getUser } from "../services/UserService";
 
 const AccountPage = () => {
-  const accountName = "Billie Joe Gates";
+  const [accountName, setAccountName] = useState(""); 
+  useEffect(() => {
+    let id = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('userId='))
+    .split('=')[1]; 
+    //console.log(id);
+    getUser(id)
+    .then((res) => {
+      setAccountName(res.data.firstName.toUpperCase() + " " + res.data.lastName.toUpperCase());
+    })
+    .catch((err) => {
+        console.error(err);
+    })
+  }, [])  
 
   return (
     <section id="account-bookings">
