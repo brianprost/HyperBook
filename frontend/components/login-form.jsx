@@ -1,7 +1,9 @@
-import { FormLabel } from "./form-label";
-import { useFormik } from "formik";
-import * as yup from "yup";
-import { loginUser } from "../services/UserService";
+import { FormLabel } from './form-label'
+import { useFormik } from 'formik'
+import * as yup from "yup"
+import { loginUser } from '../services/UserService'
+import router from 'next/router'
+import { useState } from 'react'
 
 const LoginValidation = yup.object().shape({
   email: yup.string().email().required(),
@@ -14,22 +16,37 @@ const LoginValidation = yup.object().shape({
 });
 
 const LoginForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: LoginValidation,
-    onSubmit: (values) => {
-      let user = {
-        username: values.email,
-        password: values.password,
-      };
+    const [isError, setIsError] = useState(false);
 
-      const data = loginUser(user);
-      console.log(data);
-    },
-  });
+    const setCookie = (cname, cvalue) => {
+        document.cookie = cname + '=' + cvalue + ';';
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+        },
+        validationSchema: LoginValidation,
+        onSubmit: (values) => {
+            let email = values.email;
+            let password = values.password;
+            loginUser(email, password)
+            .then((res) => {
+                if(res.data === 'Success') {
+                    localStorage.setItem("isAuthenticated", "true");
+                    //setCookie("isAuthenticated", "true");
+                    router.push("/book");
+                }
+            })
+            .catch((err) => {
+                setCookie("isAuthenticated", "false");
+                setIsError(true);
+                //alert("Username or Password are incorrect");
+                console.error(err);
+            })
+        },
+    })  
   return (
     <>
       <div className="flex flex-col justify-center min-h-screen py-12 sm:px-6 lg:px-8">
@@ -43,7 +60,12 @@ const LoginForm = () => {
           </h2>
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="px-4 py-8 sm:px-10"></div>
+          {
+            isError && 
+            <div className="px-4 py-8">
+                Username or Password are incorrect!
+            </div>
+          }
           <form className="space-y-6" onSubmit={formik.handleSubmit}>
             <div>
               <label
