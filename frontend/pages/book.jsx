@@ -23,6 +23,11 @@ const BookingPage = () => {
   const [titleText, setTitleText] = useState("Destinations");
   const [tooltipContent, setTooltipContent] = useState("");
 
+  const dotAvailableColor = "#c42217";
+  // const dotSelectedColor = "#2b46bd";
+  const dotSelectedColor = "#891810";
+  const dotNotAvailableColor = "#9B8581";
+
   const router = useRouter();
 
   useEffect(() => {
@@ -39,7 +44,7 @@ const BookingPage = () => {
 
   if (isLoading)
     return (
-      <div className="mt-32 flex flex-col justify-center items-center">
+      <div className="mt-32 flex flex-col justify-center items-center text-n">
         <img
           src="/img/hyperbook-icon.webp"
           alt="hyperbook logo spin"
@@ -81,11 +86,6 @@ const BookingPage = () => {
                         stroke="#2b46bd"
                         geography={geo}
                         fill="#f2eddb"
-                        style={{
-                          default: { outline: "none" },
-                          hover: { outline: "none" },
-                          pressed: { outline: "none" },
-                        }}
                       />
                     ))}
                   </>
@@ -108,59 +108,41 @@ const BookingPage = () => {
                     } else if (!departureCity) {
                       setDepartureCity(city.city);
                       setTitleText(`${city.city} to `);
-                      console.log(`departureCity set to: ${city.city}`);
                     } else if (!destinationCity) {
                       setDestinationCity(city.city);
                       setTitleText(`${titleText + city.city}`);
-                      await delay(1000);
-                      console.log(`destinationCity set to: ${city.city}`);
+                      await delay(800);
                       router.push("/route-choices");
                     }
                   }}
                   style={{
-                    default: { outline: "none" },
-                    hover: { outline: "none" },
-                    pressed: { outline: "none" },
+                    default: {
+                      fill: dotAvailableColor,
+                      outline: "none",
+                    },
+                    hover: {
+                      fill: dotSelectedColor,
+                      outline: "none",
+                    },
+                    pressed: {
+                      fill: dotSelectedColor,
+                      outline: "none",
+                    },
+                    // TODO can't get button to stay the selected color
+                    active: {
+                      fill: dotSelectedColor,
+                      outline: "none",
+                    },
                   }}
                 >
-                  <circle
-                    r={6}
-                    fill="#c42217"
-                    stroke="#fff"
-                    strokeWidth={1}
-                    style={{
-                      default: { outline: "none" },
-                      hover: { outline: "none" },
-                      pressed: { outline: "none" },
-                    }}
-                  />
-                  {/* <text
-                    textAnchor="middle"
-                    y={-10}
-                    style={{
-                      fontFamily: "MontserratVariable",
-                      fontWeight: "700",
-                      fill: "#000",
-                      fontSize: "0.6rem",
-                    }}
-                  >
-                    {city.city}
-                  </text> */}
+                  <circle r={6} strokeWidth={4} />
                 </Marker>
               ))}
               {/* eventually a line will go here: */}
             </ComposableMap>
           </div>
         </div>
-            <ReactTooltip>{tooltipContent}</ReactTooltip>
-      </div>
-      <div className="flex items-center justify-evenly h-auto bg-hyperred p-2 w-3/4 mx-auto rounded-xl">
-        <div className="bg-hypertan bg-opacity-20 text-hypertan text-2xl px-4 rounded-xl font-bold">
-          From: <span className="text-white">{departureCity}</span>
-        </div>
-        <div className="bg-hypertan bg-opacity-20 text-hypertan text-2xl px-4 rounded-xl font-bold">
-          To: <span className="text-white">{destinationCity}</span>
-        </div>
+        <ReactTooltip>{tooltipContent}</ReactTooltip>
       </div>
     </section>
   );
