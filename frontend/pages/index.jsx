@@ -18,46 +18,30 @@ const Home = () => {
                   <img
                     className="object-cover object-center mx-auto animate-zoomInLeft "
                     alt="hero"
-                    src="./img/hyperbook-icon.webp"
+                    src="./img/hyperbook-icon.png"
                   />
                 </div>
               </div>
             </div>
           </div>
           <div className="flex flex-col items-center mt-12 mb-16 text-left lg:flex-grow justify-center lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0 animate-fadeInUp">
-            <h1 className="mb-8 text-4xl font-bold text-hyperblue md:text-7xl drop-shadow-md">
+            <h1 className="mb-8 text-4xl font-bold text-indigo-500 md:text-7xl drop-shadow-md">
               HYPERBOOK
             </h1>
-            <p className="mb-8 text-2xl text-left text-gray-600 antialiased font-[330]">
+            <p className="mb-8 text-2xl text-left text-neutral-800 antialiased font-[330]">
               The easy and fun way to book travel on the newest method of
               transportation.
             </p>
-            <div className="mt-0 lg:mt-6 max-w-7xl sm:flex">
-              <div className="mt-3 rounded-lg sm:mt-0">
-                <button
-                  className="items-center block px-10 py-4 text-base font-bold tracking-wide text-center text-hypertan shadow-lg transition duration-500 ease-in-out transform bg-hyperblue rounded-xl hover:bg-blue-900"
-                  onClick={() => {
-                    setSectionClassName("animate-backOutUp");
-                    //console.log(localStorage?.getItem("isAuthenticated"))
-                    if(localStorage?.getItem("isAuthenticated") === "true") {
-                        router.push("/book");
-                    }else {
-                        router.push("/login");
-                    }
-                  }}
-                >
-                  Book Now
-                </button>
-              </div>
-              <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
-                <Link href="/login">
-                  <a>
-                    <button className="items-center block px-10 py-3.5 text-base font-bold tracking-wide text-center text-hyperblue transition duration-500 ease-in-out transform border-2 border-white shadow-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ">
-                      Sign In
-                    </button>
-                  </a>
-                </Link>
-              </div>
+            <div className="mt-0 lg:mt-4">
+              <button
+                className="block px-10 py-3.5 text-xl font-[780] text-center transition duration-400 ease-in-out transform border-2 border-red-500 text-neutral-400 shadow-md rounded-xl bg-red-500 hover:bg-indigo-600 hover:text-neutral-300 hover:border-red-500"
+                onClick={() => {
+                  setSectionClassName("animate-backOutUp");
+                  router.push("/login");
+                }}
+              >
+                Book Now
+              </button>
             </div>
           </div>
         </div>
