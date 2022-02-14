@@ -2,6 +2,8 @@ import React from "react";
 import { RouteOptionCard } from "../components/RouteOptionCard.component";
 
 const RouteChoicesPage = (props) => {
+  const departureCity = props.departureCity;
+  console.log(props);
   const routeOptions = [
     {
       tripID: "abc123",

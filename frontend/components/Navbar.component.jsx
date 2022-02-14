@@ -105,14 +105,30 @@ export const Navbar = (props) => {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
+                          isUser ? 
                           <a
-                            href = {isUser ? "/" : "/login"}
+                            href = "/"
+                            onClick = { () => {
+                                document.cookie.split(';').forEach(function (c) {
+                                  document.cookie = c.trim().split('=')[0] + '=;' + 'expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+                                });
+                              }
+                            }
                             className={classNames(
                               active ? "bg-neutral-100" : "",
                               "block px-4 py-2 text-sm text-neutral-900 font-semibold text-right"
                             )}
                           >
-                            {isUser ? "Logout" : "Login"}
+                            Logout
+                          </a> : 
+                          <a
+                            href = "/login"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700 font-semibold text-right"
+                            )}
+                          >
+                            Login
                           </a>
                         )}
                       </Menu.Item>

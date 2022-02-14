@@ -30,6 +30,10 @@ const BookingPage = () => {
 
   const router = useRouter();
 
+  const setCookie = (cname, cvalue) => {
+    document.cookie = cname + '=' + cvalue + ';';
+  };
+
   useEffect(() => {
     setLoading(true);
     fetch(
@@ -111,7 +115,11 @@ const BookingPage = () => {
                     } else if (!destinationCity) {
                       setDestinationCity(city.city);
                       setTitleText(`${titleText + city.city}`);
-                      await delay(800);
+                      await delay(1000);
+                      console.log(`destinationCity set to: ${city.city}`);
+                      setCookie("departureCity", departureCity);
+                      //localStorage?.setItem("departureCity", departureCity);
+                      //localStorage?.setItem("destinationCity", destinationCity);
                       router.push("/route-choices");
                     }
                   }}
