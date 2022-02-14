@@ -106,7 +106,7 @@ export const Navbar = (props) => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href = {isUser ? "/home" : "/login"}
+                            href = {isUser ? "/" : "/login"}
                             className={classNames(
                               active ? "bg-neutral-100" : "",
                               "block px-4 py-2 text-sm text-neutral-900 font-semibold text-right"
