@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ReactTooltip from "react-tooltip";
+import { setCookies } from 'cookies-next';
 // temporarily including map on page instead of component
 // import { Map } from "../components/Map.component";
 import {
@@ -20,6 +21,8 @@ const BookingPage = () => {
   const [isLoading, setLoading] = useState(false);
   const [departureCity, setDepartureCity] = useState(false);
   const [destinationCity, setDestinationCity] = useState(false);
+  const [departureCityId, setDepartureCityId] = useState(false);
+  const [destinationCityId, setDestinationCityId] = useState(false);
   const [titleText, setTitleText] = useState("Destinations");
   const [tooltipContent, setTooltipContent] = useState("");
 
@@ -107,11 +110,18 @@ const BookingPage = () => {
                       console.log("cities have already been selected");
                     } else if (!departureCity) {
                       setDepartureCity(city.city);
+                      setDepartureCityId(city.id);
                       setTitleText(`${city.city} to `);
                     } else if (!destinationCity) {
+                      setDestinationCityId(city.id);
                       setDestinationCity(city.city);
                       setTitleText(`${titleText + city.city}`);
-                      await delay(800);
+                      await delay(1000);
+                      console.log(`destinationCity set to: ${city.city}`);
+                      console.log(city.id)
+                      console.log(destinationCityId);
+                      setCookies("departureCityId", departureCityId);
+                      setCookies("destinationCityId", destinationCityId);
                       router.push("/route-choices");
                     }
                   }}
