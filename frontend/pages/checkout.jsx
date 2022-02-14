@@ -6,12 +6,12 @@ const CheckoutPage = () => {
   return (
     <section id="checkout" className="h-auto grid grid-cols-3">
       <div className="lg:col-span-2 col-span-3 space-y-8 px-12">
-        <div className="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-white shadow rounded-lg">
+        <div className="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-neutral-50 shadow rounded-lg">
           <div className="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
-            <div className="text-hyperred">
+            <div className="text-red-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-hyperblue"
+                className="h-6 w-6 text-indigo-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -31,7 +31,7 @@ const CheckoutPage = () => {
           <div className="absolute sm:relative sm:top-auto sm:right-auto ml-auto right-4 top-4 text-gray-400 hover:text-gray-800 cursor-pointer">
             <button
               type="button"
-              className="bg-hyperred font-[650] tracking-wider px-3 py-1 text-hypertan rounded-xl hover:text-white"
+              className="bg-red-500 font-[650] tracking-wider px-3 py-1 text-hypertan rounded-xl hover:text-neutral-50"
             >
               Autofill
             </button>
@@ -42,14 +42,14 @@ const CheckoutPage = () => {
             <h2 className="uppercase tracking-wide text-lg font-bold text-gray-700 my-2">
               Shipping & Billing Information
             </h2>
-            <fieldset className="mb-3 bg-white shadow-lg rounded-lg px-4 py-2 text-neutral-800">
+            <fieldset className="mb-3 bg-neutral-50 shadow-lg rounded-lg px-4 py-2 text-neutral-900">
               <label className="flex border-b border-gray-200 h-12 py-8 items-center">
                 <span className="w-auto ml-1 text-left px-2 font-bold">
                   Name
                 </span>
                 <input
                   name="name"
-                  className="focus:outline-none px-3 w-full font-semilight"
+                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
                   placeholder="Bernando Sanders"
                   required=""
                 />
@@ -61,7 +61,7 @@ const CheckoutPage = () => {
                 <input
                   name="email"
                   type="email"
-                  className="focus:outline-none px-3 w-full font-semilight"
+                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
                   placeholder="bernando@senate.gov"
                   required=""
                 />
@@ -72,7 +72,7 @@ const CheckoutPage = () => {
                 </span>
                 <input
                   name="address"
-                  className="focus:outline-none px-3 w-full font-semilight"
+                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
                   placeholder="!=1600 Pennsylvania Ave."
                 />
               </label>
@@ -82,7 +82,7 @@ const CheckoutPage = () => {
                 </span>
                 <input
                   name="city"
-                  className="focus:outline-none px-3 w-full font-semilight"
+                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
                   placeholder="Burlington"
                 />
               </label>
@@ -90,7 +90,7 @@ const CheckoutPage = () => {
                 <span className="text-right px-2 font-bold">State</span>
                 <input
                   name="state"
-                  className="focus:outline-none px-3 w-full font-semilight"
+                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
                   placeholder="VA"
                 />
               </label>
@@ -100,7 +100,7 @@ const CheckoutPage = () => {
                 </span>
                 <input
                   name="postal_code"
-                  className="focus:outline-none px-3 w-full font-semilight"
+                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
                   placeholder="90210"
                 />
               </label>
@@ -111,12 +111,12 @@ const CheckoutPage = () => {
           <h2 className="uppercase tracking-wide text-lg font-bold text-gray-700 my-2">
             Payment Information
           </h2>
-          <fieldset className="bg-white shadow-lg mb-10 rounded-xl px-4 text-neutral-800">
+          <fieldset className="bg-neutral-50 shadow-lg mb-10 rounded-xl px-4 text-neutral-900">
             <label className="flex border-b border-gray-200 h-12 py-8 items-center">
               <span className="text-right px-2 font-bold">Card</span>
               <input
                 name="card"
-                className="focus:outline-none px-3 w-full font-semilight"
+                className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
                 placeholder="Card number MM/YY CVC"
                 required=""
               />
@@ -126,15 +126,15 @@ const CheckoutPage = () => {
         <Link href={"/account"}>
           <a>
             <div className="flex justify-center">
-              <button className="submit-button px-4 py-3 rounded-full bg-hyperred text-white focus:ring focus:outline-none w-1/4 text-xl font-semibold transition-colors">
+              <button className="submit-button px-10 py-3.5 text-xl font-[780] text-center transition duration-400 ease-in-out transform border-2 border-red-500 text-neutral-400 shadow-md rounded-2xl bg-red-500 hover:bg-indigo-600 hover:text-red-500 hover:border-red-500 hover:scale-105">
                 Pay $65.72
               </button>
             </div>
           </a>
         </Link>
       </div>
-      <div className="col-span-1 bg-white lg:block hidden h-full rounded-b-xl">
-        <h1 className="font-bold py-6 border-b-2 text-xl text-neutral-800 px-8">
+      <div className="col-span-1 bg-neutral-50 lg:block hidden h-full rounded-b-xl">
+        <h1 className="font-bold py-6 border-b-2 text-xl text-neutral-900 px-8">
           Order Summary
         </h1>
         <ul className="py-6 border-b space-y-6 px-8">
@@ -154,16 +154,16 @@ const CheckoutPage = () => {
           />
         </ul>
         <div className="px-8 border-b">
-          <div className="flex justify-between py-4 text-neutral-800">
+          <div className="flex justify-between py-4 text-neutral-900">
             <span className="font-bold">Subtotal</span>
-            <span className="font-bold text-hyperred">$62.00</span>
+            <span className="font-bold text-red-500">$62.00</span>
           </div>
-          <div className="flex justify-between py-4 text-neutral-800">
+          <div className="flex justify-between py-4 text-neutral-900">
             <span className="font-bold">Taxes</span>
-            <span className="font-bold text-hyperred">$3.72</span>
+            <span className="font-bold text-red-500">$3.72</span>
           </div>
         </div>
-        <div className="font-semibold text-xl px-8 flex justify-between py-8 text-neutral-800">
+        <div className="font-semibold text-xl px-8 flex justify-between py-8 text-neutral-900">
           <span className="font-bold">Total</span>
           <span className="font-bold">$65.72</span>
         </div>

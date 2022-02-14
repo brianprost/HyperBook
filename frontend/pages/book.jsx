@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ReactTooltip from "react-tooltip";
+import { setCookies } from 'cookies-next';
 // temporarily including map on page instead of component
 // import { Map } from "../components/Map.component";
 import {
@@ -20,13 +21,15 @@ const BookingPage = () => {
   const [isLoading, setLoading] = useState(false);
   const [departureCity, setDepartureCity] = useState(false);
   const [destinationCity, setDestinationCity] = useState(false);
+  const [departureCityId, setDepartureCityId] = useState(false);
+  const [destinationCityId, setDestinationCityId] = useState(false);
   const [titleText, setTitleText] = useState("Destinations");
   const [tooltipContent, setTooltipContent] = useState("");
 
-  const dotAvailableColor = "#c42217";
-  // const dotSelectedColor = "#2b46bd";
-  const dotSelectedColor = "#891810";
-  const dotNotAvailableColor = "#9B8581";
+  // TODO eventually don't hard code this right here
+  const dotAvailableColor = "#f05454";
+  const dotSelectedColor = "#c04343";
+  const dotNotAvailableColor = "#7a7e83";
 
   const router = useRouter();
 
@@ -44,15 +47,15 @@ const BookingPage = () => {
 
   if (isLoading)
     return (
-      <div className="mt-32 flex flex-col justify-center items-center text-n">
+      <div className="mt-32 flex flex-col justify-center items-center">
         <img
           src="/img/hyperbook-icon.webp"
           alt="hyperbook logo spin"
           className="h-52 w-52 animate-pulse animate-infinite"
         />
-        <p className="mt-12 text-4xl select-none font-bold hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-black hover:to-hyperred">
+        <p className="mt-12 text-4xl select-none font-bold hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-black-500 hover:to-red-500">
           Loading{" "}
-          <span className="inline-block animate-tada animate-infinite bg-clip-text text-transparent bg-gradient-to-r from-hyperred to-black">
+          <span className="inline-block animate-tada animate-infinite bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-black-500">
             ...
           </span>
         </p>
@@ -63,7 +66,7 @@ const BookingPage = () => {
   return (
     <section id="book" className="flex flex-col h-5/6 justify-between">
       <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl mb-auto">
-        <h2 className="text-6xl font-bold text-black text-center">
+        <h2 className="text-6xl font-bold text-black-500 text-center">
           {titleText}
         </h2>
         <div className="-my-10">
@@ -83,9 +86,9 @@ const BookingPage = () => {
                     {geographies.map((geo) => (
                       <Geography
                         key={geo.rsmKey}
-                        stroke="#2b46bd"
+                        stroke="#30475e"
                         geography={geo}
-                        fill="#f2eddb"
+                        fill="#e8e8e8"
                       />
                     ))}
                   </>
@@ -107,11 +110,18 @@ const BookingPage = () => {
                       console.log("cities have already been selected");
                     } else if (!departureCity) {
                       setDepartureCity(city.city);
+                      setDepartureCityId(city.id);
                       setTitleText(`${city.city} to `);
                     } else if (!destinationCity) {
+                      setDestinationCityId(city.id);
                       setDestinationCity(city.city);
                       setTitleText(`${titleText + city.city}`);
-                      await delay(800);
+                      await delay(1000);
+                      console.log(`destinationCity set to: ${city.city}`);
+                      console.log(city.id)
+                      console.log(destinationCityId);
+                      setCookies("departureCityId", departureCityId);
+                      setCookies("destinationCityId", destinationCityId);
                       router.push("/route-choices");
                     }
                   }}
@@ -142,7 +152,7 @@ const BookingPage = () => {
             </ComposableMap>
           </div>
         </div>
-        <ReactTooltip>{tooltipContent}</ReactTooltip>
+        <ReactTooltip className="font-[720]" backgroundColor="#222831" textColor="#e8e8e8">{tooltipContent}</ReactTooltip>
       </div>
     </section>
   );
