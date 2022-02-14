@@ -11,3 +11,8 @@ export async function getUser(id) {
     const response = await axios.get(base_url + `/api/HyperBook/GetUserName?userId=${id}`);
     return response;
 }
+
+export async function getSchedules(depCity, desCity) {
+    const response = await axios.get(base_url + `/api/HyperBook/GetPodSchedules?cityId=${depCity}&cityDestinationId=${desCity}`);
+    return response;
+}

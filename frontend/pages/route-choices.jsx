@@ -1,9 +1,24 @@
 import React from "react";
 import { RouteOptionCard } from "../components/RouteOptionCard.component";
+import { getSchedules } from "../services/UserService";
 
 const RouteChoicesPage = (props) => {
-  const departureCity = props.departureCity;
-  console.log(props);
+  const depCityId = props.depCityId;
+  const desCityId = props.desCityId;
+  //console.log(props);
+  // getSchedules(depCity, desCity)
+  // .then((res) => {
+  //     if(res.status == 200 && res.statusText === 'OK') {
+  //         setCookies("isAuthenticated", "true");
+  //         setCookies("userId", res.data.userId);
+  //         router.push("/book");
+  //     }
+  // })
+  // .catch((err) => {
+  //     setIsError(true);
+  //     console.error(err);
+  // })
+
   const routeOptions = [
     {
       tripID: "abc123",

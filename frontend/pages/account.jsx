@@ -9,7 +9,6 @@ const AccountPage = () => {
     .split('; ')
     .find(row => row.startsWith('userId='))
     .split('=')[1]; 
-    //console.log(id);
     getUser(id)
     .then((res) => {
       setAccountName(res.data.firstName.toUpperCase() + " " + res.data.lastName.toUpperCase());

@@ -4,6 +4,7 @@ import * as yup from "yup"
 import { loginUser } from '../services/UserService'
 import router from 'next/router'
 import { useState } from 'react'
+import { setCookies } from 'cookies-next';
 
 const LoginValidation = yup.object().shape({
   email: yup.string().email().required(),
@@ -18,9 +19,11 @@ const LoginValidation = yup.object().shape({
 const LoginForm = () => {
     const [isError, setIsError] = useState(false);
 
-    const setCookie = (cname, cvalue) => {
-        document.cookie = cname + '=' + cvalue + ';';
-    }
+    // const setCookie = (cname, cvalue) => {
+    //     const cookies = new Cookies();
+    //     cookies.set(cname, cvalue, { path: '/' });
+    //     //document.cookie = cname + '=' + cvalue + ';max-age=86400';
+    // }
 
     const formik = useFormik({
         initialValues: {
@@ -34,9 +37,8 @@ const LoginForm = () => {
             loginUser(email, password)
             .then((res) => {
                 if(res.status == 200 && res.statusText === 'OK') {
-                    setCookie("isAuthenticated", "true");
-                    setCookie("userId", res.data.userId);
-                    //localStorage?.setItem("userId", res.data.userId);
+                    setCookies("isAuthenticated", "true");
+                    setCookies("userId", res.data.userId);
                     router.push("/book");
                 }
             })
