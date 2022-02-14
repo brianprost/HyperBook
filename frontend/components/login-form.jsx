@@ -103,8 +103,6 @@ const LoginForm = () => {
           </div>
 
           <div>
-            {/* <Link href={"/checkout"}>
-                                <a> */}
             <button
               type="submit"
               // type="button"
@@ -112,8 +110,6 @@ const LoginForm = () => {
             >
               Log in
             </button>
-            {/* </a>
-                            </Link> */}
           </div>
         </form>
       </div>

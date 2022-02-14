@@ -14,7 +14,7 @@ export const Navbar = (props) => {
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Book", href: `${isUser ? "/book" : "/login"}`},
+    { name: "Book", href: `${isUser ? "/book" : "/login"}` },
     {
       name: "How Hyperloop Works",
       href: "https://www.youtube.com/watch?v=zcikLQZI5wQ",
@@ -89,51 +89,58 @@ export const Navbar = (props) => {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-neutral-500 ring-1 ring-black-500 ring-opacity-5 focus:outline-none">
-                      {
-                        isUser &&
+                      {isUser && (
                         <Menu.Item>
-                        {({ active }) => (
-                          <Link href = {isUser ? "/account" : "/login"}>
-                            <a
-                              className={classNames(
-                                active ? "bg-neutral-100" : "",
-                                "block px-4 py-2 text-sm text-neutral-900 font-semibold text-right"
-                              )}
-                            >
-                              Your Account
-                            </a>
-                          </Link>
-                        )}
-                      </Menu.Item>
-                      }
+                          {({ active }) => (
+                            <Link href={isUser ? "/account" : "/login"}>
+                              <a
+                                className={classNames(
+                                  active ? "bg-neutral-100" : "",
+                                  "block px-4 py-2 text-sm text-neutral-900 font-semibold text-right"
+                                )}
+                              >
+                                Your Account
+                              </a>
+                            </Link>
+                          )}
+                        </Menu.Item>
+                      )}
                       <Menu.Item>
-                        {({ active }) => (
-                          isUser ? 
-                          <a
-                            href = "/"
-                            onClick = { () => {
-                                document.cookie.split(';').forEach(function (c) {
-                                  document.cookie = c.trim().split('=')[0] + '=;' + 'expires=Thu, 01 Jan 1970 00:00:00 UTC;';
-                                });
-                              }
-                            }
-                            className={classNames(
-                              active ? "bg-neutral-100" : "",
-                              "block px-4 py-2 text-sm text-neutral-900 font-semibold text-right"
-                            )}
-                          >
-                            Logout
-                          </a> : 
-                          <a
-                            href = "/login"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700 font-semibold text-right"
-                            )}
-                          >
-                            Login
-                          </a>
-                        )}
+                        {({ active }) =>
+                          isUser ? (
+                            <Link href="/">
+                              <a
+                                onClick={() => {
+                                  document.cookie
+                                    .split(";")
+                                    .forEach(function (c) {
+                                      document.cookie =
+                                        c.trim().split("=")[0] +
+                                        "=;" +
+                                        "expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                                    });
+                                }}
+                                className={classNames(
+                                  active ? "bg-neutral-100" : "",
+                                  "block px-4 py-2 text-sm text-neutral-900 font-semibold text-right"
+                                )}
+                              >
+                                Logout
+                              </a>
+                            </Link>
+                          ) : (
+                            <Link href="/login">
+                              <a
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm text-gray-700 font-semibold text-right"
+                                )}
+                              >
+                                Login
+                              </a>
+                            </Link>
+                          )
+                        }
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
