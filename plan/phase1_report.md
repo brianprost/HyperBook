@@ -66,7 +66,7 @@ The project schedule is detailed in the table below:
 | 8 | Final Report | 3/8 |
 
 
-### Report
+## Report
 
 During the course of development, it was necessary to adjust some aspects of the project as there were limitations in the original design.  Given the fact that the HyperLoop train system has not been physically developed yet, some creative license was taken while making decisions about how schedules would work and what the user experience would be like.  These decisions helped ensure the first development build was inline with the intent of the original design.
 
