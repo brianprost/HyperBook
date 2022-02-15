@@ -5,7 +5,7 @@ import { getSchedules } from "../services/UserService";
 const RouteChoicesPage = (props) => {
   const depCityId = props.depCityId;
   const desCityId = props.desCityId;
-  //console.log(props);
+  console.log(props);
   // getSchedules(depCity, desCity)
   // .then((res) => {
   //     if(res.status == 200 && res.statusText === 'OK') {
