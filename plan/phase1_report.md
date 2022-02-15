@@ -14,24 +14,24 @@ February 15, 2022
 
 ### Table of Contents
 
-1. [Phase One Milestone](#phase-one-Milestone)
-2. [Schedule](#schedule)
-3. [Milestone](#milestone)
-3. [Issues Encountered](#issues-encountered)
-    1. [Architecture Diagram](#architecture-diagram)
-    2. [Entity Relationship Diagram](#entity-relationship-diagram)
-    3. [Application Components](#application-components)
-    4. [User Interface Design](#user-interface-design)
-    5. [Test Cases](#test-cases)
+1. [Phase One Milestone](#phase-one-milestone)
+2. [Milestones](#milestones)
+3. [Schedule](#schedule)
+4. [Report](#report)
+    1. [Modifications](#modifications)
+    2. [Entity Relationship Diagram](#test-plan)
 
 ## Phase One Milestone
 
 The milestone for Week 5 was completed, with an initial example application deployed to the test platforms
 
-- HyperBook Application (non-prod, dev version): https://hyper-book.vercel.app/
-- Frontend and Documentation: https://github.com/brianprost/HyperBook/
-- Backend API: https://github.com/thedeeks/HyperBook.App/
-- API Requirements Document: https://docs.google.com/document/d/1G_6kURhd2jU4Ts_lE3kykty3BGvdLr98HrMD6-adpSg/
+| Component | URL |
+|-------------|-------------|
+| HyperBook Application: |  https://hyper-book.vercel.app/ |
+| Frontend code: | https://github.com/brianprost/HyperBook/ |
+| Backend code: | https://github.com/thedeeks/HyperBook.App/ |
+| Documentation: | https://github.com/brianprost/HyperBook/tree/main/plan |
+| API Requirements: | https://docs.google.com/document/d/1G_6kURhd2jU4Ts_lE3kykty3BGvdLr98HrMD6-adpSg/ |
 
 The files for the project can be downloaded directly from GitHub with the following commands:
 
@@ -39,6 +39,16 @@ The files for the project can be downloaded directly from GitHub with the follow
  git clone https://github.com/brianprost/HyperBook.git
  git clone https://github.com/thedeeks/HyperBook.App
 ```
+
+
+## Milestones
+
+Project milestones represent the anticipated work done for each phase, including the final project.
+
+- Phase 1: Design decisions made, some adjustments required. First development build completed.
+- Phase 2: Second development build completed.  Finalizing database schema and process flow.
+- Phase 3: Fully tested all components including frontend-to-backend, backend-to-database.  Some adjustments for performance, final design decisions made.
+- Final: Final project complete.  Documentation updated, report completed, integration testing complete.
 
 
 ## Schedule
@@ -56,17 +66,7 @@ The project schedule is detailed in the table below:
 | 8 | Final Report | 3/8 |
 
 
-## Milestones
-
-Project milestones represent the anticipated work done for each phase, including the final project.
-
-- Phase 1: Design decisions made, some adjustments required. First development build completed.
-- Phase 2: Second development build completed.  Finalizing database schema and process flow.
-- Phase 3: Fully tested all components including frontend-to-backend, backend-to-database.  Some adjustments for performance, final design decisions made.
-- Final: Final project complete.  Documentation updated, report completed, integration testing complete.
-
-
-### Issues Encountered
+### Report
 
 During the course of development, it was necessary to adjust some aspects of the project as there were limitations in the original design.  Given the fact that the HyperLoop train system has not been physically developed yet, some creative license was taken while making decisions about how schedules would work and what the user experience would be like.  These decisions helped ensure the first development build was inline with the intent of the original design.
 
