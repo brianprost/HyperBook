@@ -19,7 +19,7 @@ February 15, 2022
 3. [Schedule](#schedule)
 4. [Report](#report)
     1. [Modifications](#modifications)
-    2. [Entity Relationship Diagram](#test-plan)
+    2. [Test Plan](#test-plan)
 
 ## Phase One Milestone
 
@@ -31,15 +31,24 @@ The milestone for Week 5 was completed, with an initial example application depl
 | Frontend code: | https://github.com/brianprost/HyperBook/ |
 | Backend code: | https://github.com/thedeeks/HyperBook.App/ |
 | Documentation: | https://github.com/brianprost/HyperBook/tree/main/plan |
-| API Requirements: | https://docs.google.com/document/d/1G_6kURhd2jU4Ts_lE3kykty3BGvdLr98HrMD6-adpSg/ |
 
 The files for the project can be downloaded directly from GitHub with the following commands:
 
 ```
- git clone https://github.com/brianprost/HyperBook.git
  git clone https://github.com/thedeeks/HyperBook.App
+ git clone https://github.com/brianprost/HyperBook
 ```
 
+For the `HyperBook.App` backend project, you can load and compile using Visual Studio Code with the NuGet and C# extensions installed. You will also needthe .NET Core 5 64-bit SDK installed on your operating system.
+
+| Resource | URL |
+|-------------|-------------|
+| Visual Studio Code: | https://code.visualstudio.com/Download |
+| C# Language Instructions: | https://code.visualstudio.com/Docs/languages/csharp |
+| NuGet Instructions: | https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools |
+| .NET Core 5.0 SDK: | https://dotnet.microsoft.com/en-us/download/dotnet/5.0 |
+
+For the `HyperBook` frontend project, code is loaded directly from GitHub into the Vercel service using a GitHub API token tied to the repo. When the `frontend-production` branch received new commits, a new version is deployed automatically.
 
 ## Milestones
 
