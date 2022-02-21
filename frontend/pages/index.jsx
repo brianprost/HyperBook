@@ -9,14 +9,14 @@ const Home = () => {
 
   return (
     <section className={sectionClassName}>
-      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
-        <div className="flex flex-wrap items-center mx-auto max-w-7xl">
-          <div className="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:px-12 lg:px-24 lg:py-24">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center">
+          <div className="w-full rounded-xl lg:w-1/2 lg:max-w-lg">
             <div>
               <div className="relative w-full max-w-lg">
                 <div className="relative drop-shadow-lg">
                   <img
-                    className="object-cover object-center mx-auto animate-zoomInLeft "
+                    className="mx-auto animate-zoomInLeft object-cover object-center "
                     alt="hero"
                     src="./img/hyperbook-icon.png"
                   />
@@ -24,17 +24,17 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center mt-12 mb-16 text-left lg:flex-grow justify-center lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0 animate-fadeInUp">
-            <h1 className="mb-8 text-4xl font-bold text-indigo-500 md:text-7xl drop-shadow-md">
+          <div className="mt-12 mb-16 flex animate-fadeInUp flex-col items-center justify-center text-left md:mb-0 lg:w-1/2 lg:flex-grow lg:pl-6 xl:mt-0 xl:pl-24">
+            <h1 className="mb-8 text-4xl font-bold text-indigo-500 drop-shadow-md md:text-7xl">
               HYPERBOOK
             </h1>
-            <p className="mb-8 text-2xl text-left text-neutral-800 antialiased font-[330]">
+            <p className="mb-8 text-left text-2xl font-[330] text-neutral-800 antialiased">
               The easy and fun way to book travel on the newest method of
               transportation.
             </p>
             <div className="mt-0 lg:mt-4">
               <button
-                className="block px-10 py-3.5 text-xl font-[780] text-center transition duration-400 ease-in-out transform border-2 border-red-500 text-neutral-400 shadow-md rounded-xl bg-red-500 hover:bg-indigo-600 hover:text-neutral-300 hover:border-red-500"
+                className="duration-400 block transform rounded-xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:border-red-500 hover:bg-indigo-600 hover:text-neutral-300"
                 onClick={() => {
                   setSectionClassName("animate-backOutUp");
                   router.push("/login");
