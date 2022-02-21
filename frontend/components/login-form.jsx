@@ -50,11 +50,11 @@ const LoginForm = () => {
   });
   return (
     // TODO center this properly
-    <section className="mt-36 flex flex-col justify-center items-center">
+    <section className="mt-36 flex flex-col items-center justify-center">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="text-4xl font-sans font-semibold text-center text-neutral-900">
+        <h2 className="text-center font-sans text-4xl font-semibold text-neutral-900">
           Log in to your
-          <p className="text-4xl font-bold text-red-500 drop-shadow my-4">
+          <p className="my-4 text-4xl font-bold text-red-500 drop-shadow">
             HYPERBOOK
           </p>
           account
@@ -77,7 +77,7 @@ const LoginForm = () => {
                 id="email"
                 name="email"
                 type="email"
-                className="block w-full px-5 py-3 text-base text-red-500 placeholder-gray-300 transition duration-500 ease-in-out transform border border-indigo-500 rounded-lg bg-red-500 bg-opacity-5 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-300 font-bold"
+                className="block w-full transform rounded-lg border border-indigo-500 bg-red-500 bg-opacity-5 px-5 py-3 text-base font-bold text-red-500 placeholder-gray-300 transition duration-500 ease-in-out focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-300"
                 onChange={formik.handleChange}
               />
             </div>
@@ -86,7 +86,7 @@ const LoginForm = () => {
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-sans font-[550] text-gray-700"
+              className="block font-sans text-sm font-[550] text-gray-700"
             >
               Password
             </label>
@@ -96,7 +96,7 @@ const LoginForm = () => {
                 onChange={formik.handleChange}
                 name="password"
                 type="password"
-                className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-indigo-500 rounded-lg bg-red-500 bg-opacity-5 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-300"
+                className="block w-full transform rounded-lg border border-indigo-500 bg-red-500 bg-opacity-5 px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-300"
               />
             </div>
             <FormLabel style={{ color: "red" }} text={formik.errors.password} />
@@ -106,7 +106,7 @@ const LoginForm = () => {
             <button
               type="submit"
               // type="button"
-              className="w-full px-10 py-3.5 text-xl font-[780] text-center transition duration-400 ease-in-out transform border-2 border-red-500 text-neutral-400 shadow-md rounded-xl bg-red-500 hover:bg-indigo-600 hover:text-neutral-300 hover:border-red-500"
+              className="duration-400 w-full transform rounded-xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:border-red-500 hover:bg-indigo-600 hover:text-neutral-300"
             >
               Log in
             </button>

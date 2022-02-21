@@ -66,7 +66,7 @@ export default function Document() {
         {/* Chrome for Android */}
         <link rel="icon" sizes="192x192" href="img/favicon/favicon-192.png" />
       </Head>
-      <body className="bg-neutral-500 h-screen overflow-x-hidden">
+      <body className="h-screen overflow-x-hidden bg-neutral-500">
         <Main />
         <NextScript />
       </body>
