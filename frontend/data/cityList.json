@@ -1,41 +1,30 @@
 {
-    "northeast": [
-        "New York",
-        "Philadelphia",
-        "Washington",
-        "Boston"
-    ],
-    "midwest": [
-        "Chicago",
-        "Detroit",
-        "Minneapolis",
-        "St. Louis",
-        "Cincinnati",
-        "Denver"
-    ],
-    "southeast": [
-        "Miami",
-        "Nashville",
-        "Raleigh",
-        "New Orleans",
-        "Orlando",
-        "Atlanta",
-        "Tampa"
-    ],
-    "southwest": [
-        "San Diego",
-        "Phoenix",
-        "Dallas",
-        "Houston",
-        "Las Vegas",
-        "Austin",
-        "San Antonio"
-    ],
-    "west": [
-        "Los Angeles",
-        "Sacramento",
-        "Seattle",
-        "San Francisco",
-        "Portland"
-    ]
+  "northeast": ["New York", "Philadelphia", "Washington", "Boston"],
+  "midwest": [
+    "Chicago",
+    "Detroit",
+    "Minneapolis",
+    "St. Louis",
+    "Cincinnati",
+    "Denver"
+  ],
+  "southeast": [
+    "Miami",
+    "Nashville",
+    "Raleigh",
+    "New Orleans",
+    "Orlando",
+    "Atlanta",
+    "Tampa"
+  ],
+  "southwest": [
+    "San Diego",
+    "Phoenix",
+    "Dallas",
+    "Houston",
+    "Las Vegas",
+    "Austin",
+    "San Antonio"
+  ],
+  "west": ["Los Angeles", "Sacramento", "Seattle", "San Francisco", "Portland"]
 }
