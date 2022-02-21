@@ -1,5 +1,5 @@
 import React from "react";
-import { RouteOptionCard } from "../components/RouteOptionCard.component";
+import { RouteOptionCard } from "../components/book/RouteOptionCard.component";
 import { getSchedules } from "../services/UserService";
 
 const RouteChoicesPage = (props) => {
@@ -23,22 +23,22 @@ const RouteChoicesPage = (props) => {
     {
       tripID: "abc123",
       timeOfDay: "Morning",
-      departureTime: "08:25",
-      arrivalTime: "08:55",
+      earliestPod: "05:00",
+      latestPod: "10:25",
       tripPrice: "$25.00",
     },
     {
       tripID: "def456",
-      timeOfDay: "Afternoon",
-      departureTime: "12:40",
-      arrivalTime: "13:20",
+      timeOfDay: "Midday",
+      earliestPod: "10:30",
+      latestPod: "15:30",
       tripPrice: "$10.00",
     },
     {
       tripID: "ghi789",
       timeOfDay: "Evening",
-      departureTime: "18:15",
-      arrivalTime: "18:45",
+      earliestPod: "14:00",
+      latestPod: "21:30",
       tripPrice: "$15.00",
     },
   ];
@@ -52,8 +52,8 @@ const RouteChoicesPage = (props) => {
             <RouteOptionCard
               key={option.tripID}
               timeOfDay={option.timeOfDay}
-              departureTime={option.departureTime}
-              arrivalTime={option.arrivalTime}
+              earliestPod={option.earliestPod}
+              latestPod={option.latestPod}
               tripPrice={option.tripPrice}
               index={index}
             />
