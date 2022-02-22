@@ -19,11 +19,11 @@ February 1, 2022
 3. [Description of Test Procedures](#description-of-test-procedures)
     1. [API Testing](#api-testing)
     2. [Integration Testing](#integration-testing)
-    3. [System Testing](#system-testing)
 4. [User's Guide](#users-guide)
     1. [Logging into the HyperBook Application](#logging-into-the-hyperbook-application)
-    2. [Accessing profile page](#accessing-profile-page)
+    2. [Accessing user profile page](#accessing-user-profile-page)
     3. [Booking a trip](#booking-a-trip)
+    4. [Cancelling a previously booked itinerary](#cancelling-a-previously-booked-itinerary)
 
 <div style="page-break-after: always;"></div>
 
@@ -38,14 +38,13 @@ The purpose of this document is to detail the three phases of testing for the Hy
 
 - API Testing
 - Integration Testing
-- System Testing
 
 In addition, a user guide is provided which includes details about the typical use of the HyperBook Application:
 
 - Logging into the HyperBook Application
-- Searching for available travel destinations
-- Booking an itinerary
-- Cancelling a previously booked itinerary
+- Accessing user profile page
+- Booking a trip
+- TODO: Cancelling a previously booked itinerary
 
 
 ## Description of Test Procedures
@@ -57,6 +56,16 @@ The HyperBook Application makes use of .NET Core API endpoints hosted in Azure f
 - GET requests return expected values with correct data types and structures.
 - POST requests are validated by the application, and processed correctly to update any relevant data.
 
+Specific tests to be performed using the functionality of the frontend are detailed below:
+
+| Tested Function           | Input                      | Expected Output            | Actual Output | Pass? |
+|---------------------------|----------------------------|----------------------------|---------------|-------|
+| Logging in to application | User, Password             | One success, one failure   | TBD           |  TDB  |
+| Choose travel options     | FromCity, ToCity, Schedule | Valid trip                 | TBD           |  TDB  |
+| Pay and book a trip       | Valid trip, payment info   | Confirmation email, status | TBD           |  TDB  |
+| Cancel a prior trip       | Booked trip                | Cancellation of trip       | TBD           |  TDB  |
+| Modify account info       | Address info, phone        | Successful change          | TBD           |  TDB  |
+| List a user's trips       | Logged in, choose menu     | List of booked trips       | TBD           |  TDB  |
 
 #### Integration Testing
 
@@ -65,26 +74,17 @@ The HyperBook Application consists of multiple components including frontend, ba
 - Big Bang Approach: All components of the application will be tested together to ensure interoperability between frontend/backend, and backend/database.
 
 
-#### System Testing
-
-Once built out, the HyperBook application will be deployed fully to the relevant Azure services.  System testing will include the following checks:
-
-- Load testing: Measuring performance of the application under typical conditions, e.g., multiple users performing various actions.
-- Stress testing: Identifying upper performance limits of the application, e.g., identifying application behaviour under excessive use.
-- Scalability testing: Testing the ability of the application to scale with additional load, e.g., determining that the portal can handle multiple users at the same time.
-
-
 ## User's Guide
 
 #### Logging into the HyperBook Application
 
-- Users will be provided with credentials to access the HyperBook Application which is demonstrated [here](https://hyperloop-booking-demo.vercel.app/#login).
+- Users will be provided with credentials to access the HyperBook Application which is demonstrated [here](https://hyper-book.vercel.app/login).
 
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss1_login.png" width="500">
 
-#### Accessing profile page
+#### Accessing user profile page
   
-- Once logged in, users will have access to their [profile page](https://hyperloop-booking-demo.vercel.app/#account-bookings) from which they can do several actions:
+- Once logged in, users will have access to their [profile page](https://hyper-book.vercel.app/account) from which they can do several actions:
   1. Add/modify profile settings such as name, contact details, and address.
   2. View saved itineraries that have been booked.
 
@@ -92,15 +92,19 @@ Once built out, the HyperBook application will be deployed fully to the relevant
 
 #### Booking a trip
 
-- From the default home page, users will be presented with a map that includes all [available destinations](https://hyperloop-booking-demo.vercel.app/#book) where they can begin to plan their trip.
+- From the default home page, users will be presented with a map that includes all [available destinations](https://hyper-book.vercel.app/book) where they can begin to plan their trip.
   1. The user selects the starting city from which they will depart from.
   2. The user selects the destination city to which they will travel to.
   3. The user chooses the preferred available timeslot for each leg of the trip between cities.  This will iterate for each intermediate stop between cities until the destination city is reached.
-  4. The user will proceed to the [payment process](https://hyperloop-booking-demo.vercel.app/#checkout) and reserve the itinerary once payment is confirmed.
+  4. The user will proceed to the [payment process](https://hyper-book.vercel.app/checkout) and reserve the itinerary once payment is confirmed.
 
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss3_book1.png" width="500">
 
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss3_book2.png" width="500">
   
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss4_payment.png" width="500">
+
+#### Cancelling a previously booked itinerary
+
+TODO: Will add instructions here once functionality is completed
 

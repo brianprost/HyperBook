@@ -1,6 +1,6 @@
-import Head from 'next/head'
+import Head from "next/head";
 import React from "react";
-import LoginForm from '../components/login-form'
+import LoginForm from "../components/login-form";
 
 const LoginPage = () => {
   return (
@@ -10,7 +10,7 @@ const LoginPage = () => {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <section id="login">
-        <LoginForm/>
+        <LoginForm />
       </section>
     </div>
   );

@@ -11,7 +11,7 @@ const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 export const Map = ({ cities, departureCity, destinationCity }) => {
   return (
-    <div className="w-5/6 mx-auto">
+    <div className="mx-auto w-5/6">
       <ComposableMap projection="geoAlbersUsa">
         <Geographies geography={geoUrl}>
           {({ geographies }) => (

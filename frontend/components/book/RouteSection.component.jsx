@@ -1,8 +1,9 @@
 import React from "react";
-import { RouteOptionCard } from "../components/RouteOptionCard.component";
-import { getSchedules } from "../services/UserService";
+import { RouteOptionCard } from "./RouteOptionCard.component";
+import { getSchedules } from "../../services/UserService";
+import { getCookie } from "cookies-next";
 
-const RouteChoicesPage = (props) => {
+const RouteSection = (props) => {
   const depCityId = props.depCityId;
   const desCityId = props.desCityId;
   //console.log(props);
@@ -23,37 +24,46 @@ const RouteChoicesPage = (props) => {
     {
       tripID: "abc123",
       timeOfDay: "Morning",
-      departureTime: "08:25",
-      arrivalTime: "08:55",
+      earliestPod: "05:00",
+      latestPod: "10:25",
       tripPrice: "$25.00",
     },
     {
       tripID: "def456",
-      timeOfDay: "Afternoon",
-      departureTime: "12:40",
-      arrivalTime: "13:20",
+      timeOfDay: "Midday",
+      earliestPod: "10:30",
+      latestPod: "15:30",
       tripPrice: "$10.00",
     },
     {
       tripID: "ghi789",
       timeOfDay: "Evening",
-      departureTime: "18:15",
-      arrivalTime: "18:45",
+      earliestPod: "14:00",
+      latestPod: "21:30",
       tripPrice: "$15.00",
     },
   ];
 
+  // const departureCity = getCookie("departureCity");
+  // const destinationCity = getCookie("destinationCity");
+
   return (
-    <section id="route-choices">
+    <section
+      id="route-choices"
+      className="relative mx-auto mb-auto w-full items-center px-5 py-12 md:px-12 lg:px-24"
+    >
       {/* TODO center this instead of a large margin top. flex box be flexing weird rn... */}
-      <div className="relative mx-auto md:px-12 lg:px-16 max-w-7xl flex justify-evenly items-center mt-20">
-        <div className="relative p-10 space-y-12 overflow-hidden lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 rounded-xl">
+      <h2 className="text-center text-6xl font-bold text-black-500">
+        {props.departureCity} to {props.destinationCity}
+      </h2>
+      <div className="relative mx-auto mt-20 flex max-w-7xl items-center justify-evenly md:px-12 lg:px-16">
+        <div className="relative space-y-12 overflow-hidden rounded-xl p-10 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
           {routeOptions.map((option, index) => (
             <RouteOptionCard
               key={option.tripID}
               timeOfDay={option.timeOfDay}
-              departureTime={option.departureTime}
-              arrivalTime={option.arrivalTime}
+              earliestPod={option.earliestPod}
+              latestPod={option.latestPod}
               tripPrice={option.tripPrice}
               index={index}
             />
@@ -64,4 +74,4 @@ const RouteChoicesPage = (props) => {
   );
 };
 
-export default RouteChoicesPage;
+export default RouteSection;

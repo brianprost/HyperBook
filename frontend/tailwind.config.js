@@ -59,7 +59,6 @@ module.exports = withAnimations({
           800: "#0e1014",
           900: "#07080a",
         },
-        
       },
     },
   },

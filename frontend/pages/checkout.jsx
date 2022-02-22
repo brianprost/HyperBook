@@ -4,10 +4,10 @@ import { CartItem } from "../components/CartItem.component";
 
 const CheckoutPage = () => {
   return (
-    <section id="checkout" className="h-auto grid grid-cols-3">
-      <div className="lg:col-span-2 col-span-3 space-y-8 px-12">
-        <div className="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-neutral-50 shadow rounded-lg">
-          <div className="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
+    <section id="checkout" className="grid h-auto grid-cols-3">
+      <div className="col-span-3 space-y-8 px-12 lg:col-span-2">
+        <div className="relative mt-8 flex flex-col rounded-lg bg-neutral-50 p-4 shadow sm:flex-row sm:items-center">
+          <div className="flex w-full flex-row items-center border-b pb-4 sm:w-auto sm:border-b-0 sm:pb-0">
             <div className="text-red-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -24,14 +24,14 @@ const CheckoutPage = () => {
                 />
               </svg>
             </div>
-            <div className=" font-semibold text-neutral-600 ml-3">
+            <div className=" ml-3 font-semibold text-neutral-600">
               Fill in from account profile?
             </div>
           </div>
-          <div className="absolute sm:relative sm:top-auto sm:right-auto ml-auto right-4 top-4 text-gray-400 hover:text-gray-800 cursor-pointer">
+          <div className="absolute right-4 top-4 ml-auto cursor-pointer text-gray-400 hover:text-gray-800 sm:relative sm:top-auto sm:right-auto">
             <button
               type="button"
-              className="bg-red-500 font-[650] tracking-wider px-3 py-1 text-hypertan rounded-xl hover:text-neutral-50"
+              className="rounded-xl bg-red-500 px-3 py-1 font-[650] tracking-wider text-hypertan hover:text-neutral-50"
             >
               Autofill
             </button>
@@ -39,68 +39,68 @@ const CheckoutPage = () => {
         </div>
         <div className="rounded-lg">
           <form id="payment-form" method="POST" action="">
-            <h2 className="uppercase tracking-wide text-lg font-bold text-gray-700 my-2">
+            <h2 className="my-2 text-lg font-bold uppercase tracking-wide text-gray-700">
               Shipping & Billing Information
             </h2>
-            <fieldset className="mb-3 bg-neutral-50 shadow-lg rounded-lg px-4 py-2 text-neutral-900">
-              <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-auto ml-1 text-left px-2 font-bold">
+            <fieldset className="mb-3 rounded-lg bg-neutral-50 px-4 py-2 text-neutral-900 shadow-lg">
+              <label className="flex h-12 items-center border-b border-gray-200 py-8">
+                <span className="ml-1 w-auto px-2 text-left font-bold">
                   Name
                 </span>
                 <input
                   name="name"
-                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
+                  className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="Bernando Sanders"
                   required=""
                 />
               </label>
-              <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-auto ml-1 text-left px-2 font-bold">
+              <label className="flex h-12 items-center border-b border-gray-200 py-8">
+                <span className="ml-1 w-auto px-2 text-left font-bold">
                   Email
                 </span>
                 <input
                   name="email"
                   type="email"
-                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
+                  className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="bernando@senate.gov"
                   required=""
                 />
               </label>
-              <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-auto ml-1 text-left px-2 font-bold">
+              <label className="flex h-12 items-center border-b border-gray-200 py-8">
+                <span className="ml-1 w-auto px-2 text-left font-bold">
                   Address
                 </span>
                 <input
                   name="address"
-                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
+                  className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="!=1600 Pennsylvania Ave."
                 />
               </label>
-              <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-                <span className="w-auto ml-1 text-left px-2 font-bold">
+              <label className="flex h-12 items-center border-b border-gray-200 py-8">
+                <span className="ml-1 w-auto px-2 text-left font-bold">
                   City
                 </span>
                 <input
                   name="city"
-                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
+                  className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="Burlington"
                 />
               </label>
               <label className="inline-flex w-2/4 border-gray-200 py-6">
-                <span className="text-right px-2 font-bold">State</span>
+                <span className="px-2 text-right font-bold">State</span>
                 <input
                   name="state"
-                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
+                  className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="VA"
                 />
               </label>
-              <label className="xl:w-1/4 xl:inline-flex items-center flex xl:border-none border-t border-gray-200 py-6">
-                <span className="font-bold ml-1 text-right px-2 xl:px-0 xl:text-none">
+              <label className="flex items-center border-t border-gray-200 py-6 xl:inline-flex xl:w-1/4 xl:border-none">
+                <span className="xl:text-none ml-1 px-2 text-right font-bold xl:px-0">
                   ZIP
                 </span>
                 <input
                   name="postal_code"
-                  className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
+                  className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="90210"
                 />
               </label>
@@ -108,15 +108,15 @@ const CheckoutPage = () => {
           </form>
         </div>
         <div className="rounded-md">
-          <h2 className="uppercase tracking-wide text-lg font-bold text-gray-700 my-2">
+          <h2 className="my-2 text-lg font-bold uppercase tracking-wide text-gray-700">
             Payment Information
           </h2>
-          <fieldset className="bg-neutral-50 shadow-lg mb-10 rounded-xl px-4 text-neutral-900">
-            <label className="flex border-b border-gray-200 h-12 py-8 items-center">
-              <span className="text-right px-2 font-bold">Card</span>
+          <fieldset className="mb-10 rounded-xl bg-neutral-50 px-4 text-neutral-900 shadow-lg">
+            <label className="flex h-12 items-center border-b border-gray-200 py-8">
+              <span className="px-2 text-right font-bold">Card</span>
               <input
                 name="card"
-                className="focus:outline-none px-3 w-full font-semilight bg-neutral-50"
+                className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                 placeholder="Card number MM/YY CVC"
                 required=""
               />
@@ -126,18 +126,18 @@ const CheckoutPage = () => {
         <Link href={"/account"}>
           <a>
             <div className="flex justify-center">
-              <button className="submit-button px-10 py-3.5 text-xl font-[780] text-center transition duration-400 ease-in-out transform border-2 border-red-500 text-neutral-400 shadow-md rounded-2xl bg-red-500 hover:bg-indigo-600 hover:text-red-500 hover:border-red-500 hover:scale-105">
+              <button className="submit-button duration-400 transform rounded-2xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:scale-105 hover:border-red-500 hover:bg-indigo-600 hover:text-red-500">
                 Pay $65.72
               </button>
             </div>
           </a>
         </Link>
       </div>
-      <div className="col-span-1 bg-neutral-50 lg:block hidden h-full rounded-b-xl">
-        <h1 className="font-bold py-6 border-b-2 text-xl text-neutral-900 px-8">
+      <div className="col-span-1 hidden h-full rounded-b-xl bg-neutral-50 lg:block">
+        <h1 className="border-b-2 py-6 px-8 text-xl font-bold text-neutral-900">
           Order Summary
         </h1>
-        <ul className="py-6 border-b space-y-6 px-8">
+        <ul className="space-y-6 border-b py-6 px-8">
           <CartItem
             tripTitle="Chicago to Nashville"
             tripImage="./img/CHI-BNA.webp"
@@ -153,7 +153,7 @@ const CheckoutPage = () => {
             tripPrice="$37.00"
           />
         </ul>
-        <div className="px-8 border-b">
+        <div className="border-b px-8">
           <div className="flex justify-between py-4 text-neutral-900">
             <span className="font-bold">Subtotal</span>
             <span className="font-bold text-red-500">$62.00</span>
@@ -163,7 +163,7 @@ const CheckoutPage = () => {
             <span className="font-bold text-red-500">$3.72</span>
           </div>
         </div>
-        <div className="font-semibold text-xl px-8 flex justify-between py-8 text-neutral-900">
+        <div className="flex justify-between px-8 py-8 text-xl font-semibold text-neutral-900">
           <span className="font-bold">Total</span>
           <span className="font-bold">$65.72</span>
         </div>

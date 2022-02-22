@@ -74,7 +74,7 @@ Software stack:
 
 - ReactJS (frontend)
 - .NET Core (backend)
-- MariaDB/MySQL (database)
+- Azure SQL Server (database)
 
 
 ### Hardware Requirements
