@@ -1,6 +1,7 @@
 import React from "react";
-import { RouteOptionCard } from "../components/book/RouteOptionCard.component";
-import { getSchedules } from "../services/UserService";
+import { RouteOptionCard } from "./RouteOptionCard.component";
+import { getSchedules } from "../../services/UserService";
+import { getCookie } from "cookies-next";
 
 const RouteSection = (props) => {
   const depCityId = props.depCityId;
@@ -43,9 +44,13 @@ const RouteSection = (props) => {
     },
   ];
 
+  // const departureCity = getCookie("departureCity");
+  // const destinationCity = getCookie("destinationCity");
+
   return (
-    <section id="route-choices">
+    <section id="route-choices" className="relative mx-auto mb-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-24">
       {/* TODO center this instead of a large margin top. flex box be flexing weird rn... */}
+        <h2 className="text-center text-6xl font-bold text-black-500">{props.departureCity} to {props.destinationCity}</h2>
       <div className="relative mx-auto mt-20 flex max-w-7xl items-center justify-evenly md:px-12 lg:px-16">
         <div className="relative space-y-12 overflow-hidden rounded-xl p-10 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
           {routeOptions.map((option, index) => (
