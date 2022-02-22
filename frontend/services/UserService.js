@@ -11,7 +11,7 @@ export async function loginUser(p1, p2) {
 
 export async function getUser(id) {
   const response = await axios.get(
-    base_url + `/api/HyperBook/GetUserName?userId=${id}`
+    base_url + `/api/HyperBook/GetAccountInfo?userId=${id}`
   );
   return response;
 }

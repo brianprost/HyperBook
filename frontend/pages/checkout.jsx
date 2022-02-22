@@ -1,8 +1,27 @@
 import Link from "next/link";
 import React from "react";
+import { useState } from "react";
 import { CartItem } from "../components/CartItem.component";
+import { getUser } from "../services/UserService";
 
-const CheckoutPage = () => {
+const CheckoutPage = (props) => {
+  const userId = props.userId;
+  const [user, setUser] = useState(false);
+
+  const autoFill = (event) => {
+    event.preventDefault();
+    getUser(userId)
+    .then((res) => {
+      if (res.status == 200 && res.statusText === "OK") {
+        setUser(res.data);
+        //console.log(res.data);
+      }
+    })
+    .catch((err) => {
+      alert(err);
+    });
+  };
+
   return (
     <section id="checkout" className="grid h-auto grid-cols-3">
       <div className="col-span-3 space-y-8 px-12 lg:col-span-2">
@@ -32,6 +51,7 @@ const CheckoutPage = () => {
             <button
               type="button"
               className="rounded-xl bg-red-500 px-3 py-1 font-[650] tracking-wider text-hypertan hover:text-neutral-50"
+              onClick={autoFill}
             >
               Autofill
             </button>
@@ -52,6 +72,7 @@ const CheckoutPage = () => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="Bernando Sanders"
                   required=""
+                  value={user ? user.firstName + " " + user.lastName : ""}
                 />
               </label>
               <label className="flex h-12 items-center border-b border-gray-200 py-8">
@@ -64,6 +85,7 @@ const CheckoutPage = () => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="bernando@senate.gov"
                   required=""
+                  value={user ? user.email : ""}
                 />
               </label>
               <label className="flex h-12 items-center border-b border-gray-200 py-8">
@@ -74,6 +96,7 @@ const CheckoutPage = () => {
                   name="address"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="!=1600 Pennsylvania Ave."
+                  value={user ? user.street : ""}
                 />
               </label>
               <label className="flex h-12 items-center border-b border-gray-200 py-8">
@@ -84,6 +107,7 @@ const CheckoutPage = () => {
                   name="city"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="Burlington"
+                  value={user ? user.city : ""}
                 />
               </label>
               <label className="inline-flex w-2/4 border-gray-200 py-6">
@@ -92,6 +116,7 @@ const CheckoutPage = () => {
                   name="state"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="VA"
+                  value={user ? user.state : ""}
                 />
               </label>
               <label className="flex items-center border-t border-gray-200 py-6 xl:inline-flex xl:w-1/4 xl:border-none">
@@ -102,6 +127,7 @@ const CheckoutPage = () => {
                   name="postal_code"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="90210"
+                  value={user ? user.zip : ""}
                 />
               </label>
             </fieldset>

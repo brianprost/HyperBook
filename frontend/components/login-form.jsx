@@ -19,12 +19,6 @@ const LoginValidation = yup.object().shape({
 const LoginForm = () => {
   const [isError, setIsError] = useState(false);
 
-  // const setCookie = (cname, cvalue) => {
-  //     const cookies = new Cookies();
-  //     cookies.set(cname, cvalue, { path: '/' });
-  //     //document.cookie = cname + '=' + cvalue + ';max-age=86400';
-  // }
-
   const formik = useFormik({
     initialValues: {
       email: "",
