@@ -2,7 +2,7 @@ import React from "react";
 import { RouteOptionCard } from "../components/book/RouteOptionCard.component";
 import { getSchedules } from "../services/UserService";
 
-const RouteChoicesPage = (props) => {
+const RouteSection = (props) => {
   const depCityId = props.depCityId;
   const desCityId = props.desCityId;
   //console.log(props);
@@ -64,4 +64,4 @@ const RouteChoicesPage = (props) => {
   );
 };
 
-export default RouteChoicesPage;
+export default RouteSection;
