@@ -1,8 +1,6 @@
 import React from "react";
-import { ArrowDownIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import PodTime from "./PodTime.component";
-import { GiApolloCapsule } from "react-icons/gi";
 
 export const RouteOptionCard = ({
   timeOfDay,
@@ -15,7 +13,7 @@ export const RouteOptionCard = ({
       <h3 className="px-auto mb-5 select-none text-center text-4xl font-[725] tracking-tighter text-red-50 underline drop-shadow-sm xl:text-5xl">
         {timeOfDay}
       </h3>
-      <h2 className="px-auto select-all text-center text-xl font-semibold tracking-tight text-red-50 mb-2">
+      <h2 className="px-auto mb-2 select-all text-center text-xl font-semibold tracking-tight text-red-50">
         All <span className="text-red-500">pods</span> between:
       </h2>
       <PodTime time={earliestPod} firstOrLast={"First"} />
