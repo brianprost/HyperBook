@@ -63,9 +63,13 @@ const MapSection = () => {
     );
   if (!cities) return <p>No Cities :(</p>;
 
-  if (destinationCity) return (
-    <RouteSection departureCity={departureCity} destinationCity={destinationCity} />
-  );
+  if (destinationCity)
+    return (
+      <RouteSection
+        departureCity={departureCity}
+        destinationCity={destinationCity}
+      />
+    );
 
   return (
     <div className="relative mx-auto mb-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-24">
