@@ -7,14 +7,12 @@ import {
   Geographies,
   Geography,
   Marker,
-  Line,
 } from "react-simple-maps";
 import ReactTooltip from "react-tooltip";
 import RouteSection from "./RouteSection.component";
+import MapMarker from "./MapMarker.component";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
-
-const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
 const MapSection = () => {
   const [cities, setCities] = useState(null);
@@ -25,13 +23,6 @@ const MapSection = () => {
   const [destinationCityId, setDestinationCityId] = useState(false);
   const [titleText, setTitleText] = useState("Destinations");
   const [tooltipContent, setTooltipContent] = useState("");
-
-  // TODO eventually don't hard code this right here
-  const dotAvailableColor = "#f05454";
-  const dotSelectedColor = "#c04343";
-  const dotNotAvailableColor = "#7a7e83";
-
-  const router = useRouter();
 
   useEffect(() => {
     setLoading(true);
@@ -63,13 +54,14 @@ const MapSection = () => {
     );
   if (!cities) return <p>No Cities :(</p>;
 
-  if (destinationCity)
+  if (destinationCity) {
     return (
       <RouteSection
         departureCity={departureCity}
         destinationCity={destinationCity}
       />
     );
+  }
 
   return (
     <div className="relative mx-auto mb-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-24">
@@ -113,9 +105,7 @@ const MapSection = () => {
                 }}
                 onClick={async () => {
                   // there's probably a better place for this
-                  if (destinationCity && departureCity) {
-                    console.log("cities have already been selected");
-                  } else if (!departureCity) {
+                  if (!departureCity) {
                     setDepartureCity(city.city);
                     setDepartureCityId(city.id);
                     setCookies("departureCity", departureCity);
@@ -125,38 +115,18 @@ const MapSection = () => {
                     setDestinationCityId(city.id);
                     setDestinationCity(city.city);
                     setTitleText(`${titleText + city.city}`);
-                    await delay(1000);
-                    console.log(`destinationCity set to: ${city.city}`);
-                    console.log(city.id);
-                    console.log(destinationCityId);
                     setCookies("destinationCityId", destinationCityId);
                     setCookies("destinationCity", destinationCity);
                   }
                 }}
-                style={{
-                  default: {
-                    fill: dotAvailableColor,
-                    outline: "none",
-                  },
-                  hover: {
-                    fill: dotSelectedColor,
-                    outline: "none",
-                  },
-                  pressed: {
-                    fill: dotSelectedColor,
-                    outline: "none",
-                  },
-                  // TODO can't get button to stay the selected color
-                  active: {
-                    fill: dotSelectedColor,
-                    outline: "none",
-                  },
-                }}
               >
-                <circle r={6} strokeWidth={4} />
+                <MapMarker
+                  city={city}
+                  departureCity={departureCity}
+                  destinationCity={destinationCity}
+                />
               </Marker>
             ))}
-            {/* eventually a line will go here: */}
           </ComposableMap>
         </div>
       </div>
