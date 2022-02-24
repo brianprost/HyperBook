@@ -15,7 +15,8 @@ export const RouteOptionCard = ({
         {timeOfDay}
       </h3>
       <h2 className="px-auto mb-2 select-all text-center text-xl font-semibold tracking-tight text-red-50">
-        All <span className="text-red-500">pods</span> between:
+        All <span className="font-bold text-red-500 drop-shadow-md">Pods</span>{" "}
+        between:
       </h2>
       <PodTime time={earliestPod} firstOrLast={"First"} />
       <PodTime time={latestPod} firstOrLast={"Last"} />

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import RouteSection from "../components/book/RouteSection.component";
 
 // temporarily including map on page instead of component
 // import { Map } from "../components/Map.component";
