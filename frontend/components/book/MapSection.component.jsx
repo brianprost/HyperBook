@@ -108,7 +108,6 @@ const MapSection = () => {
                   } else if (!destinationCity) {
                     setDestinationCity(city.city);
                     setTitleText(`${titleText + city.city}`);
-                    await delay(1000);
                   }
                 }}
               >
