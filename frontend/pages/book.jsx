@@ -5,6 +5,7 @@ import RouteSection from "../components/book/RouteSection.component";
 // import { Map } from "../components/Map.component";
 
 import MapSection from "../components/book/MapSection.component";
+import withAuth from "./withAuth";
 
 const BookingPage = () => {
   return (
@@ -14,4 +15,4 @@ const BookingPage = () => {
   );
 };
 
-export default BookingPage;
+export default withAuth(BookingPage);

@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 useRouter;
-import { setCookies } from "cookies-next";
 import {
   ComposableMap,
   Geographies,
@@ -21,8 +20,6 @@ const MapSection = () => {
   const [isLoading, setLoading] = useState(false);
   const [departureCity, setDepartureCity] = useState(false);
   const [destinationCity, setDestinationCity] = useState(false);
-  const [departureCityId, setDepartureCityId] = useState(false);
-  const [destinationCityId, setDestinationCityId] = useState(false);
   const [titleText, setTitleText] = useState("Destinations");
   const [tooltipContent, setTooltipContent] = useState("");
 
@@ -117,20 +114,11 @@ const MapSection = () => {
                     console.log("cities have already been selected");
                   } else if (!departureCity) {
                     setDepartureCity(city.city);
-                    setDepartureCityId(city.id);
-                    setCookies("departureCity", departureCity);
-                    setCookies("departureCityId", departureCityId);
                     setTitleText(`${city.city} to `);
                   } else if (!destinationCity) {
-                    setDestinationCityId(city.id);
                     setDestinationCity(city.city);
                     setTitleText(`${titleText + city.city}`);
                     await delay(1000);
-                    console.log(`destinationCity set to: ${city.city}`);
-                    console.log(city.id);
-                    console.log(destinationCityId);
-                    setCookies("destinationCityId", destinationCityId);
-                    setCookies("destinationCity", destinationCity);
                   }
                 }}
                 style={{

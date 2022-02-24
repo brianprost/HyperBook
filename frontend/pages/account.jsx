@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Reservation } from "../components/Reservation.component";
 import { getUser } from "../services/UserService";
+import withAuth from "./withAuth";
 
 const AccountPage = () => {
   const [accountName, setAccountName] = useState("");
@@ -66,4 +67,4 @@ const AccountPage = () => {
   );
 };
 
-export default AccountPage;
+export default withAuth(AccountPage);

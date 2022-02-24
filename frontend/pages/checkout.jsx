@@ -3,9 +3,13 @@ import React from "react";
 import { useState } from "react";
 import { CartItem } from "../components/CartItem.component";
 import { getUser } from "../services/UserService";
+import withAuth from "./withAuth";
 
 const CheckoutPage = (props) => {
   const userId = props.userId;
+  const departureCity = props.departureCity;
+  console.log(departureCity);
+  const destinationCity = props.destinationCity;
   const [user, setUser] = useState(false);
 
   const autoFill = (event) => {
@@ -14,13 +18,16 @@ const CheckoutPage = (props) => {
     .then((res) => {
       if (res.status == 200 && res.statusText === "OK") {
         setUser(res.data);
-        //console.log(res.data);
       }
     })
     .catch((err) => {
       alert(err);
     });
   };
+
+  const inputChangedHandler = (event) => {
+    const updatedKeyword = event.target.value;
+  }
 
   return (
     <section id="checkout" className="grid h-auto grid-cols-3">
@@ -73,6 +80,7 @@ const CheckoutPage = (props) => {
                   placeholder="Bernando Sanders"
                   required=""
                   value={user ? user.firstName + " " + user.lastName : ""}
+                  onChange={inputChangedHandler}
                 />
               </label>
               <label className="flex h-12 items-center border-b border-gray-200 py-8">
@@ -86,6 +94,7 @@ const CheckoutPage = (props) => {
                   placeholder="bernando@senate.gov"
                   required=""
                   value={user ? user.email : ""}
+                  onChange={inputChangedHandler}
                 />
               </label>
               <label className="flex h-12 items-center border-b border-gray-200 py-8">
@@ -97,6 +106,7 @@ const CheckoutPage = (props) => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="!=1600 Pennsylvania Ave."
                   value={user ? user.street : ""}
+                  onChange={inputChangedHandler}
                 />
               </label>
               <label className="flex h-12 items-center border-b border-gray-200 py-8">
@@ -108,6 +118,7 @@ const CheckoutPage = (props) => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="Burlington"
                   value={user ? user.city : ""}
+                  onChange={inputChangedHandler}
                 />
               </label>
               <label className="inline-flex w-2/4 border-gray-200 py-6">
@@ -117,6 +128,7 @@ const CheckoutPage = (props) => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="VA"
                   value={user ? user.state : ""}
+                  onChange={inputChangedHandler}
                 />
               </label>
               <label className="flex items-center border-t border-gray-200 py-6 xl:inline-flex xl:w-1/4 xl:border-none">
@@ -128,6 +140,7 @@ const CheckoutPage = (props) => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="90210"
                   value={user ? user.zip : ""}
+                  onChange={inputChangedHandler}
                 />
               </label>
             </fieldset>
@@ -165,24 +178,17 @@ const CheckoutPage = (props) => {
         </h1>
         <ul className="space-y-6 border-b py-6 px-8">
           <CartItem
-            tripTitle="Chicago to Nashville"
+            tripTitle={departureCity+" to "+destinationCity}
             tripImage="./img/CHI-BNA.webp"
-            tripDate="March 16 2020"
-            tripTime="08:25"
+            // tripDate="March 16 2020"
+            // tripTime="08:25"
             tripPrice="$25.00"
-          />
-          <CartItem
-            tripTitle="Seattle to San Francisco"
-            tripImage="./img/SEA-SFO.webp"
-            tripDate="Dec 24 2020"
-            tripTime="16:30"
-            tripPrice="$37.00"
           />
         </ul>
         <div className="border-b px-8">
           <div className="flex justify-between py-4 text-neutral-900">
             <span className="font-bold">Subtotal</span>
-            <span className="font-bold text-red-500">$62.00</span>
+            <span className="font-bold text-red-500">$25.00</span>
           </div>
           <div className="flex justify-between py-4 text-neutral-900">
             <span className="font-bold">Taxes</span>
@@ -198,4 +204,4 @@ const CheckoutPage = (props) => {
   );
 };
 
-export default CheckoutPage;
+export default withAuth(CheckoutPage);
