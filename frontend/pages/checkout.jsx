@@ -229,7 +229,7 @@ const CheckoutPage = (props) => {
               <a> */}
                 <div className="flex justify-center">
                   <button type="submit" className="submit-button duration-400 transform rounded-2xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:scale-105 hover:border-red-500 hover:bg-indigo-600 hover:text-red-500">
-                    PAY $65.72
+                    {"PAY $" + total}
                   </button>
                 </div>
               {/* </a>
