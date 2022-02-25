@@ -30,3 +30,10 @@ export async function getTrips(id) {
   );
   return response;
 }
+
+export async function getCities() {
+  const response = await axios.get(
+    base_url + `/api/HyperBook/GetCitiesWithInfo`
+  );
+  return response;
+}

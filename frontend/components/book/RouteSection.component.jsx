@@ -5,6 +5,8 @@ import { setCookies } from "cookies-next";
 const RouteSection = (props) => {
   setCookies("departureCity", props.departureCity);
   setCookies("destinationCity", props.destinationCity);
+  setCookies("departureCityId", props.departureCityId);
+  setCookies("destinationCityId", props.destinationCityId);
 
   const routeOptions = [
     {

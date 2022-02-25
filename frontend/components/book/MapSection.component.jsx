@@ -18,6 +18,8 @@ const MapSection = () => {
   const [isLoading, setLoading] = useState(false);
   const [departureCity, setDepartureCity] = useState(false);
   const [destinationCity, setDestinationCity] = useState(false);
+  const [departureCityId, setDepartureCityId] = useState(false);
+  const [destinationCityId, setDestinationCityId] = useState(false);
   const [titleText, setTitleText] = useState("Destinations");
   const [tooltipContent, setTooltipContent] = useState("");
 
@@ -56,6 +58,8 @@ const MapSection = () => {
       <RouteSection
         departureCity={departureCity}
         destinationCity={destinationCity}
+        departureCityId={departureCityId}
+        destinationCityId={destinationCityId}
       />
     );
   }
@@ -92,10 +96,10 @@ const MapSection = () => {
             </Geographies>
             {cities.map((city) => (
               <Marker
-                key={city.city}
+                key={city.name}
                 coordinates={[city.longitude, city.latitude]}
                 onMouseEnter={() => {
-                  setTooltipContent(`${city.city}`);
+                  setTooltipContent(`${city.name}`);
                 }}
                 onMouseLeave={() => {
                   setTooltipContent("");
@@ -103,11 +107,13 @@ const MapSection = () => {
                 onClick={async () => {
                   // there's probably a better place for this
                   if (!departureCity) {
-                    setDepartureCity(city.city);
-                    setTitleText(`${city.city} to `);
+                    setDepartureCity(city.name);
+                    setDepartureCityId(city.Id);
+                    setTitleText(`${city.name} to `);
                   } else if (!destinationCity) {
-                    setDestinationCity(city.city);
-                    setTitleText(`${titleText + city.city}`);
+                    setDestinationCity(city.name);
+                    setDestinationCityId(city.Id);
+                    setTitleText(`${titleText + city.name}`);
                   }
                 }}
               >
