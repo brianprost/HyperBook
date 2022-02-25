@@ -28,7 +28,6 @@ const AccountPage = () => {
         res.data.forEach(item => {
           if(item.refStatus === "Booked") {
             tempPods.push(item.podSchedule);
-            console.log(item.podSchedule);
           }
         });
         setPods(tempPods);

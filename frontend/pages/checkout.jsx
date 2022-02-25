@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { useState } from "react";
 import { CartItem } from "../components/checkout/CartItem.component";
-import { getUser } from "../services/UserService";
+import { addTrip, getPodSchedule, getUser } from "../services/UserService";
 import { BsInfoSquareFill } from "react-icons/bs";
 import { FormLabel } from "../components/form-label";
 
@@ -15,6 +15,9 @@ const CheckoutPage = (props) => {
   const userId = props.userId;
   const departureCity = props.departureCity;
   const destinationCity = props.destinationCity;
+  const departureCityId = props.departureCityId;
+  const destinationCityId = props.destinationCityId;
+  const time = props.time;
   const subTotal = 25;
   const taxes = (subTotal * 0.07);
   const roundedTaxes = Math.round((taxes + Number.EPSILON) * 100) / 100;
@@ -81,8 +84,24 @@ const CheckoutPage = (props) => {
     validationSchema: LoginValidation,
     onSubmit: (values) => {
       if (values.card === card && values.expiry === expiry && values.cvc === cvc) {
+        getPodSchedule(departureCityId, destinationCityId)
+        .then((res) => {
+          res.data.forEach(element => {
+            if(element.departureWindow === time) {
+              addTrip(userId, element.id, 2)
+              .then((res) => {
+                router.push("/account");
+              })
+              .catch((err) => {
+                alert(err);
+              });
+            }
+          });
+        })
+        .catch((err) => {
+          alert(err);
+        });
         
-        router.push("/account");
       }else {
         alert("The card details entered are incorrect. Hence the payment did not got through! Please try again!");
       }

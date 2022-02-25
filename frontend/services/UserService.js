@@ -37,3 +37,11 @@ export async function getCities() {
   );
   return response;
 }
+
+export async function addTrip(userId, podId, statusId) {
+  const trip = { userId: userId, podSchedule: podId, statusId: statusId };
+  const response = await axios.post(
+    base_url + `/api/Insert/AddTrip`, trip
+  );
+  return response;
+}

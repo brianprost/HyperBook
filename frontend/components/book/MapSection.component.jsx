@@ -108,11 +108,11 @@ const MapSection = () => {
                   // there's probably a better place for this
                   if (!departureCity) {
                     setDepartureCity(city.name);
-                    setDepartureCityId(city.Id);
+                    setDepartureCityId(city.id);
                     setTitleText(`${city.name} to `);
                   } else if (!destinationCity) {
                     setDestinationCity(city.name);
-                    setDestinationCityId(city.Id);
+                    setDestinationCityId(city.id);
                     setTitleText(`${titleText + city.name}`);
                   }
                 }}
