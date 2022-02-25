@@ -8,13 +8,10 @@ const withAuth = (WrappedComponent) => {
 
       const isUser = localStorage.getItem("isAuthenticated");
 
-      // If there is no access token we redirect to "/" page.
       if (!isUser || isUser === "false") {
         Router.replace("/login");
         return null;
       }
-
-      // If this is an accessToken we just render the component that was passed with all its props
 
       return <WrappedComponent {...props} />;
     }
