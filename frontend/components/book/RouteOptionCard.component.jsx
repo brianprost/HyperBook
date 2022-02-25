@@ -10,7 +10,7 @@ export const RouteOptionCard = ({
   latestPod,
   tripPrice,
 }) => {
-  const onLinkClick = (e) => {
+  const onButtonClick = (e) => {
     e.preventDefault();
     setCookies("time", timeOfDay)
     Router.push('/checkout');
@@ -31,7 +31,7 @@ export const RouteOptionCard = ({
           type="button"
           className=" duration-400 block w-full transform items-center rounded-xl border-[3px] border-neutral-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-500 shadow-md transition ease-in-out hover:border-red-500 hover:bg-neutral-500 hover:text-red-500"
           // className="duration-400 block transform rounded-xl border-2 border-red-500 bg-red-500 px-3 py-2 text-center text-lg font-[620] text-neutral-400 shadow-md transition ease-in-out hover:border-red-500 hover:bg-indigo-500 hover:text-neutral-300"
-          onClick={onLinkClick}
+          onClick={onButtonClick}
         >
           {tripPrice}
         </button>  
