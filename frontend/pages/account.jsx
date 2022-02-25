@@ -5,7 +5,7 @@ import withAuth from "./withAuth";
 
 const AccountPage = () => {
   const [accountName, setAccountName] = useState("");
-  const [trips, setTrips] = useState([]);
+  const [pods, setPods] = useState([]);
   useEffect(() => {
     let id = document.cookie
       .split("; ")
@@ -22,19 +22,20 @@ const AccountPage = () => {
       .catch((err) => {
         console.error(err);
       });
-    // getTrips(id)
-    //   .then((res) => {
-    //     const pods = [];
-    //     res.data.forEach(item => {
-    //       // setTrips(oldTrips => [...oldTrips, item])
-    //       pods.push(item.podSchedule);
-    //       console.log(item.podSchedule);
-    //     });
-    //     console.log(pods)
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
+    getTrips(id)
+      .then((res) => {
+        const tempPods = [];
+        res.data.forEach(item => {
+          if(item.refStatus === "Booked") {
+            tempPods.push(item.podSchedule);
+            console.log(item.podSchedule);
+          }
+        });
+        setPods(tempPods);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (
@@ -50,16 +51,23 @@ const AccountPage = () => {
         </div>
         <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
-            {/* {trips.map(i =>  */}
-            <Reservation
-              // date="Mar 16, 2020"
-              pricePaid="$25"
-              departureCity="Chicago"
-              finalDestination="Nashville"
-              confirmationCode="FF9OUG"
-              displayImage="./img/CHI-BNA.webp"
-            />
-            <Reservation
+            {
+              pods.length >= 1 ?
+                pods.map(i => 
+                  <Reservation
+                    date={i.departureWindow}
+                    pricePaid={i.price}
+                    departureCity={i.cityFrom}
+                    finalDestination={i.cityTo}
+                    confirmationCode="FF9OUG"
+                    displayImage="./img/CHI-BNA.webp"
+                  />
+                )
+              :
+                "No trips have been currently booked!"
+                //Write code for when no trips are there for the user
+            }  
+            {/* <Reservation
               date="Jun 08, 2021"
               pricePaid="$15"
               departureCity="New York"
@@ -74,7 +82,7 @@ const AccountPage = () => {
               finalDestination="San Francisco"
               confirmationCode="6PDQBF"
               displayImage="./img/SEA-SFO.webp"
-            />
+            /> */}
           </div>
         </div>
       </div>
