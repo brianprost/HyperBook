@@ -52,12 +52,12 @@ const AccountPage = () => {
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
             {
               pods.length >= 1 ?
-                pods.map(i => 
+                pods.map((item, i) => 
                   <Reservation
-                    date={i.departureWindow}
-                    pricePaid={i.price}
-                    departureCity={i.cityFrom}
-                    finalDestination={i.cityTo}
+                    date={item.departureWindow}
+                    pricePaid={item.price}
+                    departureCity={item.cityFrom}
+                    finalDestination={item.cityTo}
                     confirmationCode="FF9OUG"
                     displayImage="./img/CHI-BNA.webp"
                   />
