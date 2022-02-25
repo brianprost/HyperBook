@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Reservation } from "../components/Reservation.component";
-import { getUser } from "../services/UserService";
+import { getTrips, getUser } from "../services/UserService";
 import withAuth from "./withAuth";
 
 const AccountPage = () => {
   const [accountName, setAccountName] = useState("");
+  const [trips, setTrips] = useState([]);
   useEffect(() => {
     let id = document.cookie
       .split("; ")
@@ -21,6 +22,19 @@ const AccountPage = () => {
       .catch((err) => {
         console.error(err);
       });
+    // getTrips(id)
+    //   .then((res) => {
+    //     const pods = [];
+    //     res.data.forEach(item => {
+    //       // setTrips(oldTrips => [...oldTrips, item])
+    //       pods.push(item.podSchedule);
+    //       console.log(item.podSchedule);
+    //     });
+    //     console.log(pods)
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
   }, []);
 
   return (
@@ -36,8 +50,9 @@ const AccountPage = () => {
         </div>
         <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
+            {/* {trips.map(i =>  */}
             <Reservation
-              date="Mar 16, 2020"
+              // date="Mar 16, 2020"
               pricePaid="$25"
               departureCity="Chicago"
               finalDestination="Nashville"

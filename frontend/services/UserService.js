@@ -16,10 +16,17 @@ export async function getUser(id) {
   return response;
 }
 
-export async function getSchedules(depCity, desCity) {
+export async function getPodSchedule(depCity, desCity) {
   const response = await axios.get(
     base_url +
       `/api/HyperBook/GetPodSchedules?cityId=${depCity}&cityDestinationId=${desCity}`
+  );
+  return response;
+}
+
+export async function getTrips(id) {
+  const response = await axios.get(
+    base_url + `/api/HyperBook/GetTrips?userId=${id}`
   );
   return response;
 }
