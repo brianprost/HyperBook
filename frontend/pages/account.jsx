@@ -52,8 +52,9 @@ const AccountPage = () => {
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
             {
               pods.length >= 1 ?
-                pods.map((item, i) => 
+                pods.map((item, index) => 
                   <Reservation
+                    key={index}
                     date={item.departureWindow}
                     pricePaid={item.price}
                     departureCity={item.cityFrom}
