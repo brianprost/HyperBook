@@ -11,21 +11,21 @@ const RouteSection = (props) => {
   const routeOptions = [
     {
       tripID: "abc123",
-      timeOfDay: "Morning",
+      departureWindow: "Morning",
       earliestPod: "05:00",
       latestPod: "10:25",
       tripPrice: "$25.00",
     },
     {
       tripID: "def456",
-      timeOfDay: "Midday",
+      departureWindow: "Midday",
       earliestPod: "10:30",
       latestPod: "15:30",
       tripPrice: "$10.00",
     },
     {
       tripID: "ghi789",
-      timeOfDay: "Evening",
+      departureWindow: "Evening",
       earliestPod: "14:00",
       latestPod: "21:30",
       tripPrice: "$15.00",
@@ -46,7 +46,7 @@ const RouteSection = (props) => {
           {routeOptions.map((option, index) => (
             <RouteOptionCard
               key={option.tripID}
-              timeOfDay={option.timeOfDay}
+              departureWindow={option.departureWindow}
               earliestPod={option.earliestPod}
               latestPod={option.latestPod}
               tripPrice={option.tripPrice}
