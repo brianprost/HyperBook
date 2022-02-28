@@ -61,7 +61,6 @@ const AccountPage = () => {
                     finalDestination={item.cityTo}
                     confirmationCode="FF9OUG"
                     displayImage="./img/CHI-BNA.webp"
-                    key = {i}
                   />
                 )
               :
