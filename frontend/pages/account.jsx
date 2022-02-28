@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Cookies from "cookies";
 import { Reservation } from "../components/Reservation.component";
 import { getTrips, getUser } from "../services/UserService";
-import withAuth from "./withAuth";
 
 const AccountPage = () => {
   const [accountName, setAccountName] = useState("");
@@ -61,6 +61,7 @@ const AccountPage = () => {
                     finalDestination={item.cityTo}
                     confirmationCode="FF9OUG"
                     displayImage="./img/CHI-BNA.webp"
+                    key = {i}
                   />
                 )
               :
@@ -90,4 +91,22 @@ const AccountPage = () => {
   );
 };
 
-export default withAuth(AccountPage);
+export async function getServerSideProps(context) {
+  const cookies = Cookies(context.req, context.res);
+  const isUser = cookies.get("isAuthenticated") ? true : false;
+  //const isUser = localStorage.getItem("isAuthenticated");
+  if (!isUser || isUser === "false") {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }else {
+    return {
+      props: {}, // will be passed to the page component as props
+    }
+  }  
+}
+
+export default AccountPage;

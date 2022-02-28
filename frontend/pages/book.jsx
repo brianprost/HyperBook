@@ -1,10 +1,6 @@
+import Cookies from "cookies";
 import React, { useEffect, useState } from "react";
-
-// temporarily including map on page instead of component
-// import { Map } from "../components/Map.component";
-
 import MapSection from "../components/book/MapSection.component";
-import withAuth from "./withAuth";
 
 const BookingPage = () => {
   return (
@@ -14,4 +10,22 @@ const BookingPage = () => {
   );
 };
 
-export default withAuth(BookingPage);
+export async function getServerSideProps(context) {
+  const cookies = Cookies(context.req, context.res);
+  const isUser = cookies.get("isAuthenticated") ? true : false;
+  //const isUser = localStorage.getItem("isAuthenticated");
+  if (!isUser || isUser === "false") {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }else {
+    return {
+      props: {}, // will be passed to the page component as props
+    }
+  }  
+}
+
+export default BookingPage;

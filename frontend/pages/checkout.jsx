@@ -1,6 +1,5 @@
-import Link from "next/link";
 import React from "react";
-import withAuth from "./withAuth";
+import Cookies from "cookies";
 import TotalItem from "../components/checkout/TotalItem";
 import router from "next/router";
 import * as yup from "yup";
@@ -293,4 +292,22 @@ const CheckoutPage = (props) => {
   );
 };
 
-export default withAuth(CheckoutPage);
+export async function getServerSideProps(context) {
+  const cookies = Cookies(context.req, context.res);
+  const isUser = cookies.get("isAuthenticated") ? true : false;
+  //const isUser = localStorage.getItem("isAuthenticated");
+  if (!isUser || isUser === "false") {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }else {
+    return {
+      props: {}, // will be passed to the page component as props
+    }
+  }  
+}
+
+export default CheckoutPage;
