@@ -40,11 +40,11 @@ const AccountPage = () => {
   return (
     <section id="account-bookings">
       <div className="relative mx-auto h-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-24 ">
-        <h2 className="mb-20 text-right text-4xl font-bold">
+        <h2 className="mb-20 text-right text-4xl font-bold text-indigo-500">
           Hi, <span className="font-extrabold text-red-500">{accountName}</span>
         </h2>
-        <div className="border-b border-neutral-900 pb-5">
-          <h3 className="text-xl font-bold leading-6 text-neutral-900">
+        <div className="border-b border-indigo-700 pb-5">
+          <h3 className="text-xl font-bold leading-6 text-indigo-500">
             Your Trips
           </h3>
         </div>
@@ -55,7 +55,7 @@ const AccountPage = () => {
                 ? pods.map((item, index) => (
                     <Reservation
                       key={index}
-                      date={item.departureWindow}
+                      departureWindow={item.departureWindow}
                       pricePaid={item.price}
                       departureCity={item.cityFrom}
                       finalDestination={item.cityTo}
