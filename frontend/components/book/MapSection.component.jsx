@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 useRouter;
-import { setCookies } from "cookies-next";
 import {
   ComposableMap,
   Geographies,
@@ -59,6 +58,8 @@ const MapSection = () => {
       <RouteSection
         departureCity={departureCity}
         destinationCity={destinationCity}
+        departureCityId={departureCityId}
+        destinationCityId={destinationCityId}
       />
     );
   }
@@ -95,10 +96,10 @@ const MapSection = () => {
             </Geographies>
             {cities.map((city) => (
               <Marker
-                key={city.city}
+                key={city.name}
                 coordinates={[city.longitude, city.latitude]}
                 onMouseEnter={() => {
-                  setTooltipContent(`${city.city}`);
+                  setTooltipContent(`${city.name}`);
                 }}
                 onMouseLeave={() => {
                   setTooltipContent("");
@@ -106,17 +107,13 @@ const MapSection = () => {
                 onClick={async () => {
                   // there's probably a better place for this
                   if (!departureCity) {
-                    setDepartureCity(city.city);
+                    setDepartureCity(city.name);
                     setDepartureCityId(city.id);
-                    setCookies("departureCity", departureCity);
-                    setCookies("departureCityId", departureCityId);
-                    setTitleText(`${city.city} to `);
+                    setTitleText(`${city.name} to `);
                   } else if (!destinationCity) {
+                    setDestinationCity(city.name);
                     setDestinationCityId(city.id);
-                    setDestinationCity(city.city);
-                    setTitleText(`${titleText + city.city}`);
-                    setCookies("destinationCityId", destinationCityId);
-                    setCookies("destinationCity", destinationCity);
+                    setTitleText(`${titleText + city.name}`);
                   }
                 }}
               >

@@ -119,6 +119,7 @@ export const Navbar = (props) => {
                                         "=;" +
                                         "expires=Thu, 01 Jan 1970 00:00:00 UTC;";
                                     });
+                                  localStorage?.setItem("isAuthenticated", "false");
                                 }}
                                 className={classNames(
                                   active ? "bg-neutral-100" : "",

@@ -22,8 +22,11 @@ MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
   let isUser = false;
   let userId = "";
-  let depCityId;
-  let desCityId;
+  let departureCity = "";
+  let destinationCity = "";
+  let departureCityId;
+  let destinationCityId;
+  let time = "";
   function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -43,21 +46,30 @@ MyApp.getInitialProps = async (appContext) => {
     const cookies = Cookies(appContext.ctx.req, appContext.ctx.res);
     isUser = cookies.get("isAuthenticated") ? true : false;
     userId = cookies.get("userId");
-    depCityId = cookies.get("departureCityId");
-    desCityId = cookies.get("destinationCityId");
+    departureCity = cookies.get("departureCity");
+    destinationCity = cookies.get("destinationCity");
+    departureCityId = cookies.get("departureCityId");
+    destinationCityId = cookies.get("destinationCityId");
+    time = cookies.get("time");
   } else {
     isUser = getCookie("isAuthenticated");
     userId = getCookie("userId");
-    depCityId = getCookie("departureCityId");
-    desCityId = getCookie("destinationCityId");
+    departureCity = getCookie("departureCity");
+    destinationCity = getCookie("destinationCity");
+    departureCityId = getCookie("departureCityId");
+    destinationCityId = getCookie("destinationCityId");
+    time = getCookie("time");
   }
   return {
     ...appProps,
     pageProps: {
       isUser,
       userId,
-      depCityId,
-      desCityId,
+      departureCity,
+      destinationCity,
+      departureCityId,
+      destinationCityId,
+      time,
     },
   };
 };
