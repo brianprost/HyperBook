@@ -25,8 +25,8 @@ const AccountPage = () => {
     getTrips(id)
       .then((res) => {
         const tempPods = [];
-        res.data.forEach(item => {
-          if(item.refStatus === "Booked") {
+        res.data.forEach((item) => {
+          if (item.refStatus === "Booked") {
             tempPods.push(item.podSchedule);
           }
         });
@@ -51,38 +51,21 @@ const AccountPage = () => {
         <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
             {
-              pods.length >= 1 ?
-                pods.map((item, index) => 
-                  <Reservation
-                    key={index}
-                    date={item.departureWindow}
-                    pricePaid={item.price}
-                    departureCity={item.cityFrom}
-                    finalDestination={item.cityTo}
-                    confirmationCode="FF9OUG"
-                    displayImage="./img/CHI-BNA.webp"
-                  />
-                )
-              :
-                "No trips have been currently booked!"
-                //Write code for when no trips are there for the user
-            }  
-            {/* <Reservation
-              date="Jun 08, 2021"
-              pricePaid="$15"
-              departureCity="New York"
-              finalDestination="Philadelphia"
-              confirmationCode="WFYC38"
-              displayImage="./img/NYC-PHL.webp"
-            />
-            <Reservation
-              date="Dec 24, 2020"
-              pricePaid="$30"
-              departureCity="Seattle"
-              finalDestination="San Francisco"
-              confirmationCode="6PDQBF"
-              displayImage="./img/SEA-SFO.webp"
-            /> */}
+              pods.length >= 1
+                ? pods.map((item, index) => (
+                    <Reservation
+                      key={index}
+                      date={item.departureWindow}
+                      pricePaid={item.price}
+                      departureCity={item.cityFrom}
+                      finalDestination={item.cityTo}
+                      confirmationCode={`HYPER${Math.floor(Math.random() * 9)}`}
+                      displayImage="./img/CHI-BNA.webp"
+                    />
+                  ))
+                : "No trips have been currently booked!"
+              //Write code for when no trips are there for the user
+            }
           </div>
         </div>
       </div>
@@ -97,15 +80,15 @@ export async function getServerSideProps(context) {
   if (!isUser || isUser === "false") {
     return {
       redirect: {
-        destination: '/login',
+        destination: "/login",
         permanent: false,
       },
     };
-  }else {
+  } else {
     return {
       props: {}, // will be passed to the page component as props
-    }
-  }  
+    };
+  }
 }
 
 export default AccountPage;

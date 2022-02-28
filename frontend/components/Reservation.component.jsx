@@ -14,14 +14,13 @@ export const Reservation = (props) => {
       <div className="flex flex-1 flex-col justify-between">
         <div className="flex-1">
           <div className="flex justify-between space-x-1 pt-6 text-sm font-normal tracking-wide text-indigo-800 ">
-            <time dateTime={`${props.date}`}> {props.date} </time>
-            <span className="mb-5 select-all rounded-md border bg-red-500 bg-opacity-90 px-2 py-1 text-right font-bold uppercase text-hypertan">
+            <h3 className="text-xl font-bold tracking-tight text-indigo-500">
+              {props.departureCity} to {props.finalDestination}
+            </h3>
+            <span className="mb-5 select-all rounded-md border bg-red-500 bg-opacity-100 px-2 py-1 text-right font-bold uppercase text-neutral-300">
               {props.confirmationCode}
             </span>
           </div>
-          <h3 className="text-xl font-bold leading-none tracking-tight text-indigo-800">
-            {props.departureCity} to {props.finalDestination}
-          </h3>
         </div>
       </div>
     </div>
