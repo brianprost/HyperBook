@@ -33,6 +33,7 @@ const LoginForm = () => {
           if (res.status == 200 && res.statusText === "OK") {
             setCookies("isAuthenticated", "true");
             setCookies("userId", res.data.userId);
+            localStorage?.setItem("isAuthenticated", "true");
             router.push("/book");
           }
         })

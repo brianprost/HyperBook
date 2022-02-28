@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Cookies from "cookies";
 import { Reservation } from "../components/Reservation.component";
-import { getUser } from "../services/UserService";
+import { getTrips, getUser } from "../services/UserService";
 
 const AccountPage = () => {
   const [accountName, setAccountName] = useState("");
+  const [pods, setPods] = useState([]);
   useEffect(() => {
     let id = document.cookie
       .split("; ")
@@ -16,6 +18,19 @@ const AccountPage = () => {
             " " +
             res.data.lastName.toUpperCase()
         );
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    getTrips(id)
+      .then((res) => {
+        const tempPods = [];
+        res.data.forEach(item => {
+          if(item.refStatus === "Booked") {
+            tempPods.push(item.podSchedule);
+          }
+        });
+        setPods(tempPods);
       })
       .catch((err) => {
         console.error(err);
@@ -35,15 +50,24 @@ const AccountPage = () => {
         </div>
         <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
-            <Reservation
-              date="Mar 16, 2020"
-              pricePaid="$25"
-              departureCity="Chicago"
-              finalDestination="Nashville"
-              confirmationCode="FF9OUG"
-              displayImage="./img/CHI-BNA.webp"
-            />
-            <Reservation
+            {
+              pods.length >= 1 ?
+                pods.map((item, index) => 
+                  <Reservation
+                    key={index}
+                    date={item.departureWindow}
+                    pricePaid={item.price}
+                    departureCity={item.cityFrom}
+                    finalDestination={item.cityTo}
+                    confirmationCode="FF9OUG"
+                    displayImage="./img/CHI-BNA.webp"
+                  />
+                )
+              :
+                "No trips have been currently booked!"
+                //Write code for when no trips are there for the user
+            }  
+            {/* <Reservation
               date="Jun 08, 2021"
               pricePaid="$15"
               departureCity="New York"
@@ -58,12 +82,30 @@ const AccountPage = () => {
               finalDestination="San Francisco"
               confirmationCode="6PDQBF"
               displayImage="./img/SEA-SFO.webp"
-            />
+            /> */}
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+export async function getServerSideProps(context) {
+  const cookies = Cookies(context.req, context.res);
+  const isUser = cookies.get("isAuthenticated") ? true : false;
+  //const isUser = localStorage.getItem("isAuthenticated");
+  if (!isUser || isUser === "false") {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }else {
+    return {
+      props: {}, // will be passed to the page component as props
+    }
+  }  
+}
 
 export default AccountPage;

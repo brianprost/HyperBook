@@ -1,24 +1,12 @@
 import React from "react";
 import { RouteOptionCard } from "./RouteOptionCard.component";
-import { getSchedules } from "../../services/UserService";
-import { getCookie } from "cookies-next";
+import { setCookies } from "cookies-next";
 
 const RouteSection = (props) => {
-  const depCityId = props.depCityId;
-  const desCityId = props.desCityId;
-  //console.log(props);
-  // getSchedules(depCity, desCity)
-  // .then((res) => {
-  //     if(res.status == 200 && res.statusText === 'OK') {
-  //         setCookies("isAuthenticated", "true");
-  //         setCookies("userId", res.data.userId);
-  //         router.push("/book");
-  //     }
-  // })
-  // .catch((err) => {
-  //     setIsError(true);
-  //     console.error(err);
-  // })
+  setCookies("departureCity", props.departureCity);
+  setCookies("destinationCity", props.destinationCity);
+  setCookies("departureCityId", props.departureCityId);
+  setCookies("destinationCityId", props.destinationCityId);
 
   const routeOptions = [
     {
@@ -43,9 +31,6 @@ const RouteSection = (props) => {
       tripPrice: "$15.00",
     },
   ];
-
-  // const departureCity = getCookie("departureCity");
-  // const destinationCity = getCookie("destinationCity");
 
   return (
     <section
