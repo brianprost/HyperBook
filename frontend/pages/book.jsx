@@ -17,15 +17,15 @@ export async function getServerSideProps(context) {
   if (!isUser || isUser === "false") {
     return {
       redirect: {
-        destination: '/login',
+        destination: "/login",
         permanent: false,
       },
     };
-  }else {
+  } else {
     return {
       props: {}, // will be passed to the page component as props
-    }
-  }  
+    };
+  }
 }
 
 export default BookingPage;
