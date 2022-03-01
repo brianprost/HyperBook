@@ -16,7 +16,7 @@ const CheckoutPage = (props) => {
   const destinationCity = props.destinationCity;
   const departureCityId = props.departureCityId;
   const destinationCityId = props.destinationCityId;
-  const departureWindow = props.departureWindow
+  const departureWindow = props.departureWindow;
   const subTotal = 25;
   const taxes = subTotal * 0.07;
   const roundedTaxes = Math.round((taxes + Number.EPSILON) * 100) / 100;
@@ -281,8 +281,8 @@ const CheckoutPage = (props) => {
         </h1>
         <ul className="space-y-6 border-b py-6 px-8">
           <CartItem
-            tripTitle={departureCity + " to " + destinationCity}
-            tripImage="./img/CHI-BNA.webp"
+            departureCity={departureCity}
+            destinationCity={destinationCity}
             departureWindow={departureWindow}
             tripPrice="$25.00"
           />

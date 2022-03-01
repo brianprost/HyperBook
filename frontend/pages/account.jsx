@@ -59,7 +59,9 @@ const AccountPage = () => {
                       pricePaid={trip.podSchedule.price}
                       departureCity={trip.podSchedule.cityFrom}
                       destinationCity={trip.podSchedule.cityTo}
-                      confirmationCode={accountName.split(' ').pop() + trip.tripId}
+                      confirmationCode={
+                        accountName.split(" ").pop() + trip.tripId
+                      }
                     />
                   ))
                 : "No trips have been currently booked!"

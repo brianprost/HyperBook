@@ -12,8 +12,8 @@ export const RouteOptionCard = ({
 }) => {
   const onButtonClick = (e) => {
     e.preventDefault();
-    setCookies("departureWindow", departureWindow)
-    Router.push('/checkout');
+    setCookies("departureWindow", departureWindow);
+    Router.push("/checkout");
   };
   return (
     <div className="relative flex animate-slideInDown flex-col rounded-2xl border-[6px] border-red-500 bg-indigo-500 p-8 px-12">
@@ -34,7 +34,7 @@ export const RouteOptionCard = ({
           onClick={onButtonClick}
         >
           {tripPrice}
-        </button>  
+        </button>
         {/* <Link href='/checkout' onClick={onLinkClick}>
           <a
             type="highlight"
