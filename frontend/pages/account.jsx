@@ -5,7 +5,7 @@ import { getTrips, getUser } from "../services/UserService";
 
 const AccountPage = () => {
   const [accountName, setAccountName] = useState("");
-  const [pods, setPods] = useState([]);
+  const [trips, setTrips] = useState([]);
   useEffect(() => {
     let id = document.cookie
       .split("; ")
@@ -24,13 +24,13 @@ const AccountPage = () => {
       });
     getTrips(id)
       .then((res) => {
-        const tempPods = [];
+        const tempTrips = [];
         res.data.forEach((item) => {
           if (item.refStatus === "Booked") {
-            tempPods.push(item.podSchedule);
+            tempTrips.push(item);
           }
         });
-        setPods(tempPods);
+        setTrips(tempTrips);
       })
       .catch((err) => {
         console.error(err);
@@ -51,16 +51,15 @@ const AccountPage = () => {
         <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
             {
-              pods.length >= 1
-                ? pods.map((item, index) => (
+              trips.length >= 1
+                ? trips.map((trip, index) => (
                     <Reservation
                       key={index}
-                      departureWindow={item.departureWindow}
-                      pricePaid={item.price}
-                      departureCity={item.cityFrom}
-                      finalDestination={item.cityTo}
-                      confirmationCode={`HYPER${Math.floor(Math.random() * 9)}`}
-                      displayImage="./img/CHI-BNA.webp"
+                      departureWindow={trip.podSchedule.departureWindow}
+                      pricePaid={trip.podSchedule.price}
+                      departureCity={trip.podSchedule.cityFrom}
+                      destinationCity={trip.podSchedule.cityTo}
+                      confirmationCode={accountName.split(' ').pop() + trip.tripId}
                     />
                   ))
                 : "No trips have been currently booked!"
