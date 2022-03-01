@@ -77,11 +77,12 @@ The project schedule is detailed in the table below:
 
 ## Report
 
-During the course of development, it was necessary to adjust some aspects of the project as there were limitations in the original design.  Given the fact that the HyperLoop train system has not been physically developed yet, some creative license was taken while making decisions about how schedules would work and what the user experience would be like.  These decisions helped ensure the first development build was inline with the intent of the original design.
-
+<UPDATE>
+Some adjustments were made to the project during development which are detailed below. 
 
 ### Modifications
 
+<UPDATE>
 As the project has progressed, several changes were made to the design plan.  In particular, the database schema was modified regarding how the application routes users between cities.  For the test plan, an in-depth breakdown of tests to be performed was defined with individual tasks to be validated on the application once each component has been built out.  One other modification is to the database software listed in the project plan from MariaDB/MySQL to Azure SQL Server.
 
 ### Test Plan
@@ -95,9 +96,12 @@ Specific tests to be performed using the functionality of the frontend are detai
 
 | Tested Function           | Input                      | Expected Output            | Actual Output | Pass? |
 |---------------------------|----------------------------|----------------------------|---------------|-------|
-| Logging in to application | User, Password             | One success, one failure   | TBD           |  TDB  |
-| Choose travel options     | FromCity, ToCity, Schedule | Valid trip                 | TBD           |  TDB  |
-| Pay and book a trip       | Valid trip, payment info   | Confirmation email, status | TBD           |  TDB  |
+| Logging in to application | User, Password             | One success, one failure   | Valid login   |  Yes  |
+| Choose travel options     | FromCity, ToCity, Schedule | Valid trip                 | Valid route   |  Yes  |
+| Pay and book a trip       | Valid trip, payment info   | Booking confirmed          | ReferenceError |  No   |
+| List a user's trips       | Logged in, choose menu     | List of booked trips       | TBD           |  TDB  |
 | Cancel a prior trip       | Booked trip                | Cancellation of trip       | TBD           |  TDB  |
 | Modify account info       | Address info, phone        | Successful change          | TBD           |  TDB  |
-| List a user's trips       | Logged in, choose menu     | List of booked trips       | TBD           |  TDB  |
+| Create a new user         | User, Password             | Account is created         | TBD           |  TBD  |
+
+Some functionality remains to be fully built out, or it is built but not yet connected from the frontend and backend components.  These will be finished in the final week 8.
