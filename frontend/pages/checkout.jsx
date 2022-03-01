@@ -16,14 +16,14 @@ const CheckoutPage = (props) => {
   const destinationCity = props.destinationCity;
   const departureCityId = props.departureCityId;
   const destinationCityId = props.destinationCityId;
-  const time = props.time;
+  const departureWindow = props.departureWindow;
   const subTotal = 25;
-  const taxes = (subTotal * 0.07);
+  const taxes = subTotal * 0.07;
   const roundedTaxes = Math.round((taxes + Number.EPSILON) * 100) / 100;
   const total = subTotal + roundedTaxes;
-  const card = "1234000156780002"
-  const expiry = "05/25"
-  const cvc = "001"
+  const card = "1234000156780002";
+  const expiry = "05/25";
+  const cvc = "001";
 
   const [user, setUser] = useState(false);
   const [nameState, setName] = useState(false);
@@ -82,27 +82,32 @@ const CheckoutPage = (props) => {
     },
     validationSchema: LoginValidation,
     onSubmit: (values) => {
-      if (values.card === card && values.expiry === expiry && values.cvc === cvc) {
+      if (
+        values.card === card &&
+        values.expiry === expiry &&
+        values.cvc === cvc
+      ) {
         getPodSchedule(departureCityId, destinationCityId)
-        .then((res) => {
-          res.data.forEach(element => {
-            if(element.departureWindow === time) {
-              addTrip(userId, element.id, 2)
-              .then((res) => {
-                router.push("/account");
-              })
-              .catch((err) => {
-                alert(err);
-              });
-            }
+          .then((res) => {
+            res.data.forEach((element) => {
+              if (element.departureWindow === time) {
+                addTrip(userId, element.id, 2)
+                  .then((res) => {
+                    router.push("/account");
+                  })
+                  .catch((err) => {
+                    alert(err);
+                  });
+              }
+            });
+          })
+          .catch((err) => {
+            alert(err);
           });
-        })
-        .catch((err) => {
-          alert(err);
-        });
-        
-      }else {
-        alert("The card details entered are incorrect. Hence the payment did not got through! Please try again!");
+      } else {
+        alert(
+          "The card details entered are incorrect. Hence the payment did not got through! Please try again!"
+        );
       }
     },
   });
@@ -168,7 +173,10 @@ const CheckoutPage = (props) => {
                   onChange={formik.handleChange}
                 />
               </label>
-              <FormLabel style={{ color: "red" }} text={formik.errors.address} />
+              <FormLabel
+                style={{ color: "red" }}
+                text={formik.errors.address}
+              />
               <label className="flex h-12 items-center border-b border-indigo-50 py-8">
                 <span className="w-24 px-2 text-left font-bold">City</span>
                 <input
@@ -209,7 +217,9 @@ const CheckoutPage = (props) => {
               </h2>
               <fieldset className="mb-10 rounded-xl bg-neutral-50 px-4 text-neutral-900 shadow-lg">
                 <label className="flex h-12 items-center border-b border-indigo-50 py-8">
-                  <span className="ml-1 w-24 px-2 text-left font-bold">Card</span>
+                  <span className="ml-1 w-24 px-2 text-left font-bold">
+                    Card
+                  </span>
                   <input
                     name="card"
                     className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
@@ -220,7 +230,9 @@ const CheckoutPage = (props) => {
                 </label>
                 <FormLabel style={{ color: "red" }} text={formik.errors.card} />
                 <label className="flex h-12 items-center border-b border-indigo-50 py-8">
-                  <span className="ml-1 w-24 px-2 text-left font-bold">Expiry</span>
+                  <span className="ml-1 w-24 px-2 text-left font-bold">
+                    Expiry
+                  </span>
                   <input
                     name="expiry"
                     className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
@@ -229,9 +241,14 @@ const CheckoutPage = (props) => {
                     onChange={formik.handleChange}
                   />
                 </label>
-                <FormLabel style={{ color: "red" }} text={formik.errors.expiry} />
+                <FormLabel
+                  style={{ color: "red" }}
+                  text={formik.errors.expiry}
+                />
                 <label className="flex h-12 items-center border-b border-indigo-50 py-8">
-                  <span className="ml-1 w-24 px-2 text-left font-bold">CVC</span>
+                  <span className="ml-1 w-24 px-2 text-left font-bold">
+                    CVC
+                  </span>
                   <input
                     name="cvc"
                     className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
@@ -245,12 +262,15 @@ const CheckoutPage = (props) => {
             </div>
             {/* <Link href={"/account"}>
               <a> */}
-                <div className="flex justify-center">
-                  <button type="submit" className="submit-button duration-400 transform rounded-2xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:scale-105 hover:border-red-500 hover:bg-indigo-600 hover:text-red-500">
-                    {"PAY $" + total}
-                  </button>
-                </div>
-              {/* </a>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="submit-button duration-400 transform rounded-2xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:scale-105 hover:border-red-500 hover:bg-indigo-600 hover:text-red-500"
+              >
+                {"PAY $" + total}
+              </button>
+            </div>
+            {/* </a>
             </Link> */}
           </form>
         </div>
@@ -261,11 +281,10 @@ const CheckoutPage = (props) => {
         </h1>
         <ul className="space-y-6 border-b py-6 px-8">
           <CartItem
-            tripTitle = {departureCity + " to " + destinationCity}
-            tripImage = "./img/CHI-BNA.webp"
-            // tripDate="March 16 2020"
-            // tripTime="08:25"
-            tripPrice = "$25.00"
+            departureCity={departureCity}
+            destinationCity={destinationCity}
+            departureWindow={departureWindow}
+            tripPrice="$25.00"
           />
         </ul>
         <div className="border-b px-8">
@@ -299,15 +318,15 @@ export async function getServerSideProps(context) {
   if (!isUser || isUser === "false") {
     return {
       redirect: {
-        destination: '/login',
+        destination: "/login",
         permanent: false,
       },
     };
-  }else {
+  } else {
     return {
       props: {}, // will be passed to the page component as props
-    }
-  }  
+    };
+  }
 }
 
 export default CheckoutPage;

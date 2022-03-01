@@ -1,27 +1,32 @@
 import React from "react";
+import TripImage from "./TripImage.component";
 
-export const Reservation = (props) => {
+export const Reservation = ({
+  departureCity,
+  destinationCity,
+  departureWindow,
+  confirmationCode,
+}) => {
+  // TODO fix images with spaces
+
   return (
     <div className="mb-12 flex h-auto flex-col overflow-hidden">
-      <div className="flex-shrink-0">
-        <img
-          className="h-48 w-full rounded-lg object-cover"
-          src={props.displayImage}
-          alt={`${props.departureCity} to ${props.finalDestination}`}
-        />
-      </div>
+      <TripImage
+        departureCity={departureCity}
+        destinationCity={destinationCity}
+      />
 
       <div className="flex flex-1 flex-col justify-between">
-        <div className="flex-1">
-          <div className="flex justify-between space-x-1 pt-6 text-sm font-normal tracking-wide text-indigo-800 ">
-            <time dateTime={`${props.date}`}> {props.date} </time>
-            <span className="mb-5 select-all rounded-md border bg-red-500 bg-opacity-90 px-2 py-1 text-right font-bold uppercase text-hypertan">
-              {props.confirmationCode}
-            </span>
-          </div>
-          <h3 className="text-xl font-bold leading-none tracking-tight text-indigo-800">
-            {props.departureCity} to {props.finalDestination}
+        <p className="mt-2 cursor-default select-none text-center text-sm font-semibold uppercase tracking-wider text-indigo-400">
+          {departureWindow}
+        </p>
+        <div className="mt-2.5 flex justify-between space-x-1 text-sm font-normal tracking-wide text-indigo-800 ">
+          <h3 className="text-xl font-bold tracking-tight text-indigo-500">
+            {departureCity} to {destinationCity}
           </h3>
+          <span className="mb-5 select-all rounded-md border bg-red-500 bg-opacity-100 px-2 py-1 text-right font-bold uppercase tracking-wide text-neutral-300">
+            {confirmationCode}
+          </span>
         </div>
       </div>
     </div>

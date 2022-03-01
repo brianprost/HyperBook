@@ -5,20 +5,20 @@ import { setCookies } from "cookies-next";
 import Router from "next/router";
 
 export const RouteOptionCard = ({
-  timeOfDay,
+  departureWindow,
   earliestPod,
   latestPod,
   tripPrice,
 }) => {
   const onButtonClick = (e) => {
     e.preventDefault();
-    setCookies("time", timeOfDay)
-    Router.push('/checkout');
+    setCookies("departureWindow", departureWindow);
+    Router.push("/checkout");
   };
   return (
     <div className="relative flex animate-slideInDown flex-col rounded-2xl border-[6px] border-red-500 bg-indigo-500 p-8 px-12">
       <h3 className="px-auto mb-5 select-none text-center text-4xl font-[725] tracking-tighter text-red-50 underline drop-shadow-sm xl:text-5xl">
-        {timeOfDay}
+        {departureWindow}
       </h3>
       <h2 className="px-auto mb-2 select-all text-center text-xl font-semibold tracking-tight text-red-50">
         All <span className="font-bold text-red-500 drop-shadow-md">Pods</span>{" "}
@@ -34,7 +34,7 @@ export const RouteOptionCard = ({
           onClick={onButtonClick}
         >
           {tripPrice}
-        </button>  
+        </button>
         {/* <Link href='/checkout' onClick={onLinkClick}>
           <a
             type="highlight"
