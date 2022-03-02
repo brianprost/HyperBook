@@ -38,8 +38,21 @@ export async function getCities() {
   return response;
 }
 
+export async function getDestinations(cityId) {
+  const response = await axios.get(
+    base_url + `/api/HyperBook/GetDestinations=${cityId}`
+  );
+  return response;
+}
+
 export async function addTrip(userId, podId, statusId) {
   const trip = { userId: userId, podSchedule: podId, statusId: statusId };
   const response = await axios.post(base_url + `/api/Insert/AddTrip`, trip);
+  return response;
+}
+
+export async function addUser(firstName, lastName, email, password, addressLine1, addressLine2, city, state, zip, phone) {
+  const user = { email: email, password: password, firstName: firstName, lastName: lastName, addressLine1: addressLine1, addressLine2: addressLine2, city: city, state: state, zip: zip, phone: phone };
+  const response = await axios.post(base_url + `/api/Insert/AddUser`, user);
   return response;
 }

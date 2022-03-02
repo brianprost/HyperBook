@@ -13,6 +13,7 @@ export const RouteOptionCard = ({
   const onButtonClick = (e) => {
     e.preventDefault();
     setCookies("departureWindow", departureWindow);
+    setCookies("tripPrice", tripPrice);
     Router.push("/checkout");
   };
   return (
@@ -33,7 +34,7 @@ export const RouteOptionCard = ({
           // className="duration-400 block transform rounded-xl border-2 border-red-500 bg-red-500 px-3 py-2 text-center text-lg font-[620] text-neutral-400 shadow-md transition ease-in-out hover:border-red-500 hover:bg-indigo-500 hover:text-neutral-300"
           onClick={onButtonClick}
         >
-          {tripPrice}
+          {"$" + tripPrice}
         </button>
         {/* <Link href='/checkout' onClick={onLinkClick}>
           <a
