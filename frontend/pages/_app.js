@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import "@fontsource/montserrat/variable.css";
 import "@fontsource/encode-sans/variable.css";
-import { Navbar } from "../components/Navbar.component";
+import { Navbar } from "../components/navbar/Navbar.component";
 import Head from "next/head";
 import Cookies from "cookies";
 import App from "next/app";
