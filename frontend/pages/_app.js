@@ -26,7 +26,8 @@ MyApp.getInitialProps = async (appContext) => {
   let destinationCity = "";
   let departureCityId;
   let destinationCityId;
-  let time = "";
+  let departureWindow = "";
+  let tripPrice;
   function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -50,7 +51,8 @@ MyApp.getInitialProps = async (appContext) => {
     destinationCity = cookies.get("destinationCity");
     departureCityId = cookies.get("departureCityId");
     destinationCityId = cookies.get("destinationCityId");
-    time = cookies.get("time");
+    departureWindow = cookies.get("departureWindow");
+    tripPrice = cookies.get("tripPrice");
   } else {
     isUser = getCookie("isAuthenticated");
     userId = getCookie("userId");
@@ -58,7 +60,8 @@ MyApp.getInitialProps = async (appContext) => {
     destinationCity = getCookie("destinationCity");
     departureCityId = getCookie("departureCityId");
     destinationCityId = getCookie("destinationCityId");
-    time = getCookie("time");
+    departureWindow = getCookie("departureWindow");
+    tripPrice = getCookie("tripPrice");
   }
   return {
     ...appProps,
@@ -69,7 +72,8 @@ MyApp.getInitialProps = async (appContext) => {
       destinationCity,
       departureCityId,
       destinationCityId,
-      time,
+      departureWindow,
+      tripPrice,
     },
   };
 };

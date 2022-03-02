@@ -3,8 +3,8 @@ import { RouteOptionCard } from "./RouteOptionCard.component";
 import { setCookies } from "cookies-next";
 
 const RouteSection = (props) => {
-  setCookies("departureCity", props.departureCity);
-  setCookies("destinationCity", props.destinationCity);
+  setCookies("departureCity", props.departureCity.replace(/ /g, '_'));
+  setCookies("destinationCity", props.destinationCity.replace(/ /g, '_'));
   setCookies("departureCityId", props.departureCityId);
   setCookies("destinationCityId", props.destinationCityId);
 
@@ -14,21 +14,21 @@ const RouteSection = (props) => {
       departureWindow: "Morning",
       earliestPod: "05:00",
       latestPod: "10:25",
-      tripPrice: "$25.00",
+      tripPrice: "25.00",
     },
     {
       tripID: "def456",
       departureWindow: "Midday",
       earliestPod: "10:30",
       latestPod: "15:30",
-      tripPrice: "$10.00",
+      tripPrice: "10.00",
     },
     {
       tripID: "ghi789",
       departureWindow: "Evening",
       earliestPod: "14:00",
       latestPod: "21:30",
-      tripPrice: "$15.00",
+      tripPrice: "15.00",
     },
   ];
 

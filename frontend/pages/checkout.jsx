@@ -12,12 +12,12 @@ import { FormLabel } from "../components/form-label";
 
 const CheckoutPage = (props) => {
   const userId = props.userId;
-  const departureCity = props.departureCity;
-  const destinationCity = props.destinationCity;
+  const departureCity = props.departureCity.replace(/_/g, ' ');
+  const destinationCity = props.destinationCity.replace(/_/g, ' ');
   const departureCityId = props.departureCityId;
   const destinationCityId = props.destinationCityId;
   const departureWindow = props.departureWindow;
-  const subTotal = 25;
+  const subTotal = Number(props.tripPrice);
   const taxes = subTotal * 0.07;
   const roundedTaxes = Math.round((taxes + Number.EPSILON) * 100) / 100;
   const total = subTotal + roundedTaxes;
@@ -53,7 +53,9 @@ const CheckoutPage = (props) => {
           setUser(res.data);
           setName(res.data.firstName + " " + res.data.lastName);
           setEmail(res.data.email);
-          setAddress(res.data.street);
+          const address = res.data.addressLine2 ? res.data.addressLine1 + res.data.addressLine2 : res.data.addressLine1;
+          console.log(address)
+          setAddress(address);
           setCity(res.data.city);
           setState(res.data.state);
           setZip(res.data.zip);
@@ -145,7 +147,7 @@ const CheckoutPage = (props) => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="Bernando Sanders"
                   required=""
-                  value={user ? user.firstName + " " + user.lastName : ""}
+                  value={user ? nameState : ""}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -158,7 +160,7 @@ const CheckoutPage = (props) => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="bernando@senate.gov"
                   required=""
-                  value={user ? user.email : ""}
+                  value={user ? emailState : ""}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -169,7 +171,7 @@ const CheckoutPage = (props) => {
                   name="address"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="!=1600 Pennsylvania Ave."
-                  value={user ? user.street : ""}
+                  value={user ? addressState : ""}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -183,7 +185,7 @@ const CheckoutPage = (props) => {
                   name="city"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="Burlington"
-                  value={user ? user.city : ""}
+                  value={user ? cityState : ""}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -194,7 +196,7 @@ const CheckoutPage = (props) => {
                   name="state"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="VA"
-                  value={user ? user.state : ""}
+                  value={user ? stateState : ""}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -205,7 +207,7 @@ const CheckoutPage = (props) => {
                   name="zip"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="90210"
-                  value={user ? user.zip : ""}
+                  value={user ? zipState : ""}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -284,7 +286,7 @@ const CheckoutPage = (props) => {
             departureCity={departureCity}
             destinationCity={destinationCity}
             departureWindow={departureWindow}
-            tripPrice="$25.00"
+            tripPrice={"$" + subTotal}
           />
         </ul>
         <div className="border-b px-8">
