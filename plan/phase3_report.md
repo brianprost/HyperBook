@@ -23,7 +23,7 @@ March 1, 2022
 
 ## Phase Three Milestone
 
-The milestone for Week 7 was completed, with {TBD}
+The milestone for Week 7 was completed, with most development work going into minor feature additions and bug fixes.  In addition, testing was performed in accordance with the test plan.
 
 | Component | URL |
 |-------------|-------------|
@@ -77,13 +77,11 @@ The project schedule is detailed in the table below:
 
 ## Report
 
-<UPDATE>
-Some adjustments were made to the project during development which are detailed below. 
+During Phase Three of development, several bugs were identified and fixed.  These addressed some issues with rendering the frontend in different browsers, as well as adjustment to the frame and window elements.  Most of these were fixed, with some lingering issues that are being tracked in our Kanban project board.  Additionally, a few needed API methods have been built out on the backend to accomodate some minor additional functionality.  These primarily address user account creation, modifying user account info, and handing destinations during the booking process.  Some work still remains between frontend and backend, although this will be done within the final week of development.
 
 ### Modifications
 
-<UPDATE>
-As the project has progressed, several changes were made to the design plan.  In particular, the database schema was modified regarding how the application routes users between cities.  For the test plan, an in-depth breakdown of tests to be performed was defined with individual tasks to be validated on the application once each component has been built out.  One other modification is to the database software listed in the project plan from MariaDB/MySQL to Azure SQL Server.
+As the project has progressed, a minor change was made to the database schema, which will not track departure and arrival times, but instead a window of time for customers to travel (similar to a metro rail or subway system).  Account credentials were changed to be stored in a non-reversable SHA-512 hash form, which is more secure than plaintext.  New functionality was added to allow users to create a new account, as well as adjust account information.  These adjustments should be representative of the final product.
 
 ### Test Plan
 
@@ -91,8 +89,11 @@ The HyperBook Application makes use of .NET Core API endpoints hosted in Azure f
 
 - GET requests return expected values with correct data types and structures.
 - POST requests are validated by the application, and processed correctly to update any relevant data.
+- Browser testing to verify the web application loads and displays properly among various browsers.
 
 Specific tests to be performed using the functionality of the frontend are detailed below:
+
+#### Functionality tests
 
 | Tested Function           | Input                      | Expected Output            | Actual Output | Pass? |
 |---------------------------|----------------------------|----------------------------|---------------|-------|
@@ -104,4 +105,13 @@ Specific tests to be performed using the functionality of the frontend are detai
 | Modify account info       | Address info, phone        | Successful change          | TBD           |  TDB  |
 | Create a new user         | User, Password             | Account is created         | TBD           |  TBD  |
 
-Some functionality remains to be fully built out, or it is built but not yet connected from the frontend and backend components.  These will be finished in the final week 8.
+#### Browser testing
+
+| Browser | Verified? |
+|---------|-----------|
+| Firefox |    Yes    |
+| Chrome  |    Yes    |
+| Edge    |    Yes    |
+| Safari  |    Yes    |
+
+
