@@ -51,14 +51,25 @@ const RegisterForm = () => {
       let state = values.state;
       let zip = values.zip;
       let phone = values.phone;
-      
-      addUser(firstName, lastName, email, password, addressLine1, addressLine2, city, state, zip, phone)
+
+      addUser(
+        firstName,
+        lastName,
+        email,
+        password,
+        addressLine1,
+        addressLine2,
+        city,
+        state,
+        zip,
+        phone
+      )
         .then((res) => {
           if (res.status == 201) {
             // setCookies("isAuthenticated", "true");
             // setCookies("userId", res.data.userId);
             // localStorage?.setItem("isAuthenticated", "true");
-            alert("Your user has been successfully registered. Please login!")
+            alert("Your user has been successfully registered. Please login!");
             router.push("/login");
           }
         })
@@ -82,7 +93,10 @@ const RegisterForm = () => {
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         {isError && (
-          <div className="px-4 py-8">User with the same email already exists. Please try a different email!</div>
+          <div className="px-4 py-8">
+            User with the same email already exists. Please try a different
+            email!
+          </div>
         )}
         <form className="space-y-6" onSubmit={formik.handleSubmit}>
           <div>
@@ -100,7 +114,10 @@ const RegisterForm = () => {
                 onChange={formik.handleChange}
               />
             </div>
-            <FormLabel style={{ color: "red" }} text={formik.errors.firstName} />
+            <FormLabel
+              style={{ color: "red" }}
+              text={formik.errors.firstName}
+            />
           </div>
           <div>
             <label
@@ -170,7 +187,10 @@ const RegisterForm = () => {
                 onChange={formik.handleChange}
               />
             </div>
-            <FormLabel style={{ color: "red" }} text={formik.errors.addressLine1} />
+            <FormLabel
+              style={{ color: "red" }}
+              text={formik.errors.addressLine1}
+            />
           </div>
           <div>
             <label
@@ -187,7 +207,10 @@ const RegisterForm = () => {
                 onChange={formik.handleChange}
               />
             </div>
-            <FormLabel style={{ color: "red" }} text={formik.errors.addressLine2} />
+            <FormLabel
+              style={{ color: "red" }}
+              text={formik.errors.addressLine2}
+            />
           </div>
           <div>
             <label
