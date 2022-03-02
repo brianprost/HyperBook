@@ -12,12 +12,12 @@ import { FormLabel } from "../components/form-label";
 
 const CheckoutPage = (props) => {
   const userId = props.userId;
-  const departureCity = props.departureCity;
-  const destinationCity = props.destinationCity;
+  const departureCity = props.departureCity.replace(/_/g, ' ');
+  const destinationCity = props.destinationCity.replace(/_/g, ' ');
   const departureCityId = props.departureCityId;
   const destinationCityId = props.destinationCityId;
   const departureWindow = props.departureWindow;
-  const subTotal = 25;
+  const subTotal = Number(props.tripPrice);
   const taxes = subTotal * 0.07;
   const roundedTaxes = Math.round((taxes + Number.EPSILON) * 100) / 100;
   const total = subTotal + roundedTaxes;
@@ -284,7 +284,7 @@ const CheckoutPage = (props) => {
             departureCity={departureCity}
             destinationCity={destinationCity}
             departureWindow={departureWindow}
-            tripPrice="$25.00"
+            tripPrice={"$" + subTotal}
           />
         </ul>
         <div className="border-b px-8">
