@@ -202,13 +202,15 @@ export const Navbar = (props) => {
               </a>
             ))}
           </nav>
-          <a className="order-first mb-4 flex items-center md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-center" href="/">
-            <img
-              className="h-8 w-auto"
-              src="./img/hyperbook-navbar-logo.png"
-              alt="hyperbook logo"
-            />
-          </a>
+          <Link href={"/"}>
+            <a className="order-first mb-4 flex items-center md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-center">
+              <img
+                className="h-8 w-auto"
+                src="./img/hyperbook-navbar-logo.png"
+                alt="hyperbook logo"
+              />
+            </a>
+          </Link>
           <div className="ml-5 inline-flex lg:ml-0 lg:w-2/5 lg:justify-end">
             {isUser ? (
               <UserNavSection username={props.username} />
