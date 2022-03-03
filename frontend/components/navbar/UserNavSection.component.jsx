@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import AccountButton from "./UserNavButton.component";
 import { RiAccountCircleLine } from "react-icons/ri";
+import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -20,8 +21,8 @@ const UserNavSection = (props) => {
           className={classNames(
             router.pathname == linkTitle
               ? "bg-neutral-500 bg-opacity-20 text-neutral-500"
-              : "text-neutral-200 outline-offset-1 hover:bg-indigo-500 hover:bg-opacity-90 hover:text-neutral-500 hover:outline hover:outline-2 hover:outline-neutral-500",
-            "y-2 rounded-md px-3 text-sm font-semibold"
+              : "text-neutral-200 hover:bg-indigo-500 hover:bg-opacity-90 mr-2",
+            "rounded-md py-2 px-3 text-sm font-semibold"
           )}
           onClick={() => {
             document.cookie.split(";").forEach(function (c) {
@@ -38,30 +39,31 @@ const UserNavSection = (props) => {
       );
     } else
       return (
-        <a
-          key={linkTitle}
-          href={link}
-          className={classNames(
-            router.pathname == linkTitle
-              ? "bg-neutral-500 bg-opacity-20 text-neutral-500"
-              : "text-neutral-200 outline-offset-1 hover:bg-indigo-500 hover:bg-opacity-90 hover:text-neutral-500 hover:outline hover:outline-2 hover:outline-neutral-500",
-            "y-2 rounded-md px-3 text-sm font-semibold"
-          )}
-        >
-          {linkTitle}
-        </a>
+        <Link href={link}>
+          <a
+            key={linkTitle}
+            className={classNames(
+              router.pathname == linkTitle
+                ? "bg-neutral-500 bg-opacity-20 text-neutral-500"
+                : "text-neutral-200 hover:bg-indigo-500 hover:bg-opacity-90 hover:text-neutral-500",
+              "rounded-md py-2 px-3 text-sm font-semibold"
+            )}
+          >
+            {linkTitle}
+          </a>
+        </Link>
       );
   };
 
   return (
     <div className="flex flex-row items-center justify-evenly">
       {/* TODO: make this button non styled once this username thing is figured out */}
+      <LinkElement linkTitle={"Your Account"} link={"/account"} />
+      <LinkElement linkTitle={"Logout"} link={"/"} />
       <AccountButton>
         <RiAccountCircleLine className="mr-2 h-5 w-5" />
         {props.username ? props.username : "whereIsUsername?"}
       </AccountButton>
-      <LinkElement linkTitle={"Your Account"} link={"/account"} />
-      <LinkElement linkTitle={"Logout"} link={"/"} />
     </div>
   );
 };

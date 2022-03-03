@@ -183,7 +183,7 @@ export const Navbar = (props) => {
     );
   } else {
     return (
-      <header className="bg-red-500 text-gray-600">
+      <header className="bg-red-500">
         <div className="container mx-auto flex flex-col flex-wrap items-center p-5 md:flex-row">
           <nav className="flex flex-wrap items-center text-base md:ml-auto lg:w-2/5">
             {navigation.map((navItem) => (
@@ -193,7 +193,7 @@ export const Navbar = (props) => {
                 className={classNames(
                   router.pathname == navItem.href
                     ? "bg-neutral-500 bg-opacity-20 text-neutral-500"
-                    : "text-neutral-200 outline-offset-1 hover:bg-indigo-500 hover:bg-opacity-90 hover:text-neutral-500 hover:outline hover:outline-2 hover:outline-neutral-500",
+                    : "text-neutral-200 hover:bg-indigo-500 hover:bg-opacity-90 hover:text-neutral-50",
                   "rounded-md px-3 py-2 text-sm font-semibold"
                 )}
                 aria-current={navItem.current ? "page" : undefined}
@@ -202,7 +202,7 @@ export const Navbar = (props) => {
               </a>
             ))}
           </nav>
-          <a className="order-first mb-4 flex items-center md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-center">
+          <a className="order-first mb-4 flex items-center md:mb-0 lg:order-none lg:w-1/5 lg:items-center lg:justify-center" href="/">
             <img
               className="h-8 w-auto"
               src="./img/hyperbook-navbar-logo.png"
