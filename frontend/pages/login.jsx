@@ -13,7 +13,7 @@ const LoginPage = () => {
       <section id="login">
         <LoginForm />
         <h4 className="my-10 text-center font-light text-indigo-500">
-          Don't have an account?
+          {"Don't have an account?"}
           <Link href="/register">
             <a className="block font-bold text-red-500">Sign Up</a>
           </Link>
