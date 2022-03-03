@@ -57,7 +57,7 @@ const LoginForm = () => {
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         {isError && (
-          <div className="px-auto mx-4 my-8 cursor-not-allowed rounded-xl border-2 border-indigo-500 bg-neutral-100-500 py-4 text-center font-bold text-red-500">
+          <div className="px-auto bg-neutral-100-500 mx-4 my-8 cursor-not-allowed rounded-xl border-2 border-indigo-500 py-4 text-center font-bold text-red-500">
             😿 Username or password is incorrect 😿
           </div>
         )}
@@ -80,7 +80,6 @@ const LoginForm = () => {
             </div>
             <div className="mt-2 text-center font-semibold text-red-500 first-letter:capitalize">
               <FormLabel text={formik.errors.email} />
-              {"."}
             </div>
           </div>
           <div className="group">
@@ -101,7 +100,6 @@ const LoginForm = () => {
             </div>
             <div className="mt-2 text-center font-semibold text-red-500 first-letter:capitalize">
               <FormLabel text={formik.errors.password} />
-              {"."}
             </div>
           </div>
 
