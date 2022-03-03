@@ -1,7 +1,7 @@
-import { FormLabel } from "./form-label";
+import { FormLabel } from "../form-label";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { loginUser } from "../services/UserService";
+import { loginUser } from "../../services/UserService";
 import router from "next/router";
 import { useState } from "react";
 import { setCookies } from "cookies-next";
@@ -91,7 +91,7 @@ const LoginForm = () => {
                 onChange={formik.handleChange}
                 name="password"
                 type="password"
-                className="block w-full transform rounded-lg border border-indigo-500 bg-red-500 bg-opacity-5 px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-300"
+                className="block w-full transform rounded-lg border border-indigo-500 bg-red-500 bg-opacity-5 px-5 py-3 text-base text-red-500 placeholder-gray-300 transition duration-500 ease-in-out focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-300"
               />
             </div>
             <FormLabel style={{ color: "red" }} text={formik.errors.password} />

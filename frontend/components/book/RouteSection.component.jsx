@@ -3,8 +3,8 @@ import { RouteOptionCard } from "./RouteOptionCard.component";
 import { setCookies } from "cookies-next";
 
 const RouteSection = (props) => {
-  setCookies("departureCity", props.departureCity.replace(/ /g, '_'));
-  setCookies("destinationCity", props.destinationCity.replace(/ /g, '_'));
+  setCookies("departureCity", props.departureCity.replace(/ /g, "_"));
+  setCookies("destinationCity", props.destinationCity.replace(/ /g, "_"));
   setCookies("departureCityId", props.departureCityId);
   setCookies("destinationCityId", props.destinationCityId);
 

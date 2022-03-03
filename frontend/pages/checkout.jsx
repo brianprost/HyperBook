@@ -12,8 +12,8 @@ import { FormLabel } from "../components/form-label";
 
 const CheckoutPage = (props) => {
   const userId = props.userId;
-  const departureCity = props.departureCity.replace(/_/g, ' ');
-  const destinationCity = props.destinationCity.replace(/_/g, ' ');
+  const departureCity = props.departureCity.replace(/_/g, " ");
+  const destinationCity = props.destinationCity.replace(/_/g, " ");
   const departureCityId = props.departureCityId;
   const destinationCityId = props.destinationCityId;
   const departureWindow = props.departureWindow;
@@ -53,8 +53,10 @@ const CheckoutPage = (props) => {
           setUser(res.data);
           setName(res.data.firstName + " " + res.data.lastName);
           setEmail(res.data.email);
-          const address = res.data.addressLine2 ? res.data.addressLine1 + res.data.addressLine2 : res.data.addressLine1;
-          console.log(address)
+          const address = res.data.addressLine2
+            ? res.data.addressLine1 + res.data.addressLine2
+            : res.data.addressLine1;
+          console.log(address);
           setAddress(address);
           setCity(res.data.city);
           setState(res.data.state);
