@@ -9,7 +9,7 @@ CMSC 495: Current Trends and Projects in Computer Science
 
 Professor Rabiha Kayed
 
-March 8, 2022
+March 7, 2022
 
 
 ### Table of Contents
@@ -25,7 +25,7 @@ March 8, 2022
     1. [System Specification](#system-specification)
     2. [Software Requirements](#software-requirements)
     3. [Hardware Requirements](#hardware-requirements)
-4. [User's Guide](users-guide)
+4. [User's Guide](#users-guide)
     1. [Application Setup](#application-setup)
     2. [Application Tasks](#application-tasks)
         1. [Logging into the HyperBook Application](#logging-into-the-hyperbook-application)
@@ -41,6 +41,10 @@ March 8, 2022
     5. [Alternate Design](#alternate-design)
 6. [Test Plan and Results](#test-plan-and-results)
 7. [Development History](#development-history)
+    1. [Milestones](#milestones)
+    2. [Phase 1 Report](#phase-1-report)
+    3. [Phase 2 Report](#phase-2-report)
+    4. [Phase 3 Report](#phase-3-report)
 8. [Conclusion](#conclusion)
 
 
@@ -102,8 +106,6 @@ Processing
 - Customer can cancel/reschedule a reserved itinerary
 - Application releases a reservation for a cancelled itinerary
 - Application provides user ability to register new accounts
-- (Stretch Goal) Application generates QR Code for customer to use for check in
-- (Stretch Goal) Application charges payment to external payment processor (simulate only)
 
 Outputs
 - Customer Accounts
@@ -338,13 +340,12 @@ Reservation Page:
 
 ### Alternate Design
 
-<UPDATE>
-To add some notes here about original Python-based project plan.  Adjusted based on team member skills, experience, simplcity with integrating into Azure.
+During the first week, some alternate design options were evaluated. In the initial project proposal, a Python-based application was planned, with either Django or Flask used for the frontend, and service/database hosting within Amazon Web Services (AWS). After the group was formed, it was determined that most of the team had significant .NET experience and a strong preference for React or Angular.js for frontend components, and these were evaluated for the final development plan. Ultimately, Microsoft Azure was chosen as a hosting provider due to the interoperability with .NET Core and Azure's Microsoft SQL services.
 
 
 ## Test Plan and Results
 
-The HyperBook Application makes use of .NET Core API endpoints hosted in Azure for backend functionality.  These will be tested for proper functionality including the following checks:
+The HyperBook Application makes use of .NET Core API endpoints hosted in Azure for backend functionality. These will be tested for proper functionality including the following checks:
 
 - GET requests return expected values with correct data types and structures.
 - POST requests are validated by the application, and processed correctly to update any relevant data.
@@ -376,12 +377,63 @@ Specific tests to be performed using the functionality of the frontend are detai
 
 ## Development History
 
-<UPDATE>
+During the development process, three phases and versions were built out. Each phase had a tentative milestone that was accomplished, with peer reviews and instructor feedback being incorporated to ensure the project met the standards for a minimum viable product (MVP).
+
+### Milestones
+
+Project milestones represent the anticipated work done for each phase, including the final project.
+
+- Phase 1: Design decisions made, some adjustments required. First development build completed.
+- Phase 2: Second development build completed.  Finalizing database schema and process flow.
+- Phase 3: Fully tested all components including frontend-to-backend, backend-to-database.  Some adjustments for performance, final design decisions made.
+- Final: Final project complete.  Documentation updated, report completed, integration testing complete.
+
+### Phase 1 Report
+
+During Phase 1, it was necessary to adjust some aspects of the project as there were limitations in the original design. Given the fact that the HyperLoop train system has not been physically developed yet, some creative license was taken while making decisions about how schedules would work and what the user experience would be like. These decisions helped ensure the first development build was in line with the intent of the original design. 
+
+As the project has progressed, several changes were made to the design plan. In particular, the database schema was modified regarding how the application routes users between cities. For the test plan, an in-depth breakdown of tests to be performed was defined with individual tasks to be validated on the application once each component has been built out. One other modification is to the database software listed in the project plan from MariaDB/MySQL to Azure SQL Server. 
+
+### Phase 2 Report
+
+For Phase 2, we made progress and completed the week’s milestone for the HyperBook Application. We are in the process of finalizing the database schema, with some minor adjustments made to documentation throughout the process. 
+
+In terms of decisions made, we are keeping the application simple, with payment being implemented using a testing credit card which should use a simulated Luhn valid number. As a stretch goal, we could implement a third-party service such as Stripe for payment, or Okta for SSO and account management, however these would take additional effort and time outside the scope of the application’s primary functionality to complete. 
+
+In addition, we are finalizing the booking page so that pricing is dependent on time windows travelled on a particular day, like the way that mass transit systems with open windows of operation. Users will not select a discrete time, instead they will choose a range of times (e.g., Morning, Afternoon, Evening). 
+
+As the project has progressed, some changes were made to documentation. For one, the ER diagram has been updated to match the new database schema. This should represent the final version of the database layout. A few changes have been made to the design of the pages for the booking process. During development and testing, Chrome-based browsers render the city markers in the wrong location, so we will add additional browser testing to the plan. 
+
+### Phase 3 Report
+
+During Phase 3, several bugs were identified and fixed. These addressed some issues with rendering the frontend in different browsers, as well as adjustment to the frame and window elements. Most of these were fixed, with some lingering issues that are being tracked in our Kanban project board. 
+
+Additionally, a few needed API methods have been built out on the backend to accommodate some minor additional functionality. These primarily address user account creation, modifying user account info, and handing destinations during the booking process. Some work remains between frontend and backend, although this will be done within the final week of development. 
+
+As the project has progressed, a minor change was made to the database schema, which will not track departure and arrival times, but instead a window of time for customers to travel (similar to a metro rail or subway system). Account credentials were changed to be stored in a non-reversable SHA-512 hash form, which is more secure than plaintext. New functionality was added to allow users to create a new account, as well as adjust account information. These adjustments should be representative of the final product. 
 
 
 ## Conclusion
 
-<UPDATE>
-Including lessons learned, design strengths, limitations and suggestions for future improvement
+Several lessons were learned during development of the HyperBook Application. Communication and collaboration were both key to ensuring that deliverables could be provided on time, and that the project would stay on track. Some modifications to the project plan were made out of necessity given the eight-week time constraint for the class, while ensuring the project still met success criteria.
 
+During week five, a Kanban-style project board was implemented using the GitHub projects feature.  This allowed our group to track individual development tasks and ensure nothing fell through the cracks.  The following screenshot shows the project board tracking these tasks.
 
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/kanban.png" width="800">
+
+### Strengths and Limitations
+
+Major strengths for the HyperBook Application included the use of GitHub for tracking code and documenation, use of external cloud providers for hosting, and collaboration using a Discord server for chat communication. Using two GitHub repositories, the frontend and backend projects could be developed and integrated using GitHub API directly tied to external service providers for automated deployment. Documentation was also maintained using GitHub markdown which provided relatively seamless report generation (including this report). By using cloud service providers, hardware requirements were offloaded allowing the group to focus on software development tasks. Most team members were located in different timezones, so using an asynchronous services like Discord allowed the team to check in as progress was made.
+
+Some features were planned, but could not be completed due to time constraints. These included external services that could be utilized for payment processing (simulated only), and ticket generation for the proposed Hyperloop travel system.
+
+### Future Improvement
+
+Some stretch goals were identified early on, and while time items were completed, not all could be finished. Some of these ideas are detailed below:
+
+- **Functionality:** Application utilizes an external single sign-on (SSO) service for session management such as Okta or PingIdentity
+- **Functionality:** Application administrator interface for directly managing database backend entry
+- **Stretch goal:** Application generates QR Code for customer to use for ticket processing
+- **Stretch goal:** Application charges payment to external payment processor (simulated only)
+
+Other ideas were brain-stormed but ultimately deemed to be outside the scope for the project. With the final version, Group 5 feels confident that we completed the HyperBook Application meeting the standards for this capstone project!
