@@ -16,7 +16,7 @@ March 8, 2022
 
 1. [Overview](#overview)
     1. [Purpose Statement](#purpose-statement)
-    2. [Roles](#roles)
+    2. [Roles and Contributions](#roles-and-contributions)
     3. [Schedule](#schedule)
 2. [Project Plan](#project-plan)
     1. [Input/Processing/Output](#inputprocessingoutput)
@@ -31,37 +31,34 @@ March 8, 2022
         1. [Logging into the HyperBook Application](#logging-into-the-hyperbook-application)
         2. [Accessing user profile page](#accessing-user-profile-page)
         3. [Booking a trip](#booking-a-trip)
-        4. [Cancelling a previously booked itinerary](#cancelling-a-previously-booked-itinerary)
-        5. [Registering a new user](#registering-a-new-user)
+        4. [Registering a new user](#registering-a-new-user)
+        5. [Cancelling a previously booked itinerary](#cancelling-a-previously-booked-itinerary)
 5. [Design and Alternate Designs](#design-and-alternate-designs)
     1. [Architecture Diagram](#architecture-diagram)
     2. [Entity Relationship Diagram](#entity-relationship-diagram)
-    3. [Application Components](#application-components)
-        1. [List of API Methods](#list-of-api-methods)
+    3. [API Requirements](#api-requirements)
     4. [User Interface Design](#user-interface-design)
     5. [Alternate Design](#alternate-design)
 6. [Test Plan and Results](#test-plan-and-results)
 7. [Development History](#development-history)
-8. [Conclusions](#conclusions)
+8. [Conclusion](#conclusion)
 
 
 ## Overview
 
 ### Purpose Statement
 
-<UPDATE>
-The HyperBoop Application provides customers with the ability to book an itinerary to use the Hyperloop travel service.  Each itinerary is made up of one or more routes assigned to particular time slot(s).  When the customer chooses a particular itinerary, they can provide payment details to pay and reserve their travel plan.  Once completed, the user can lookup their itinerary to get details about it.
+The HyperBook Application provides customers with the ability to book a trip using the Hyperloop travel service. Each trip is made up of a source and destination city that the customer will travel on during a chosen time slot. When the customer selects a particular trip, they can provide payment details to pay and reserve their travel plans. Once completed, the user can access their saved trips to get more details about it.
 
-### Roles
+### Roles and Contributions
 
-- Brian Prost - Frontend, Design
-- Paul Davison - Database, Technical Documentation
-- Marie George - Frontend, Backend
-- Dushyant Kumar - Frontend, Backend
-- Prachet Agrawal - Backend, Database
+- Brian Prost - Frontend Development, Design Lead
+- Paul Davison - Technical Documentation and Reporting
+- Marie George - Database Design, Peer Reviews
+- Dushyant Kumar - Backend Development
+- Prachet Agrawal - Frontend Development
 
-<UPDATE>
-Summary of individual contributions here
+Each member of the Group 5 made substantial contributions in at least one specific area. As Brian had the initial idea for the project, he took on the role of Design Lead by making most of the frontend development decisions. Marie took on the database design and worked on the peer reviews. Paul took on the bulk of the reporting and documentation, and kept everything updated as the project progressed. Prachet supported frontend development and helped with the design. Dushyant worked on backend, including building out the APIs.
 
 ### Schedule
 
@@ -74,22 +71,22 @@ Summary of individual contributions here
 | 5 | Phase 1 Source | 2/15 |
 | 6 | Phase 2 Source | 2/22 |
 | 7 | Phase 3 Source | 3/1 |
-| 8 | Final Report | 3/8 |
+| 8 | Final Report | 3/7 |
 
 
 ## Project Plan
 
-This document provides a breakdown of the project plan for the HyperBook Application.  The HyperBook Application provides customers with the ability to book an itinerary to use the Hyperloop travel service.  Each itinerary is made up of one or more routes assigned to particular time slot(s).  When the customer chooses a particular itinerary, they can provide payment details to pay and reserve their travel plan.  Once completed, the user can look up their itinerary to get details about it.
+This document provides a breakdown of the project plan for the HyperBook Application. Throughout the development, we mapped out inputs, processes, and outputs that the application would use, which helped us to build out an API specification. Several scenarios were also built out which detailed example flows in the application that a customer would walk through during typical use.
 
 ### Input/Processing/Output
 
 Inputs
-- Locations
+- Customer Accounts
+- Trips
+- Cities
 - Routes
-- Time slots
-- Itinerary
-- Customer Account
-- Payment
+- Timeslots
+- Payment Information
 
 Processing
 - Customer can login to the site
@@ -104,49 +101,58 @@ Processing
 - Customer can lookup a booked reservation
 - Customer can cancel/reschedule a reserved itinerary
 - Application releases a reservation for a cancelled itinerary
+- Application provides user ability to register new accounts
 - (Stretch Goal) Application generates QR Code for customer to use for check in
 - (Stretch Goal) Application charges payment to external payment processor (simulate only)
-- (Stretch Goal) Application provides user ability to register new accounts
 
 Outputs
-- Customer Account
-- Itinerary
+- Customer Accounts
+- Trips
 - Payment Confirmation
 
 ### Scenarios
 
 In the following example, a customer follows the steps to successfully book a reservation through the application:
 
-1. Customer can login to the page using their account credentials
+1. Customer starts at the application front page
 
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/main_page.png" width="800">
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/walkthrough1.png" width="800">
 
-2. Customer can select a destination that is available
+2. Customer can login to the page using their account credentials
 
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/destinations.png" width="800">
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/walkthrough2.png" width="800">
 
-3. Customer chooses a time slot for the destination from one available
+3. Customer can select starting and ending destinations that are available
 
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/timeslots.png" width="800">
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/walkthrough3.png" width="800">
 
-4. Once a time slot is chosen, customer can input payment information to pay for and reserve their itinerary
+4. Customer chooses a time slot for the destination from one available
 
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/payment.png" width="800">
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/walkthrough4.png" width="800">
 
-5. After obtaining their itinerary, the customer can reference their reservation
+5. Once a time slot is chosen, customer can input information needed to pay and reserve their trip
 
-<img src="https://github.com/brianprost/HyperBook/blob/main/plan/reservation_list.png" width="800">
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/walkthrough5.png" width="800">
 
 
+In the next example, a new user registers an account in the application:
+
+1. Customer navigates to login page
+
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/useraccount1.png" width="800">
+
+2. After clicking teh Register New User options, the user fills out all relevant account information
+
+<img src="https://github.com/brianprost/HyperBook/blob/main/plan/useraccount2.png" width="800">
 
 
 ## Requirements Specification
 
 ### System Specification
 
-The following items provide details on the software and hardware requirements used by the HyperBook Application.
+The application will be a Single-Page Application (SPA) with a frontend web component, backend API components, and database for storage.
 
-#### Software Requirements
+### Software Requirements
 
 Software stack:
 
@@ -157,15 +163,13 @@ Software stack:
 - react-simple-maps
 - PostCSS & Autoprefixer
 
-#### Hardware Requirements
+### Hardware Requirements
 
 Cloud-based hosting:
 
 - Azure App Service
 - Azure SQL Server
 - Vercel Application Hosting
-
-
 
 
 ## User's Guide
@@ -186,7 +190,7 @@ The files for the project can be downloaded directly from GitHub with the follow
  git clone https://github.com/brianprost/HyperBook
 ```
 
-For the `HyperBook.App` backend project, you can load and compile using Visual Studio Code with the NuGet and C# extensions installed. You will also needthe .NET Core 5 64-bit SDK installed on your operating system.
+For the `HyperBook.App` backend project, you can load and compile using Visual Studio Code with the NuGet and C# extensions installed. You will also need the .NET Core 5 64-bit SDK installed on your operating system.
 
 | Resource | URL |
 |-------------|-------------|
@@ -195,7 +199,7 @@ For the `HyperBook.App` backend project, you can load and compile using Visual S
 | NuGet Instructions: | https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools |
 | .NET Core 5.0 SDK: | https://dotnet.microsoft.com/en-us/download/dotnet/5.0 |
 
-For the `HyperBook` frontend project, code is loaded directly from GitHub into the Vercel service using a GitHub API token tied to the repo. When the `frontend-production` branch received new commits, a new version is deployed automatically.
+For the `HyperBook` frontend project, code is loaded directly from the GitHub repo into the Vercel service using GitHub APIs. When the `frontend-production` branch received new commits, a new version is deployed automatically.
 
 ### Application Tasks
 
@@ -218,7 +222,7 @@ For the `HyperBook` frontend project, code is loaded directly from GitHub into t
 - From the default home page, users will be presented with a map that includes all [available destinations](https://hyper-book.vercel.app/book) where they can begin to plan their trip.
   1. The user selects the starting city from which they will depart from.
   2. The user selects the destination city to which they will travel to.
-  3. The user chooses the preferred available timeslot for each leg of the trip between cities.  This will iterate for each intermediate stop between cities until the destination city is reached.
+  3. The user chooses the preferred time window for the trip.
   4. The user will proceed to the [payment process](https://hyper-book.vercel.app/checkout) and reserve the itinerary once payment is confirmed.
 
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss3_book1.png" width="500">
@@ -227,11 +231,17 @@ For the `HyperBook` frontend project, code is loaded directly from GitHub into t
   
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/ss4_payment.png" width="500">
 
-#### Cancelling a previously booked itinerary
-
-TODO: Will add instructions here once functionality is completed
-
 #### Registering a new user
+
+- Users can register a new account by browsing to the link found on the login page
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/guide_register1.png" width="500">
+
+- From here, users can provide information needed to register the account.
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/guide_register2.png" width="500">
+
+#### Cancelling a previously booked itinerary
 
 TODO: Will add instructions here once functionality is completed
 
@@ -250,9 +260,7 @@ Diagram detailing the entities used by the application and their relationships t
 
 <img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/er_diag.png" width="600">
 
-### Application Components
-
-#### List of API Methods
+### API Requirements
 
 - login
 	- Parameters: email, password
@@ -340,17 +348,30 @@ The HyperBook Application makes use of .NET Core API endpoints hosted in Azure f
 
 - GET requests return expected values with correct data types and structures.
 - POST requests are validated by the application, and processed correctly to update any relevant data.
+- Browser testing to verify the web application loads and displays properly among various browsers.
 
 Specific tests to be performed using the functionality of the frontend are detailed below:
 
+#### Functionality tests
+
 | Tested Function           | Input                      | Expected Output            | Actual Output | Pass? |
 |---------------------------|----------------------------|----------------------------|---------------|-------|
-| Logging in to application | User, Password             | One success, one failure   | TBD           |  TDB  |
-| Choose travel options     | FromCity, ToCity, Schedule | Valid trip                 | TBD           |  TDB  |
-| Pay and book a trip       | Valid trip, payment info   | Confirmation email, status | TBD           |  TDB  |
+| Logging in to application | User, Password             | One success, one failure   | Valid login   |  Yes  |
+| Choose travel options     | FromCity, ToCity, Schedule | Valid trip                 | Valid route   |  Yes  |
+| Pay and book a trip       | Valid trip, payment info   | Booking confirmed          | ReferenceError |  No   |
+| List a user's trips       | Logged in, choose menu     | List of booked trips       | TBD           |  TDB  |
 | Cancel a prior trip       | Booked trip                | Cancellation of trip       | TBD           |  TDB  |
 | Modify account info       | Address info, phone        | Successful change          | TBD           |  TDB  |
-| List a user's trips       | Logged in, choose menu     | List of booked trips       | TBD           |  TDB  |
+| Create a new user         | User, Password             | Account is created         | TBD           |  TBD  |
+
+#### Browser testing
+
+| Browser | Verified? |
+|---------|-----------|
+| Firefox |    Yes    |
+| Chrome  |    Yes    |
+| Edge    |    Yes    |
+| Safari  |    Yes    |
 
 
 ## Development History
