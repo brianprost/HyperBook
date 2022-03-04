@@ -268,6 +268,10 @@ Diagram detailing the entities used by the application and their relationships t
 
 ### API Requirements
 
+Swagger UI was used on the backend to manage and handle API testing. This provided the ability to work and test on frontend and backend components discretely, as well as implement the database backend as work progressed.
+
+<img src="https://raw.githubusercontent.com/brianprost/HyperBook/main/plan/swagger.png" width="800">
+
 - login
 	- Parameters: email, password
 	- Response: Success/Failure Code
@@ -276,8 +280,8 @@ Diagram detailing the entities used by the application and their relationships t
 	- Logic: You have to match the email and password against the user details in the DB. Use SHA-512 with salt for hashing the password and storing in DB.
 - get_username
 	- Parameters: user_id
-	- Response: first_name, last_name
-	- Logic: To get the full name and may be other static details about the user to show on the account page of the user.
+	- Response: id, name
+	- Logic: To get the full name and other static details about the user to show on the account page of the user.
 - get_trips
 	- Parameters: user_id
 	- Response: list of trips. Each reservation is an object of:
