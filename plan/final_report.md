@@ -40,12 +40,16 @@ March 7, 2022
     4. [User Interface Design](#user-interface-design)
     5. [Alternate Design](#alternate-design)
 6. [Test Plan and Results](#test-plan-and-results)
+    1. [Functionality Testing](#functionality-testing)
+    3. [Browser Testing](#browser-testing)
 7. [Development History](#development-history)
     1. [Milestones](#milestones)
     2. [Phase 1 Report](#phase-1-report)
     3. [Phase 2 Report](#phase-2-report)
     4. [Phase 3 Report](#phase-3-report)
 8. [Conclusion](#conclusion)
+    1. [Strengths and Limitations](#strengths-and-limitations) 
+    2. [Future Improvement](#future-improvement) 
 
 
 ## Overview
@@ -353,7 +357,7 @@ The HyperBook Application makes use of .NET Core API endpoints hosted in Azure f
 
 Specific tests to be performed using the functionality of the frontend are detailed below:
 
-#### Functionality tests
+### Functionality Testing
 
 | Tested Function           | Input                      | Expected Output            | Actual Output | Pass? |
 |---------------------------|----------------------------|----------------------------|---------------|-------|
@@ -365,7 +369,7 @@ Specific tests to be performed using the functionality of the frontend are detai
 | Modify account info       | Address info, phone        | Successful change          | TBD           |  TDB  |
 | Create a new user         | User, Password             | Account is created         | TBD           |  TBD  |
 
-#### Browser testing
+### Browser Testing
 
 | Browser | Verified? |
 |---------|-----------|
