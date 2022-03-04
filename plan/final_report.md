@@ -25,7 +25,7 @@ March 8, 2022
     1. [System Specification](#system-specification)
     2. [Software Requirements](#software-requirements)
     3. [Hardware Requirements](#hardware-requirements)
-4. [User's Guide](user-s-guide)
+4. [User's Guide](users-guide)
     1. [Application Setup](#application-setup)
     2. [Application Tasks](#application-tasks)
         1. [Logging into the HyperBook Application](#logging-into-the-hyperbook-application)
