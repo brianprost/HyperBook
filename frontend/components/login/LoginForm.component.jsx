@@ -57,13 +57,15 @@ const LoginForm = () => {
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         {isError && (
-          <div className="px-4 py-8">Username or Password are incorrect!</div>
+          <div className="px-auto bg-neutral-100-500 mx-4 my-8 cursor-not-allowed rounded-xl border-2 border-indigo-500 py-4 text-center font-bold text-red-500">
+            😿 Username or password is incorrect 😿
+          </div>
         )}
         <form className="space-y-6" onSubmit={formik.handleSubmit}>
-          <div>
+          <div className="group">
             <label
               htmlFor="email"
-              className="block text-sm font-[550] text-gray-700"
+              className="block text-sm font-[550] text-gray-700 group-focus-within:font-semibold group-focus-within:text-red-500"
             >
               Email Address
             </label>
@@ -76,12 +78,14 @@ const LoginForm = () => {
                 onChange={formik.handleChange}
               />
             </div>
-            <FormLabel style={{ color: "red" }} text={formik.errors.email} />
+            <div className="mt-2 text-center font-semibold text-red-500 first-letter:capitalize">
+              <FormLabel text={formik.errors.email} />
+            </div>
           </div>
-          <div>
+          <div className="group">
             <label
               htmlFor="password"
-              className="block font-sans text-sm font-[550] text-gray-700"
+              className="block font-sans text-sm font-[550] text-gray-700 group-focus-within:font-semibold group-focus-within:text-red-500"
             >
               Password
             </label>
@@ -94,7 +98,9 @@ const LoginForm = () => {
                 className="block w-full transform rounded-lg border border-indigo-500 bg-red-500 bg-opacity-5 px-5 py-3 text-base text-red-500 placeholder-gray-300 transition duration-500 ease-in-out focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-300"
               />
             </div>
-            <FormLabel style={{ color: "red" }} text={formik.errors.password} />
+            <div className="mt-2 text-center font-semibold text-red-500 first-letter:capitalize">
+              <FormLabel text={formik.errors.password} />
+            </div>
           </div>
 
           <div>

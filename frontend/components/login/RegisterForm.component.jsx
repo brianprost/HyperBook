@@ -19,7 +19,7 @@ const RegisterValidation = yup.object().shape({
   addressLine1: yup.string().required(),
   city: yup.string().required(),
   state: yup.string().required(),
-  zip: yup.string().max(2).required(),
+  zip: yup.string().min(5).max(9).required(),
   phone: yup.string().required(),
 });
 
