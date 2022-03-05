@@ -20,7 +20,7 @@ export const CartItem = (props) => {
       <div className="col-span-2 self-center">
         <div className="flex items-center justify-end space-x-2 text-sm">
           <span className="inline-block font-bold text-red-500">
-            {props.tripPrice}
+            {"$" + props.tripPrice.toFixed(2)}
           </span>
         </div>
       </div>
