@@ -39,7 +39,7 @@ const CheckoutPage = (props) => {
     address: yup.string().required(),
     city: yup.string().required(),
     state: yup.string().required(),
-    zip: yup.string().required(),
+    zip: yup.string().min(5).max(9).required(),
     card: yup.string().required(),
     expiry: yup.string().required(),
     cvc: yup.string().required(),
@@ -271,7 +271,7 @@ const CheckoutPage = (props) => {
                 type="submit"
                 className="submit-button duration-400 transform rounded-2xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:scale-105 hover:border-red-500 hover:bg-indigo-600 hover:text-red-500"
               >
-                {"PAY $" + total}
+                {"PAY $" + total.toFixed(2)}
               </button>
             </div>
             {/* </a>
@@ -288,24 +288,24 @@ const CheckoutPage = (props) => {
             departureCity={departureCity}
             destinationCity={destinationCity}
             departureWindow={departureWindow}
-            tripPrice={"$" + subTotal}
+            tripPrice={subTotal}
           />
         </ul>
         <div className="border-b px-8">
           <TotalItem
             title={"Subtotal"}
-            value={"$" + subTotal}
+            value={subTotal}
             style={"flex justify-between py-4 text-indigo-500"}
           />
           <TotalItem
             title={"Taxes"}
-            value={"$" + roundedTaxes}
+            value={roundedTaxes}
             style={"flex justify-between py-4 text-indigo-500"}
           />
         </div>
         <TotalItem
           title={"Total"}
-          value={"$" + total}
+          value={total}
           style={
             "flex justify-between px-8 py-8 text-xl font-semibold text-indigo-500"
           }
