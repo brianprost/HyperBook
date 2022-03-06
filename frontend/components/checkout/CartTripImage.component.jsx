@@ -1,6 +1,8 @@
 import React from "react";
 
 const CartTripImage = ({ departureCity, destinationCity, departureWindow }) => {
+  departureCity = departureCity.replace(/[\s,.]+/g, "-").toLowerCase();
+  destinationCity = destinationCity.replace(/[\s,.]+/g, "-").toLowerCase();
   return (
     <div className="col-span-2 flex flex-col self-center rounded-lg bg-indigo-500">
       <div className="grid h-20 flex-shrink-0 grid-cols-2 grid-rows-1">
