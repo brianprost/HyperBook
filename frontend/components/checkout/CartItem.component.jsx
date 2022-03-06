@@ -18,9 +18,9 @@ export const CartItem = ({
       <div className="col-span-3 flex h-full flex-col items-center justify-center">
         <p className="py-auto text-center text-xl font-[700] text-indigo-600 ">
           {departureCity}
-          <p className="my-auto text-center text-xs font-[220] text-indigo-400">
+          <span className="my-auto block text-center text-xs font-[220] text-indigo-400">
             to
-          </p>
+          </span>
           {destinationCity}
         </p>
       </div>
