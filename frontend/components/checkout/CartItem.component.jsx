@@ -1,26 +1,33 @@
 import React from "react";
+import CartTripImage from "./CartTripImage.component";
 
-export const CartItem = (props) => {
-  const tripTitle = props.departureCity + " to " + props.destinationCity;
+export const CartItem = ({
+  departureCity,
+  destinationCity,
+  departureWindow,
+  tripPrice,
+}) => {
+  const tripTitle = departureCity + " to " + destinationCity;
   return (
     <li className="border-b-1 grid grid-cols-6 gap-2">
+      <CartTripImage
+        departureCity={departureCity}
+        destinationCity={destinationCity}
+        departureWindow={departureWindow}
+      />
+      <div className="col-span-3 flex h-full flex-col items-center justify-center">
+        <p className="py-auto text-center text-xl font-[700] text-indigo-600 ">
+          {departureCity}
+          <p className="my-auto text-center text-xs font-[220] text-indigo-400">
+            to
+          </p>
+          {destinationCity}
+        </p>
+      </div>
       <div className="col-span-1 self-center">
-        <img
-          src="./img/SEA-SFO.webp"
-          alt="Product"
-          className="w-full rounded"
-        />
-      </div>
-      <div className="col-span-3 flex flex-col">
-        <span className="text-xs font-semibold uppercase tracking-widest text-indigo-400">
-          {props.departureWindow ? props.departureWindow : `DEPARTURE WINDOW`}
-        </span>
-        <span className="text-base font-bold text-indigo-600">{tripTitle}</span>
-      </div>
-      <div className="col-span-2 self-center">
         <div className="flex items-center justify-end space-x-2 text-sm">
           <span className="inline-block font-bold text-red-500">
-            {"$" + props.tripPrice.toFixed(2)}
+            {"$" + tripPrice.toFixed(2)}
           </span>
         </div>
       </div>
