@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import AccountButton from "./UserNavButton.component";
 import { RiAccountCircleLine } from "react-icons/ri";
 import Link from "next/link";
+import { getUser } from "../../services/UserService";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -10,6 +11,26 @@ function classNames(...classes) {
 
 const UserNavSection = (props) => {
   const router = useRouter();
+
+  const [accountName, setAccountName] = useState("brian");
+
+  useEffect(() => {
+    let id = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("userId="))
+      .split("=")[1];
+    getUser(id)
+      .then((res) => {
+        setAccountName(
+          res.data.firstName.toUpperCase() +
+            " " +
+            res.data.lastName.toUpperCase()
+        );
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   const LinkElement = ({ linkTitle, link }) => {
     // yeah i know this doesn't look pretty. i'll change it later
@@ -21,7 +42,7 @@ const UserNavSection = (props) => {
           className={classNames(
             router.pathname == linkTitle
               ? "bg-neutral-500 bg-opacity-20 text-neutral-500"
-              : "text-neutral-200 hover:bg-indigo-500 hover:bg-opacity-90 mr-2",
+              : "mr-2 text-neutral-200 hover:bg-indigo-500 hover:bg-opacity-90",
             "rounded-md py-2 px-3 text-sm font-semibold"
           )}
           onClick={() => {
@@ -62,7 +83,7 @@ const UserNavSection = (props) => {
       <LinkElement linkTitle={"Logout"} link={"/"} />
       <AccountButton>
         <RiAccountCircleLine className="mr-2 h-5 w-5" />
-        {props.username ? props.username : "whereIsUsername?"}
+        {accountName ? accountName : "whereIsUsername?"}
       </AccountButton>
     </div>
   );
