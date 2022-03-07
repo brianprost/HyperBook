@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "cookies";
-import { Reservation } from "../components/Reservation.component";
+import { Reservation } from "../components/account/Reservation.component";
 import { getTrips, getUser } from "../services/UserService";
 
 const AccountPage = () => {
   const [accountName, setAccountName] = useState("");
   const [trips, setTrips] = useState([]);
+
   useEffect(() => {
     let id = document.cookie
       .split("; ")
@@ -62,6 +63,7 @@ const AccountPage = () => {
                       confirmationCode={
                         accountName.split(" ").pop() + trip.tripId
                       }
+                      tripId={trip.tripId}
                     />
                   ))
                 : "No trips have been currently booked!"
