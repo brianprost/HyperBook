@@ -13,7 +13,6 @@ const EditUserValidation = yup.object().shape({
     .string()
     .min(8)
     .max(16)
-    //.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
     .required(),
   addressLine1: yup.string().required(),
   city: yup.string().required(),
@@ -26,14 +25,7 @@ const EditUserForm = ({
   user,
 }) => {
   const [isError, setIsError] = useState(false);
-  // const [nameState, setName] = useState(false);
-  // const [emailState, setEmail] = useState(false);
-  // const [addressState, setAddress] = useState(false);
-  // const [addressState2, setAddress2] = useState(false);
-  // const [cityState, setCity] = useState(false);
-  // const [stateState, setState] = useState(false);
-  // const [zipState, setZip] = useState(false);
-  // const [phoneState, setPhone] = useState(false);
+  
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
