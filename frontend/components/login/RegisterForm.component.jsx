@@ -104,7 +104,7 @@ const RegisterForm = () => {
                 htmlFor="firstName"
                 className="block text-sm font-[550] text-gray-700"
               >
-                First Name
+                First Name*
               </label>
               <div className="mt-1">
                 <input
@@ -124,7 +124,7 @@ const RegisterForm = () => {
                 htmlFor="lastName"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Last Name
+                Last Name*
               </label>
               <div className="mt-1">
                 <input
@@ -144,7 +144,7 @@ const RegisterForm = () => {
                 htmlFor="email"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Email Address
+                Email Address*
               </label>
               <div className="mt-1">
                 <input
@@ -162,7 +162,7 @@ const RegisterForm = () => {
                 htmlFor="password"
                 className="block font-sans text-sm font-[550] text-gray-700"
               >
-                Password
+                Password*
               </label>
               <div className="mt-1">
                 <input
@@ -183,7 +183,7 @@ const RegisterForm = () => {
                 htmlFor="addressLine1"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Address Line 1
+                Address Line 1*
               </label>
               <div className="mt-1">
                 <input
@@ -223,7 +223,7 @@ const RegisterForm = () => {
                 htmlFor="city"
                 className="block text-sm font-[550] text-gray-700"
               >
-                City
+                City*
               </label>
               <div className="mt-1">
                 <input
@@ -240,7 +240,7 @@ const RegisterForm = () => {
                 htmlFor="state"
                 className="block text-sm font-[550] text-gray-700"
               >
-                State
+                State*
               </label>
               <div className="mt-1">
                 <input
@@ -257,7 +257,7 @@ const RegisterForm = () => {
                 htmlFor="zip"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Zip Code
+                Zip Code*
               </label>
               <div className="mt-1">
                 <input
@@ -274,7 +274,7 @@ const RegisterForm = () => {
                 htmlFor="phone"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Phone Number
+                Phone Number*
               </label>
               <div className="mt-1">
                 <input

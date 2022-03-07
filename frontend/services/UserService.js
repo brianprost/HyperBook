@@ -84,7 +84,6 @@ export async function updateUser (
   firstName,
   lastName,
   email,
-  password,
   addressLine1,
   addressLine2,
   city,
@@ -95,7 +94,6 @@ export async function updateUser (
   const user = {
     userId: userId,
     email: email,
-    password: password,
     firstName: firstName,
     lastName: lastName,
     addressLine1: addressLine1,

@@ -9,11 +9,6 @@ const EditUserValidation = yup.object().shape({
   firstName: yup.string().required(),
   lastName: yup.string().required(),
   email: yup.string().email().required(),
-  password: yup
-    .string()
-    .min(8)
-    .max(16)
-    .required(),
   addressLine1: yup.string().required(),
   city: yup.string().required(),
   state: yup.string().max(2).required(),
@@ -32,7 +27,6 @@ const EditUserForm = ({
       firstName: user[3],
       lastName: user[5],
       email: user[7],
-      password: "",
       addressLine1: user[9],
       addressLine2: user[11],
       city: user[13],
@@ -46,7 +40,6 @@ const EditUserForm = ({
       let firstName = values.firstName;
       let lastName = values.lastName;
       let email = values.email;
-      let password = values.password;
       let addressLine1 = values.addressLine1;
       let addressLine2 = values.addressLine2;
       let city = values.city;
@@ -59,7 +52,6 @@ const EditUserForm = ({
         firstName,
         lastName,
         email,
-        password,
         addressLine1,
         addressLine2,
         city,
@@ -98,7 +90,7 @@ const EditUserForm = ({
                 htmlFor="firstName"
                 className="block text-sm font-[550] text-gray-700"
               >
-                First Name
+                First Name*
               </label>
               <div className="mt-1">
                 <input
@@ -119,7 +111,7 @@ const EditUserForm = ({
                 htmlFor="lastName"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Last Name
+                Last Name*
               </label>
               <div className="mt-1">
                 <input
@@ -140,7 +132,7 @@ const EditUserForm = ({
                 htmlFor="email"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Email Address
+                Email Address*
               </label>
               <div className="mt-1">
                 <input
@@ -154,7 +146,7 @@ const EditUserForm = ({
               </div>
               <FormLabel style={{ color: "red" }} text={formik.errors.email} />
             </div>
-            <div>
+            {/* <div>
               <label
                 htmlFor="password"
                 className="block font-sans text-sm font-[550] text-gray-700"
@@ -174,13 +166,13 @@ const EditUserForm = ({
                 style={{ color: "red" }}
                 text={formik.errors.password}
               />
-            </div>
+            </div> */}
             <div>
               <label
                 htmlFor="addressLine1"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Address Line 1
+                Address Line 1*
               </label>
               <div className="mt-1">
                 <input
@@ -222,7 +214,7 @@ const EditUserForm = ({
                 htmlFor="city"
                 className="block text-sm font-[550] text-gray-700"
               >
-                City
+                City*
               </label>
               <div className="mt-1">
                 <input
@@ -240,7 +232,7 @@ const EditUserForm = ({
                 htmlFor="state"
                 className="block text-sm font-[550] text-gray-700"
               >
-                State
+                State*
               </label>
               <div className="mt-1">
                 <input
@@ -258,7 +250,7 @@ const EditUserForm = ({
                 htmlFor="zip"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Zip Code
+                Zip Code*
               </label>
               <div className="mt-1">
                 <input
@@ -276,7 +268,7 @@ const EditUserForm = ({
                 htmlFor="phone"
                 className="block text-sm font-[550] text-gray-700"
               >
-                Phone Number
+                Phone Number*
               </label>
               <div className="mt-1">
                 <input
