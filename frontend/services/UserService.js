@@ -79,6 +79,34 @@ export async function addUser(
   return response;
 }
 
+export async function updateUser (
+  userId,
+  firstName,
+  lastName,
+  email,
+  addressLine1,
+  addressLine2,
+  city,
+  state,
+  zip,
+  phone
+) {
+  const user = {
+    userId: userId,
+    email: email,
+    firstName: firstName,
+    lastName: lastName,
+    addressLine1: addressLine1,
+    addressLine2: addressLine2,
+    city: city,
+    state: state,
+    zip: zip,
+    phone: phone,
+  };
+  const response = await axios.put(base_url + `/api/HyperBook/UpdateUser`, user);
+  return response;
+}
+
 export async function cancelTrip(tripIdToCancel) {
   // Ref Status 1 Pending 2 Booked 3 Cancelled
 

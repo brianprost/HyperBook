@@ -3,48 +3,43 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import router from "next/router";
 import { useState } from "react";
-import { setCookies } from "cookies-next";
-import { addUser } from "../../services/UserService";
+import { updateUser } from "../../services/UserService";
 
-const RegisterValidation = yup.object().shape({
+const EditUserValidation = yup.object().shape({
   firstName: yup.string().required(),
   lastName: yup.string().required(),
   email: yup.string().email().required(),
-  password: yup
-    .string()
-    .min(8)
-    .max(16)
-    //.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
-    .required(),
   addressLine1: yup.string().required(),
   city: yup.string().required(),
-  state: yup.string().required(),
-  zip: yup.string().min(5).max(9).required(),
+  state: yup.string().max(2).required(),
+  zip: yup.string().required(),
   phone: yup.string().required(),
 });
 
-const RegisterForm = () => {
+const EditUserForm = ({
+  user,
+}) => {
   const [isError, setIsError] = useState(false);
 
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      addressLine1: "",
-      addressLine2: "",
-      city: "",
-      state: "",
-      zip: "",
-      phone: "",
+      firstName: user[3],
+      lastName: user[5],
+      email: user[7],
+      addressLine1: user[9],
+      addressLine2: user[11],
+      city: user[13],
+      state: user[15],
+      zip: user[17],
+      phone: user[19],
     },
-    validationSchema: RegisterValidation,
+    validationSchema: EditUserValidation,
     onSubmit: (values) => {
+      let userId = user[1];
       let firstName = values.firstName;
       let lastName = values.lastName;
       let email = values.email;
-      let password = values.password;
       let addressLine1 = values.addressLine1;
       let addressLine2 = values.addressLine2;
       let city = values.city;
@@ -52,11 +47,11 @@ const RegisterForm = () => {
       let zip = values.zip;
       let phone = values.phone;
 
-      addUser(
+      updateUser(
+        userId,
         firstName,
         lastName,
         email,
-        password,
         addressLine1,
         addressLine2,
         city,
@@ -65,12 +60,9 @@ const RegisterForm = () => {
         phone
       )
         .then((res) => {
-          if (res.status == 201) {
-            // setCookies("isAuthenticated", "true");
-            // setCookies("userId", res.data.userId);
-            // localStorage?.setItem("isAuthenticated", "true");
-            alert("Your user has been successfully registered. Please login!");
-            router.push("/login");
+          if (res.status == 204) {
+            alert("Your user has been successfully updated!");
+            router.push("/edit");
           }
         })
         .catch((err) => {
@@ -84,19 +76,13 @@ const RegisterForm = () => {
     <section className="mt-12 flex flex-col items-center justify-center">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="text-center font-sans text-4xl font-semibold text-neutral-900">
-          Register for
+          Edit your User for
           <p className="my-4 text-4xl font-bold text-red-500 drop-shadow">
             HYPERBOOK
           </p>
         </h2>
       </div>
       <div className="w-3/5 mt-8">
-        {isError && (
-          <div className="px-4 py-8">
-            User with the same email already exists. Please try a different
-            email!
-          </div>
-        )}
         <form onSubmit={formik.handleSubmit}>
           <div className="grid grid-cols-2 justify-start gap-8">
             <div>
@@ -111,6 +97,7 @@ const RegisterForm = () => {
                   id="firstName"
                   name="firstName"
                   className="user-auth-input"
+                  value={formik.values.firstName}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -131,6 +118,7 @@ const RegisterForm = () => {
                   id="lastName"
                   name="lastName"
                   className="user-auth-input"
+                  value={formik.values.lastName}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -152,17 +140,18 @@ const RegisterForm = () => {
                   name="email"
                   type="email"
                   className="user-auth-input"
+                  value={formik.values.email}
                   onChange={formik.handleChange}
                 />
               </div>
               <FormLabel style={{ color: "red" }} text={formik.errors.email} />
             </div>
-            <div>
+            {/* <div>
               <label
                 htmlFor="password"
                 className="block font-sans text-sm font-[550] text-gray-700"
               >
-                Password*
+                Password
               </label>
               <div className="mt-1">
                 <input
@@ -177,7 +166,7 @@ const RegisterForm = () => {
                 style={{ color: "red" }}
                 text={formik.errors.password}
               />
-            </div>
+            </div> */}
             <div>
               <label
                 htmlFor="addressLine1"
@@ -190,6 +179,7 @@ const RegisterForm = () => {
                   id="addressLine1"
                   name="addressLine1"
                   className="user-auth-input"
+                  value={formik.values.addressLine1}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -210,6 +200,7 @@ const RegisterForm = () => {
                   id="addressLine2"
                   name="addressLine2"
                   className="user-auth-input"
+                  value={formik.values.addressLine2}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -230,6 +221,7 @@ const RegisterForm = () => {
                   id="city"
                   name="city"
                   className="user-auth-input"
+                  value={formik.values.city}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -247,6 +239,7 @@ const RegisterForm = () => {
                   id="state"
                   name="state"
                   className="user-auth-input"
+                  value={formik.values.state}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -264,6 +257,7 @@ const RegisterForm = () => {
                   id="zip"
                   name="zip"
                   className="user-auth-input"
+                  value={formik.values.zip}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -281,6 +275,7 @@ const RegisterForm = () => {
                   id="phone"
                   name="phone"
                   className="user-auth-input"
+                  value={formik.values.phone}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -293,7 +288,7 @@ const RegisterForm = () => {
               type="submit"
               className="duration-400 w-1/3 transform rounded-xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:border-red-500 hover:bg-indigo-600 hover:text-neutral-300"
             >
-              Register
+              Update
             </button>
           </div>
         </form>
@@ -302,4 +297,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default EditUserForm;
