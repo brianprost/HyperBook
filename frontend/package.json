@@ -10,7 +10,7 @@
   "dependencies": {
     "@fontsource/encode-sans": "^4.5.2",
     "@fontsource/montserrat": "^4.5.5",
-    "@headlessui/react": "^1.4.3",
+    "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.5",
     "autoprefixer": "^10.4.2",
     "axios": "^0.26.0",

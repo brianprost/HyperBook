@@ -11,11 +11,14 @@ import ReactTooltip from "react-tooltip";
 import RouteSection from "./RouteSection.component";
 import MapMarker from "./MapMarker.component";
 import Loading from "../Loading.component";
+import { getDestinations } from "../../services/UserService";
+import { Map } from "./Map.component";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 const MapSection = () => {
   const [cities, setCities] = useState(null);
+  const [destinations, setDestinations] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [departureCity, setDepartureCity] = useState(false);
   const [destinationCity, setDestinationCity] = useState(false);
@@ -23,6 +26,11 @@ const MapSection = () => {
   const [destinationCityId, setDestinationCityId] = useState(false);
   const [titleText, setTitleText] = useState("Destinations");
   const [tooltipContent, setTooltipContent] = useState("");
+
+  // const filterCities = ({ cityId }) => {
+  //   let destinations = getDestinations(cityId);
+  //   setCities(destinations);
+  // };
 
   useEffect(() => {
     setLoading(true);
@@ -38,6 +46,10 @@ const MapSection = () => {
 
   if (isLoading) return <Loading />;
   if (!cities) return <p>No Cities :(</p>;
+
+  if (departureCity) {
+    getDestinations(departureCityId);
+  }
 
   if (destinationCity) {
     return (
@@ -55,64 +67,19 @@ const MapSection = () => {
       <h2 className="text-center text-6xl font-bold text-black-500">
         {titleText}
       </h2>
-      <div className="-my-10">
-        <div className="mx-auto w-5/6">
-          <ComposableMap
-            data-tip=""
-            projection="geoAlbersUsa"
-            style={{
-              default: { outline: "none" },
-              hover: { outline: "none" },
-              pressed: { outline: "none" },
-            }}
-          >
-            <Geographies geography={geoUrl}>
-              {({ geographies }) => (
-                <>
-                  {geographies.map((geo) => (
-                    <Geography
-                      key={geo.rsmKey}
-                      stroke="#30475e"
-                      geography={geo}
-                      fill="#e8e8e8"
-                    />
-                  ))}
-                </>
-              )}
-            </Geographies>
-            {cities.map((city) => (
-              <Marker
-                key={city.name}
-                coordinates={[city.longitude, city.latitude]}
-                onMouseEnter={() => {
-                  setTooltipContent(`${city.name}`);
-                }}
-                onMouseLeave={() => {
-                  setTooltipContent("");
-                }}
-                onClick={async () => {
-                  // there's probably a better place for this
-                  if (!departureCity) {
-                    setDepartureCity(city.name);
-                    setDepartureCityId(city.id);
-                    setTitleText(`${city.name} to `);
-                  } else if (!destinationCity) {
-                    setDestinationCity(city.name);
-                    setDestinationCityId(city.id);
-                    setTitleText(`${titleText + city.name}`);
-                  }
-                }}
-              >
-                <MapMarker
-                  city={city}
-                  departureCity={departureCity}
-                  destinationCity={destinationCity}
-                />
-              </Marker>
-            ))}
-          </ComposableMap>
-        </div>
-      </div>
+      <Map
+        cities={cities}
+        // filterCities={filterCities}
+        titleText={titleText}
+        setTitleText={setTitleText}
+        departureCity={departureCity}
+        setDepartureCity={setDepartureCity}
+        setDepartureCityId={setDepartureCityId}
+        setTooltipContent={setTooltipContent}
+        destinationCity={destinationCity}
+        setDestinationCity={setDestinationCity}
+        setDestinationCityId={setDestinationCityId}
+      />
       <ReactTooltip
         className="font-[720]"
         backgroundColor="#222831"

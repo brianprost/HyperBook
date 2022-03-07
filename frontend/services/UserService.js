@@ -40,7 +40,7 @@ export async function getCities() {
 
 export async function getDestinations(cityId) {
   const response = await axios.get(
-    base_url + `/api/HyperBook/GetDestinations=${cityId}`
+    base_url + `/api/HyperBook/GetDestinations?cityId=${cityId}`
   );
   return response;
 }
@@ -79,7 +79,7 @@ export async function addUser(
   return response;
 }
 
-export async function updateUser(
+export async function updateUser (
   userId,
   firstName,
   lastName,
@@ -107,4 +107,22 @@ export async function updateUser(
   };
   const response = await axios.post(base_url + `/api/Insert/UpdateUser`, user);
   return response;
+}
+
+export async function cancelTrip(tripIdToCancel) {
+  // Ref Status 1 Pending 2 Booked 3 Cancelled
+
+  const cancelTripObject = {
+    tripId: tripIdToCancel,
+    refStatusId: 3,
+  };
+
+  axios
+    .put(`${base_url}/api/HyperBook/UpdateTripStatus`, {
+      tripId: tripIdToCancel,
+      refStatusId: 3,
+    })
+    .then((response) => {
+      window.location.reload(false);
+    });
 }
