@@ -12,7 +12,7 @@ function classNames(...classes) {
 const UserNavSection = (props) => {
   const router = useRouter();
 
-  const [accountName, setAccountName] = useState("brian");
+  const [accountName, setAccountName] = useState("");
 
   useEffect(() => {
     let id = document.cookie
