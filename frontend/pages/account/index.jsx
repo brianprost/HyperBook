@@ -47,7 +47,7 @@ const AccountPage = () => {
         </h2>
         <Link href={`/account/edit`}>
           <a>
-            <h3 className="mb-16 text-right font-bold text-indigo-500 transition ease-in-out duration-100 hover:text-red-500 underline">
+            <h3 className="mb-16 text-right font-bold text-indigo-500 underline transition duration-100 ease-in-out hover:text-red-500">
               Edit account information
             </h3>
           </a>

@@ -118,7 +118,7 @@ const CheckoutPage = (props) => {
   });
 
   return (
-    <section id="checkout" className="grid h-auto grid-cols-3 mb-20">
+    <section id="checkout" className="mb-20 grid h-auto grid-cols-3">
       <div className="col-span-3 space-y-8 px-12 lg:col-span-2">
         <div className="relative mt-8 flex flex-col rounded-xl bg-neutral-50 p-4 shadow sm:flex-row sm:items-center">
           <div className="flex w-full flex-row items-center border-b pb-4 sm:w-auto sm:border-b-0 sm:pb-0">

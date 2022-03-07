@@ -79,7 +79,7 @@ export async function addUser(
   return response;
 }
 
-export async function updateUser (
+export async function updateUser(
   userId,
   firstName,
   lastName,
@@ -103,7 +103,10 @@ export async function updateUser (
     zip: zip,
     phone: phone,
   };
-  const response = await axios.put(base_url + `/api/HyperBook/UpdateUser`, user);
+  const response = await axios.put(
+    base_url + `/api/HyperBook/UpdateUser`,
+    user
+  );
   return response;
 }
 

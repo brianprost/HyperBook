@@ -90,7 +90,7 @@ const RegisterForm = () => {
           </p>
         </h2>
       </div>
-      <div className="w-3/5 mt-8">
+      <div className="mt-8 w-3/5">
         {isError && (
           <div className="px-4 py-8">
             User with the same email already exists. Please try a different
@@ -288,7 +288,7 @@ const RegisterForm = () => {
             </div>
           </div>
 
-          <div className="flex justify-center mt-12 ">
+          <div className="mt-12 flex justify-center ">
             <button
               type="submit"
               className="duration-400 w-1/3 transform rounded-xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:border-red-500 hover:bg-indigo-600 hover:text-neutral-300"

@@ -28,7 +28,7 @@ export const Map = ({
   setDestinationCity,
   setDestinationCityId,
 }) => {
-  console.log("look at me i rendered")
+  console.log("look at me i rendered");
   return (
     <div className="-my-10">
       <div className="mx-auto w-5/6">
