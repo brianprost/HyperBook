@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Cookies from "cookies";
 import React from "react";
 import { useState, useEffect } from "react";
 import EditUserForm from "../components/login/EditUserForm.component";
