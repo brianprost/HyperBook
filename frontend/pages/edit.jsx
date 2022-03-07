@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import EditUserForm from "../components/login/EditUserForm.component";
 import { getUser } from "../services/UserService";
 
@@ -9,10 +9,12 @@ const EditUserPage = (props) => {
   const userId = props.userId;
   const [user, setUser] = useState([]);
 
-  getUser(userId)
+  useEffect(() => {
+    getUser(userId)
     .then((res) => {
       if (res.status == 200 && res.statusText === "OK") {
         const user = [];
+        user.push("userId", res.data.userId);
         user.push("firstName", res.data.firstName)
         user.push("lastName", res.data.lastName);
         user.push("email", res.data.email);
@@ -31,6 +33,8 @@ const EditUserPage = (props) => {
     .catch((err) => {
       console.error(err);
     });
+  }, [])
+  
   return (
     <div>
       <Head>

@@ -105,7 +105,7 @@ export async function updateUser (
     zip: zip,
     phone: phone,
   };
-  const response = await axios.post(base_url + `/api/Insert/UpdateUser`, user);
+  const response = await axios.put(base_url + `/api/HyperBook/UpdateUser`, user);
   return response;
 }
 

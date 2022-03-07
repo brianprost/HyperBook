@@ -3,8 +3,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import router from "next/router";
 import { useState } from "react";
-import { getCookies } from "cookies-next";
-import { getUser, UpdateUser } from "../../services/UserService";
+import { updateUser } from "../../services/UserService";
 
 const EditUserValidation = yup.object().shape({
   firstName: yup.string().required(),
@@ -18,8 +17,8 @@ const EditUserValidation = yup.object().shape({
     .required(),
   addressLine1: yup.string().required(),
   city: yup.string().required(),
-  state: yup.string().required(),
-  zip: yup.string().max(2).required(),
+  state: yup.string().max(2).required(),
+  zip: yup.string().required(),
   phone: yup.string().required(),
 });
 
@@ -36,21 +35,22 @@ const EditUserForm = ({
   // const [zipState, setZip] = useState(false);
   // const [phoneState, setPhone] = useState(false);
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
-      firstName: user[1],
-      lastName: user[3],
-      email: user[5],
+      firstName: user[3],
+      lastName: user[5],
+      email: user[7],
       password: "",
-      addressLine1: user[7],
-      addressLine2: user[9],
-      city: user[11],
-      state: user[13],
-      zip: user[15],
-      phone: user[17],
+      addressLine1: user[9],
+      addressLine2: user[11],
+      city: user[13],
+      state: user[15],
+      zip: user[17],
+      phone: user[19],
     },
     validationSchema: EditUserValidation,
     onSubmit: (values) => {
-      let userId = "";
+      let userId = user[1];
       let firstName = values.firstName;
       let lastName = values.lastName;
       let email = values.email;
@@ -62,7 +62,7 @@ const EditUserForm = ({
       let zip = values.zip;
       let phone = values.phone;
 
-      UpdateUser(
+      updateUser(
         userId,
         firstName,
         lastName,
@@ -119,7 +119,7 @@ const EditUserForm = ({
                   id="firstName"
                   name="firstName"
                   className="user-auth-input"
-                  value={user ? user[1] : ""}
+                  value={formik.values.firstName}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -140,7 +140,7 @@ const EditUserForm = ({
                   id="lastName"
                   name="lastName"
                   className="user-auth-input"
-                  value={user ? user[3] : ""}
+                  value={formik.values.lastName}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -162,7 +162,7 @@ const EditUserForm = ({
                   name="email"
                   type="email"
                   className="user-auth-input"
-                  value={user ? user[5] : ""}
+                  value={formik.values.email}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -201,7 +201,7 @@ const EditUserForm = ({
                   id="addressLine1"
                   name="addressLine1"
                   className="user-auth-input"
-                  value={user ? user[7] : ""}
+                  value={formik.values.addressLine1}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -222,7 +222,7 @@ const EditUserForm = ({
                   id="addressLine2"
                   name="addressLine2"
                   className="user-auth-input"
-                  value={user ? user[9] : ""}
+                  value={formik.values.addressLine2}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -243,7 +243,7 @@ const EditUserForm = ({
                   id="city"
                   name="city"
                   className="user-auth-input"
-                  value={user ? user[11] : ""}
+                  value={formik.values.city}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -261,7 +261,7 @@ const EditUserForm = ({
                   id="state"
                   name="state"
                   className="user-auth-input"
-                  value={user ? user[13] : ""}
+                  value={formik.values.state}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -279,7 +279,7 @@ const EditUserForm = ({
                   id="zip"
                   name="zip"
                   className="user-auth-input"
-                  value={user ? user[15] : ""}
+                  value={formik.values.zip}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -297,7 +297,7 @@ const EditUserForm = ({
                   id="phone"
                   name="phone"
                   className="user-auth-input"
-                  value={user ? user[17] : ""}
+                  value={formik.values.phone}
                   onChange={formik.handleChange}
                 />
               </div>
