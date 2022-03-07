@@ -31,7 +31,7 @@ const EditUserPage = (props) => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [userId]);
 
   return (
     <div>
