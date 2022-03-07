@@ -68,9 +68,9 @@ const EditUserForm = ({
         phone
       )
         .then((res) => {
-          if (res.status == 201) {
-            alert("Your user has been successfully registered. Please login!");
-            router.push("/login");
+          if (res.status == 204) {
+            alert("Your user has been successfully updated!");
+            router.push("/edit");
           }
         })
         .catch((err) => {
