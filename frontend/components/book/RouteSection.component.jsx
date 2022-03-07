@@ -37,7 +37,6 @@ const RouteSection = (props) => {
       id="route-choices"
       className="relative mx-auto mb-auto w-full items-center px-5 py-12 md:px-12 lg:px-24"
     >
-      {/* TODO center this instead of a large margin top. flex box be flexing weird rn... */}
       <h2 className="text-center text-6xl font-bold text-black-500">
         {props.departureCity} to {props.destinationCity}
       </h2>

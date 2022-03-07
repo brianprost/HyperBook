@@ -78,3 +78,21 @@ export async function addUser(
   const response = await axios.post(base_url + `/api/Insert/AddUser`, user);
   return response;
 }
+
+export async function cancelTrip(tripIdToCancel) {
+  // Ref Status 1 Pending 2 Booked 3 Cancelled
+
+  const cancelTripObject = {
+    tripId: tripIdToCancel,
+    refStatusId: 3,
+  };
+
+  axios
+    .put(`${base_url}/api/HyperBook/UpdateTripStatus`, {
+      tripId: tripIdToCancel,
+      refStatusId: 3,
+    })
+    .then((response) => {
+      window.location.reload(false);
+    });
+}
