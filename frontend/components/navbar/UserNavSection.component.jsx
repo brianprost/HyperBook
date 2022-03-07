@@ -79,7 +79,7 @@ const UserNavSection = (props) => {
   return (
     <div className="flex flex-row items-center justify-evenly">
       {/* TODO: make this button non styled once this username thing is figured out */}
-      <LinkElement linkTitle={"Your Account"} link={"/account"} />
+      <LinkElement linkTitle={"My Account"} link={"/account"} />
       <LinkElement linkTitle={"Logout"} link={"/"} />
       <AccountButton>
         <RiAccountCircleLine className="mr-2 h-5 w-5" />

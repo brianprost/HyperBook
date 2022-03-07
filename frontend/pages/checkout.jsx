@@ -26,12 +26,12 @@ const CheckoutPage = (props) => {
   const cvc = "001";
 
   const [user, setUser] = useState(false);
-  const [nameState, setName] = useState(false);
-  const [emailState, setEmail] = useState(false);
-  const [addressState, setAddress] = useState(false);
-  const [cityState, setCity] = useState(false);
-  const [stateState, setState] = useState(false);
-  const [zipState, setZip] = useState(false);
+  const [nameState, setName] = useState("");
+  const [emailState, setEmail] = useState("");
+  const [addressState, setAddress] = useState("");
+  const [cityState, setCity] = useState("");
+  const [stateState, setState] = useState("");
+  const [zipState, setZip] = useState("");
 
   const LoginValidation = yup.object().shape({
     name: yup.string().required(),
@@ -73,6 +73,7 @@ const CheckoutPage = (props) => {
   };
 
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
       name: nameState,
       email: emailState,
@@ -117,7 +118,7 @@ const CheckoutPage = (props) => {
   });
 
   return (
-    <section id="checkout" className="grid h-auto grid-cols-3">
+    <section id="checkout" className="mb-20 grid h-auto grid-cols-3">
       <div className="col-span-3 space-y-8 px-12 lg:col-span-2">
         <div className="relative mt-8 flex flex-col rounded-xl bg-neutral-50 p-4 shadow sm:flex-row sm:items-center">
           <div className="flex w-full flex-row items-center border-b pb-4 sm:w-auto sm:border-b-0 sm:pb-0">
@@ -149,7 +150,7 @@ const CheckoutPage = (props) => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="Bernando Sanders"
                   required=""
-                  value={user ? nameState : ""}
+                  value={formik.values.name}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -162,7 +163,7 @@ const CheckoutPage = (props) => {
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="bernando@senate.gov"
                   required=""
-                  value={user ? emailState : ""}
+                  value={formik.values.email}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -173,7 +174,7 @@ const CheckoutPage = (props) => {
                   name="address"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="!=1600 Pennsylvania Ave."
-                  value={user ? addressState : ""}
+                  value={formik.values.address}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -187,7 +188,7 @@ const CheckoutPage = (props) => {
                   name="city"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="Burlington"
-                  value={user ? cityState : ""}
+                  value={formik.values.city}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -198,7 +199,7 @@ const CheckoutPage = (props) => {
                   name="state"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="VA"
-                  value={user ? stateState : ""}
+                  value={formik.values.state}
                   onChange={formik.handleChange}
                 />
               </label>
@@ -209,7 +210,7 @@ const CheckoutPage = (props) => {
                   name="zip"
                   className="font-semilight w-full bg-neutral-50 px-3 focus:outline-none"
                   placeholder="90210"
-                  value={user ? zipState : ""}
+                  value={formik.values.zip}
                   onChange={formik.handleChange}
                 />
               </label>
