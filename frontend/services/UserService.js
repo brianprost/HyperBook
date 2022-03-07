@@ -40,7 +40,7 @@ export async function getCities() {
 
 export async function getDestinations(cityId) {
   const response = await axios.get(
-    base_url + `/api/HyperBook/GetDestinations=${cityId}`
+    base_url + `/api/HyperBook/GetDestinations?cityId=${cityId}`
   );
   return response;
 }
