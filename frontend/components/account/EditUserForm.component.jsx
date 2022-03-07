@@ -16,9 +16,7 @@ const EditUserValidation = yup.object().shape({
   phone: yup.string().required(),
 });
 
-const EditUserForm = ({
-  user,
-}) => {
+const EditUserForm = ({ user }) => {
   const [isError, setIsError] = useState(false);
 
   const formik = useFormik({
@@ -61,8 +59,8 @@ const EditUserForm = ({
       )
         .then((res) => {
           if (res.status == 204) {
-            alert("Your user has been successfully updated!");
-            router.push("/edit");
+            alert("Account information successfully updated!");
+            router.push("/account");
           }
         })
         .catch((err) => {
@@ -76,13 +74,14 @@ const EditUserForm = ({
     <section className="mt-12 flex flex-col items-center justify-center">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="text-center font-sans text-4xl font-semibold text-neutral-900">
-          Edit your User for
+          Edit your
           <p className="my-4 text-4xl font-bold text-red-500 drop-shadow">
-            HYPERBOOK
+            {"HYPERBOOK"}
           </p>
+          account information.
         </h2>
       </div>
-      <div className="w-3/5 mt-8">
+      <div className="mt-8 w-3/5">
         <form onSubmit={formik.handleSubmit}>
           <div className="grid grid-cols-2 justify-start gap-8">
             <div>
@@ -283,7 +282,7 @@ const EditUserForm = ({
             </div>
           </div>
 
-          <div className="flex justify-center mt-12 ">
+          <div className="mt-12 flex justify-center ">
             <button
               type="submit"
               className="duration-400 w-1/3 transform rounded-xl border-2 border-red-500 bg-red-500 px-10 py-3.5 text-center text-xl font-[780] text-neutral-400 shadow-md transition ease-in-out hover:border-red-500 hover:bg-indigo-600 hover:text-neutral-300"
