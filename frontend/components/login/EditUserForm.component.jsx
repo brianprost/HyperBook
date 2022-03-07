@@ -25,7 +25,7 @@ const EditUserForm = ({
   user,
 }) => {
   const [isError, setIsError] = useState(false);
-  
+
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -91,12 +91,6 @@ const EditUserForm = ({
         </h2>
       </div>
       <div className="w-3/5 mt-8">
-        {isError && (
-          <div className="px-4 py-8">
-            User with the same email already exists. Please try a different
-            email!
-          </div>
-        )}
         <form onSubmit={formik.handleSubmit}>
           <div className="grid grid-cols-2 justify-start gap-8">
             <div>
