@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Cookies from "cookies";
 import { Reservation } from "../components/account/Reservation.component";
 import { getTrips, getUser } from "../services/UserService";
@@ -41,9 +42,17 @@ const AccountPage = () => {
   return (
     <section id="account-bookings">
       <div className="relative mx-auto h-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-24 ">
-        <h2 className="mb-20 text-right text-4xl font-bold text-indigo-500">
+        <h2 className="mb-4 text-right text-4xl font-bold text-indigo-500">
           Hi, <span className="font-extrabold text-red-500">{accountName}</span>
         </h2>
+        <Link href={`/edit`}>
+          <a>
+            <h3 className="mb-16 text-right font-bold text-indigo-500 transition ease-in-out duration-100 hover:text-red-500 underline">
+              Edit account information
+            </h3>
+          </a>
+        </Link>
+
         <div className="border-b border-indigo-700 pb-5">
           <h3 className="text-xl font-bold leading-6 text-indigo-500">
             Your Trips
