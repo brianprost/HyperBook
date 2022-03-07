@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Cookies from "cookies";
-import { Reservation } from "../components/account/Reservation.component";
-import { getTrips, getUser } from "../services/UserService";
+import { Reservation } from "../../components/account/Reservation.component";
+import { getTrips, getUser } from "../../services/UserService";
 
 const AccountPage = () => {
   const [accountName, setAccountName] = useState("");
@@ -45,7 +45,7 @@ const AccountPage = () => {
         <h2 className="mb-4 text-right text-4xl font-bold text-indigo-500">
           Hi, <span className="font-extrabold text-red-500">{accountName}</span>
         </h2>
-        <Link href={`/edit`}>
+        <Link href={`/account/edit`}>
           <a>
             <h3 className="mb-16 text-right font-bold text-indigo-500 transition ease-in-out duration-100 hover:text-red-500 underline">
               Edit account information

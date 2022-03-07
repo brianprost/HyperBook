@@ -2,8 +2,8 @@ import Head from "next/head";
 import Cookies from "cookies";
 import React from "react";
 import { useState, useEffect } from "react";
-import EditUserForm from "../components/account/EditUserForm.component";
-import { getUser } from "../services/UserService";
+import EditUserForm from "../../components/account/EditUserForm.component";
+import { getUser } from "../../services/UserService";
 
 const EditUserPage = (props) => {
   const userId = props.userId;
