@@ -78,3 +78,33 @@ export async function addUser(
   const response = await axios.post(base_url + `/api/Insert/AddUser`, user);
   return response;
 }
+
+export async function updateUser(
+  userId,
+  firstName,
+  lastName,
+  email,
+  password,
+  addressLine1,
+  addressLine2,
+  city,
+  state,
+  zip,
+  phone
+) {
+  const user = {
+    userId: userId,
+    email: email,
+    password: password,
+    firstName: firstName,
+    lastName: lastName,
+    addressLine1: addressLine1,
+    addressLine2: addressLine2,
+    city: city,
+    state: state,
+    zip: zip,
+    phone: phone,
+  };
+  const response = await axios.post(base_url + `/api/Insert/UpdateUser`, user);
+  return response;
+}
