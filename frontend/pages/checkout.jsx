@@ -94,7 +94,7 @@ const CheckoutPage = (props) => {
         getPodSchedule(departureCityId, destinationCityId)
           .then((res) => {
             res.data.forEach((element) => {
-              if (element.departureWindow === time) {
+              if (element.departureWindow === departureWindow) {
                 addTrip(userId, element.id, 2)
                   .then((res) => {
                     router.push("/account");
