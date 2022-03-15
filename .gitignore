@@ -130,3 +130,10 @@ dmypy.json
 
 .devcontainer
 .DS_Store
+node_modules
+
+# vercel
+.vercel
+
+# next
+.next
