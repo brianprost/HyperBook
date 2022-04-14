@@ -9,7 +9,8 @@ const Loading = () => {
         className="h-52 w-52 animate-pulse animate-infinite"
       />
       <p className="mt-12 select-none text-4xl font-bold hover:bg-gradient-to-r hover:from-black-500 hover:to-red-500 hover:bg-clip-text hover:text-transparent">
-        Loading{" "}
+        {/* Loading{" "} */}
+        {"The database has been taken offline. We're working on finding a new one"}
         <span className="inline-block animate-tada bg-gradient-to-r from-red-500 to-black-500 bg-clip-text text-transparent animate-infinite">
           ...
         </span>
