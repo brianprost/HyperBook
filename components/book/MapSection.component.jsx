@@ -13,6 +13,7 @@ import MapMarker from "./MapMarker.component";
 import Loading from "../Loading.component";
 import { getDestinations } from "../../services/UserService";
 import { Map } from "./Map.component";
+import { useCollection } from 'react-firebase-hooks/firestore';
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
@@ -32,17 +33,28 @@ const MapSection = () => {
   //   setCities(destinations);
   // };
 
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetch(
+  //     "https://hyperbookappapi.azurewebsites.net/api/HyperBook/GetCitiesWithInfo"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((Cities) => {
+  //       setCities(Cities);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+  const [value, loading, error] = useCollection(
+    firebase.firestore().collection('myCollection').where('id', '!=', 4)
+  );
+
+  // set cities to value from firestore
   useEffect(() => {
-    setLoading(true);
-    fetch(
-      "https://hyperbookappapi.azurewebsites.net/api/HyperBook/GetCitiesWithInfo"
-    )
-      .then((res) => res.json())
-      .then((Cities) => {
-        setCities(Cities);
-        setLoading(false);
-      });
-  }, []);
+    if (value) {
+      setCities(value.docs.map(doc => doc.data()));
+    }
+  }, [value]);
 
   if (isLoading) return <Loading />;
   if (!cities) return <p>No Cities :(</p>;
