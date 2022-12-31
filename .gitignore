@@ -137,3 +137,6 @@ node_modules
 
 # next
 .next
+
+# firebase admin
+firebase-admin-private-key.json
