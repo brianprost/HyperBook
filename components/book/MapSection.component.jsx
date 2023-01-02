@@ -14,6 +14,8 @@ import Loading from "../Loading.component";
 import { getDestinations } from "../../services/UserService";
 import { Map } from "./Map.component";
 import { useCollection } from 'react-firebase-hooks/firestore';
+import { collection, getFirestore } from 'firebase/firestore';
+import { firebaseApp } from "../../pages/_app";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
@@ -46,7 +48,8 @@ const MapSection = () => {
   // }, []);
 
   const [value, loading, error] = useCollection(
-    firebase.firestore().collection('myCollection').where('id', '!=', 4)
+    collection(getFirestore(firebaseApp), 'cities')
+
   );
 
   // set cities to value from firestore
@@ -57,7 +60,7 @@ const MapSection = () => {
   }, [value]);
 
   if (isLoading) return <Loading />;
-  if (!cities) return <p>No Cities :(</p>;
+  if (!cities) return <p>No cities :(</p>;
 
   if (departureCity) {
     getDestinations(departureCityId);
