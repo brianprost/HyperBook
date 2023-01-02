@@ -7,17 +7,12 @@ import {
   Geography,
   Marker,
 } from "react-simple-maps";
-import ReactTooltip from "react-tooltip";
-import RouteSection from "./RouteSection.component";
 import MapMarker from "./MapMarker.component";
-import Loading from "../Loading.component";
-import { getDestinations } from "../../services/UserService";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 export const Map = ({
   cities,
-  // filterCities,
   titleText,
   setTitleText,
   departureCity,
@@ -28,7 +23,10 @@ export const Map = ({
   setDestinationCity,
   setDestinationCityId,
 }) => {
-  console.log("look at me i rendered");
+  // if a departure city has been selected, filter out the departure city from the list of cities
+  if (departureCity) {
+    cities = cities.filter((city) => city.name !== departureCity);
+  }
   return (
     <div className="-my-10">
       <div className="mx-auto w-5/6">
