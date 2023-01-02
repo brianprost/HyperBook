@@ -17,7 +17,8 @@ export const Navbar = (props) => {
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Book", href: `${isUser ? "/book" : "/login"}` },
+    // { name: "Book", href: `${isUser ? "/book" : "/login"}` },
+    { name: "Book", href: "/book" },
     {
       name: "How Hyperloop Works",
       href: "https://www.youtube.com/watch?v=zcikLQZI5wQ",
