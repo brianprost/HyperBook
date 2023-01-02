@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Cookies from "cookies";
 import { Reservation } from "../../components/account/Reservation.component";
-import { getTrips, getUser } from "../../services/UserService";
+import { getTrips, getUser } from "../../services/AzureUserService";
 
 const AccountPage = () => {
   const [accountName, setAccountName] = useState("");

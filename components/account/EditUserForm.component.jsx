@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import router from "next/router";
 import { useState } from "react";
-import { updateUser } from "../../services/UserService";
+import { updateUser } from "../../services/AzureUserService";
 
 const EditUserValidation = yup.object().shape({
   firstName: yup.string().required(),

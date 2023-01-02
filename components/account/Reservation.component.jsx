@@ -1,6 +1,6 @@
 import React from "react";
 import TripImage from "./TripImage.component";
-import { cancelTrip } from "../../services/UserService";
+import { cancelTrip } from "../../services/AzureUserService";
 
 export const Reservation = ({
   departureCity,
