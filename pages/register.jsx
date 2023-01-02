@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import RegisterForm from "../components/login/RegisterForm.component";
+import NoUserAuthMsg from "../components/NoUserAuthMsg.component";
 
 const RegisterPage = () => {
   return (
@@ -10,13 +11,14 @@ const RegisterPage = () => {
         <title>Register Page</title>
       </Head>
       <section id="register">
-        <RegisterForm />
+        <NoUserAuthMsg />
+        {/* <RegisterForm />
         <h4 className="mt-10 mb-20 text-center font-light text-indigo-500">
           {"Already have an account?"}
           <Link href="/login">
             <a className="block font-bold text-red-500">Log in</a>
           </Link>
-        </h4>
+        </h4> */}
       </section>
     </div>
   );

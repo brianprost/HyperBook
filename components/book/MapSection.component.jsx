@@ -14,7 +14,7 @@ const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 const MapSection = () => {
   const [cities, setCities] = useState(null);
   const [destinations, setDestinations] = useState(null);
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [departureCity, setDepartureCity] = useState("");
   const [destinationCity, setDestinationCity] = useState("");
   const [departureCityId, setDepartureCityId] = useState(NaN);
@@ -29,6 +29,7 @@ const MapSection = () => {
   useEffect(() => {
     if (value) {
       setCities(value.docs.map((doc) => doc.data()));
+      setLoading(false);
     }
   }, [value]);
 
