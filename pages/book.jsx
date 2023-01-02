@@ -14,17 +14,17 @@ export async function getServerSideProps(context) {
   const cookies = Cookies(context.req, context.res);
   const isUser = cookies.get("isAuthenticated") ? true : false;
   //const isUser = localStorage.getItem("isAuthenticated");
-  if (!isUser || isUser === "false") {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  } else {
+  // if (!isUser || isUser === "false") {
+  //   return {
+  //     redirect: {
+  //       destination: "/login",
+  //       permanent: false,
+  //     },
+  //   };
+  // } else {
     return {
       props: {}, // will be passed to the page component as props
-    };
+    // };
   }
 }
 

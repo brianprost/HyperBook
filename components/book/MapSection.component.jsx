@@ -1,18 +1,13 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 useRouter;
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-} from "react-simple-maps";
 import ReactTooltip from "react-tooltip";
 import RouteSection from "./RouteSection.component";
-import MapMarker from "./MapMarker.component";
 import Loading from "../Loading.component";
-import { getDestinations } from "../../services/UserService";
 import { Map } from "./Map.component";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { collection, getFirestore } from "firebase/firestore";
+import { firebaseApp } from "../../pages/_app";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
@@ -20,36 +15,25 @@ const MapSection = () => {
   const [cities, setCities] = useState(null);
   const [destinations, setDestinations] = useState(null);
   const [isLoading, setLoading] = useState(false);
-  const [departureCity, setDepartureCity] = useState(false);
-  const [destinationCity, setDestinationCity] = useState(false);
-  const [departureCityId, setDepartureCityId] = useState(false);
-  const [destinationCityId, setDestinationCityId] = useState(false);
+  const [departureCity, setDepartureCity] = useState("");
+  const [destinationCity, setDestinationCity] = useState("");
+  const [departureCityId, setDepartureCityId] = useState(NaN);
+  const [destinationCityId, setDestinationCityId] = useState(NaN);
   const [titleText, setTitleText] = useState("Destinations");
   const [tooltipContent, setTooltipContent] = useState("");
 
-  // const filterCities = ({ cityId }) => {
-  //   let destinations = getDestinations(cityId);
-  //   setCities(destinations);
-  // };
-
+  // set cities to value from firestore
+  const [value, loading, error] = useCollection(
+    collection(getFirestore(firebaseApp), "cities")
+  );
   useEffect(() => {
-    setLoading(true);
-    fetch(
-      "https://hyperbookappapi.azurewebsites.net/api/HyperBook/GetCitiesWithInfo"
-    )
-      .then((res) => res.json())
-      .then((Cities) => {
-        setCities(Cities);
-        setLoading(false);
-      });
-  }, []);
+    if (value) {
+      setCities(value.docs.map((doc) => doc.data()));
+    }
+  }, [value]);
 
   if (isLoading) return <Loading />;
-  if (!cities) return <p>No Cities :(</p>;
-
-  if (departureCity) {
-    getDestinations(departureCityId);
-  }
+  if (!cities) return <p>No cities :(</p>;
 
   if (destinationCity) {
     return (

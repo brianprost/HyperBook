@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import AccountButton from "./UserNavButton.component";
 import { RiAccountCircleLine } from "react-icons/ri";
 import Link from "next/link";
-import { getUser } from "../../services/UserService";
+import { getUser } from "../../services/AzureUserService";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

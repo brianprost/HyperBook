@@ -1,7 +1,7 @@
 import { FormLabel } from "../form-label";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { loginUser } from "../../services/UserService";
+import { loginUser } from "../../services/AzureUserService";
 import router from "next/router";
 import { useState } from "react";
 import { setCookies } from "cookies-next";

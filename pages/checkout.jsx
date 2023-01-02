@@ -6,7 +6,7 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { useState } from "react";
 import { CartItem } from "../components/checkout/CartItem.component";
-import { addTrip, getPodSchedule, getUser } from "../services/UserService";
+import { addTrip, getPodSchedule, getUser } from "../services/AzureUserService";
 import { BsInfoSquareFill } from "react-icons/bs";
 import { FormLabel } from "../components/form-label";
 

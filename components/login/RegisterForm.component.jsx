@@ -4,7 +4,7 @@ import * as yup from "yup";
 import router from "next/router";
 import { useState } from "react";
 import { setCookies } from "cookies-next";
-import { addUser } from "../../services/UserService";
+import { addUser } from "../../services/AzureUserService";
 
 const RegisterValidation = yup.object().shape({
   firstName: yup.string().required(),
