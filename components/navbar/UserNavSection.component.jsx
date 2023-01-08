@@ -3,34 +3,24 @@ import { useRouter } from "next/router";
 import AccountButton from "./UserNavButton.component";
 import { RiAccountCircleLine } from "react-icons/ri";
 import Link from "next/link";
-import { getUser } from "../../services/AzureUserService";
+import { firebaseApp } from "../../pages/_app";
+import { getAuth, signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const UserNavSection = (props) => {
+
   const router = useRouter();
-
-  const [accountName, setAccountName] = useState("");
-
-  useEffect(() => {
-    let id = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("userId="))
-      .split("=")[1];
-    getUser(id)
-      .then((res) => {
-        setAccountName(
-          res.data.firstName.toUpperCase() +
-            " " +
-            res.data.lastName.toUpperCase()
-        );
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  const auth = getAuth(firebaseApp);
+  const logout = () => {
+    signOut(auth);
+  }
+  
+  const [user, loading, error] = useAuthState(auth);
+  const [accountName, setAccountName] = useState(user.email);
 
   const LinkElement = ({ linkTitle, link }) => {
     // yeah i know this doesn't look pretty. i'll change it later
@@ -46,13 +36,7 @@ const UserNavSection = (props) => {
             "rounded-md py-2 px-3 text-sm font-semibold"
           )}
           onClick={() => {
-            document.cookie.split(";").forEach(function (c) {
-              document.cookie =
-                c.trim().split("=")[0] +
-                "=;" +
-                "expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-            });
-            localStorage?.setItem("isAuthenticated", "false");
+            logout();
           }}
         >
           {linkTitle}

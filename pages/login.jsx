@@ -7,20 +7,20 @@ import LoadingComponent from "../components/Loading.component";
 import NoUserAuthMsg from "../components/NoUserAuthMsg.component";
 
 const LoginPage = () => {
+  
   return (
     <div>
       <Head>
         <title>Login - Hyperbook</title>
       </Head>
       <section id="login">
-        <NoUserAuthMsg />
-        {/* <LoginForm />
+        <LoginForm />
         <h4 className="my-10 text-center font-light text-indigo-500">
           {"Don't have an account?"}
           <Link href="/register">
             <a className="block font-bold text-red-500">Sign Up</a>
           </Link>
-        </h4> */}
+        </h4>
       </section>
     </div>
   );
