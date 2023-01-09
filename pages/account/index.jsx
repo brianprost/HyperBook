@@ -17,20 +17,11 @@ const AccountPage = () => {
   const [accountName, setAccountName] = useState("");
   // get a list of trips for the user using react-firebase-hooks to get from firestore
   // for now, we will use a sample user id value of "25F4FFB0-2505-4C7F-93E9-D87F8BBFB5AD"
-  const [value, tripsLoading, tripsError] = useCollection(
-    query(collection(getFirestore(), 'trips'), where('userId', '==', user && '25F4FFB0-2505-4C7F-93E9-D87F8BBFB5AD')
+  const [userTrips, userTripsLoading, userTripsError] = useCollection(
+    query(collection(getFirestore(), 'trips'), where('userId', '==', '25F4FFB0-2505-4C7F-93E9-D87F8BBFB5AD')
     )
   );
 
-  // // if no user, then redirect to login page
-  // useEffect(() => {
-  //   if (user) {
-  //     setAccountName(user.name);
-  //     getTrips(user.userId).then((trips) => {
-  //       setTrips(trips);
-  //     });
-  //   }
-  // }, []);
 
   return (
     <section id="account-bookings">
@@ -55,7 +46,7 @@ const AccountPage = () => {
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
                 {error && <strong>Error: {JSON.stringify(error)}</strong>}
                 {loading && <span>Collection: Loading...</span>}
-                {value && value.docs.map((doc) => (
+                {userTrips && userTrips.docs.map((doc) => (
                     // <Reservation
                     //   key={index}
                     //   departureWindow={trip.podSchedule.departureWindow}
