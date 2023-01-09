@@ -3,47 +3,40 @@ import Link from "next/link";
 import Cookies from "cookies";
 import { Reservation } from "../../components/account/Reservation.component";
 import { getTrips, getUser } from "../../services/AzureUserService";
+import { firebaseApp } from "../_app";
+import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollection } from 'react-firebase-hooks/firestore';
+
+const auth = getAuth(firebaseApp);
 
 const AccountPage = () => {
+  
+  const [user, loading, error] = useAuthState(auth);
   const [accountName, setAccountName] = useState("");
-  const [trips, setTrips] = useState([]);
+  // get a list of trips for the user using react-firebase-hooks to get from firestore
+  // for now, we will use a sample user id value of "25F4FFB0-2505-4C7F-93E9-D87F8BBFB5AD"
+  const [value, tripsLoading, tripsError] = useCollection(
+    query(collection(getFirestore(), 'trips'), where('userId', '==', user && '25F4FFB0-2505-4C7F-93E9-D87F8BBFB5AD')
+    )
+  );
 
-  useEffect(() => {
-    let id = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("userId="))
-      .split("=")[1];
-    getUser(id)
-      .then((res) => {
-        setAccountName(
-          res.data.firstName.toUpperCase() +
-            " " +
-            res.data.lastName.toUpperCase()
-        );
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-    getTrips(id)
-      .then((res) => {
-        const tempTrips = [];
-        res.data.forEach((item) => {
-          if (item.refStatus === "Booked") {
-            tempTrips.push(item);
-          }
-        });
-        setTrips(tempTrips);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  // // if no user, then redirect to login page
+  // useEffect(() => {
+  //   if (user) {
+  //     setAccountName(user.name);
+  //     getTrips(user.userId).then((trips) => {
+  //       setTrips(trips);
+  //     });
+  //   }
+  // }, []);
 
   return (
     <section id="account-bookings">
       <div className="relative mx-auto h-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-24 ">
         <h2 className="mb-4 text-right text-4xl font-bold text-indigo-500">
-          Hi, <span className="font-extrabold text-red-500">{accountName}</span>
+          Hi, <span className="font-extrabold text-red-500">{user && user.email}</span>
         </h2>
         <Link href={`/account/edit`}>
           <a>
@@ -60,23 +53,24 @@ const AccountPage = () => {
         </div>
         <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
-            {
-              trips.length >= 1
-                ? trips.map((trip, index) => (
-                    <Reservation
-                      key={index}
-                      departureWindow={trip.podSchedule.departureWindow}
-                      pricePaid={trip.podSchedule.price}
-                      departureCity={trip.podSchedule.cityFrom}
-                      destinationCity={trip.podSchedule.cityTo}
-                      confirmationCode={
-                        accountName.split(" ").pop() + trip.tripId
-                      }
-                      tripId={trip.tripId}
-                    />
+                {error && <strong>Error: {JSON.stringify(error)}</strong>}
+                {loading && <span>Collection: Loading...</span>}
+                {value && value.docs.map((doc) => (
+                    // <Reservation
+                    //   key={index}
+                    //   departureWindow={trip.podSchedule.departureWindow}
+                    //   pricePaid={trip.podSchedule.price}
+                    //   departureCity={trip.podSchedule.cityFrom}
+                    //   destinationCity={trip.podSchedule.cityTo}
+                    //   confirmationCode={
+                    //     accountName.split(" ").pop() + trip.tripId
+                    //   }
+                    //   tripId={trip.tripId}
+                    // />
+                    <div key={doc.id}>
+                      {JSON.stringify(doc.data())},{' '}
+                    </div>
                   ))
-                : "No trips have been currently booked!"
-              //Write code for when no trips are there for the user
             }
           </div>
         </div>
@@ -89,18 +83,17 @@ export async function getServerSideProps(context) {
   const cookies = Cookies(context.req, context.res);
   const isUser = cookies.get("isAuthenticated") ? true : false;
   //const isUser = localStorage.getItem("isAuthenticated");
-  if (!isUser || isUser === "false") {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  } else {
-    return {
-      props: {}, // will be passed to the page component as props
-    };
-  }
+  // if (!isUser || isUser === "false") {
+  //   return {
+  //     redirect: {
+  //       destination: "/login",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
+  return {
+    props: {}, // will be passed to the page component as props
+  };
 }
 
 export default AccountPage;
