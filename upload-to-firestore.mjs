@@ -3,7 +3,6 @@ import fs from "fs";
 import admin from "firebase-admin";
 // import serviceAccount
 import serviceAccount from "./firebase-admin-private-key.json" assert { type: "json" };
-import data from "./data/PodScheduleFromSQL.json" assert { type: "json" };
 
 // Initialize the Firebase Admin SDK with the credentials
 admin.initializeApp({
@@ -68,13 +67,38 @@ admin.initializeApp({
 //   });
 // });
 
-// Add the data to the "users" collection
-data.forEach((item) => {
-  admin.firestore().collection("podSchedules").add({
-    id: Number(item.id),
-    cityFrom: Number(item.CityFrom),
-    cityTo: Number(item.CityTo),
-    departureWindow: item.DepartureWindow,
-    price: Number(item.Price),
-  });
-});
+// // Add the data to the "users" collection
+// data.forEach((item) => {
+//   admin.firestore().collection("podSchedules").add({
+//     id: Number(item.id),
+//     cityFrom: Number(item.CityFrom),
+//     cityTo: Number(item.CityTo),
+//     departureWindow: item.DepartureWindow,
+//     price: Number(item.Price),
+//   });
+// });
+
+// // add the data to the "usersWithTrips" collection
+// import data from "./data/UserWithTrips.json" assert { type: "json" };
+// data.forEach(item => {
+//   admin.firestore().collection("usersWithTrips").add({
+//     userId: item.userId,
+//     email: item.email,
+//     password: item.password,
+//     firstName: item.firstName,
+//     lastName: item.lastName,
+//     addressLine1: item.addressLine1,
+//     addressLine2: item.addressLine2,
+//     city: item.city,
+//     state: item.state,
+//     zip: item.zip,
+//     phone: item.phone,
+//     trips: item.trips.map(trip => ({
+//       tripId: Number(trip.id),
+//       podSchedule: Number(trip.podSchedule),
+//       statusId: Number(trip.statusId),
+//       dateCreated: admin.firestore.Timestamp.fromDate(new Date(trip.dateCreated)),
+//       dateUpdated: admin.firestore.Timestamp.fromDate(new Date(trip.dateUpdated)),
+//     })),
+//   });
+// })
