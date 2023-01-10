@@ -27,16 +27,16 @@
     "phone": "4048675309",
     "trips": [
       {
-        "tripId": "46",
-        "podSchedule": "1371",
-        "statusId": "3",
+        "tripId": 46,
+        "podSchedule": 1371,
+        "statusId": 3,
         "dateCreated": "2022-03-07 20:04:38.947",
         "dateUpdated": "2022-03-07 20:04:38.947"
       },
       {
-        "tripId": "47",
-        "podSchedule": "1048",
-        "statusId": "2",
+        "tripId": 47,
+        "podSchedule": 1048,
+        "statusId": 2,
         "dateCreated": "2022-03-07 20:10:31.213",
         "dateUpdated": "2022-03-07 20:10:31.213"
       }
@@ -84,23 +84,23 @@
     "phone": "1234567890",
     "trips": [
       {
-        "tripId": "3",
-        "podSchedule": "10",
-        "statusId": "1",
+        "tripId": 3,
+        "podSchedule": 10,
+        "statusId": 1,
         "dateCreated": "2022-02-24 00:00:00.000",
         "dateUpdated": "2022-02-24 00:00:00.000"
       },
       {
-        "tripId": "8",
-        "podSchedule": "1692",
-        "statusId": "2",
+        "tripId": 8,
+        "podSchedule": 1692,
+        "statusId": 2,
         "dateCreated": "2022-02-25 20:03:36.303",
         "dateUpdated": "2022-02-25 20:03:36.303"
       },
       {
-        "tripId": "9",
-        "podSchedule": "1885",
-        "statusId": "2",
+        "tripId": 9,
+        "podSchedule": 1885,
+        "statusId": 2,
         "dateCreated": "2022-02-28 11:49:44.763",
         "dateUpdated": "2022-02-28 11:49:44.763"
       }
@@ -218,30 +218,30 @@
     "phone": "1235556789",
     "trips": [
       {
-        "tripId": "39",
-        "podSchedule": "1317",
-        "statusId": "3",
+        "tripId": 39,
+        "podSchedule": 1317,
+        "statusId": 3,
         "dateCreated": "2022-03-07 03:38:35.290",
         "dateUpdated": "2022-03-07 03:38:35.290"
       },
       {
-        "tripId": "42",
-        "podSchedule": "791",
-        "statusId": "3",
+        "tripId": 42,
+        "podSchedule": 791,
+        "statusId": 3,
         "dateCreated": "2022-03-07 04:51:53.710",
         "dateUpdated": "2022-03-07 04:51:53.717"
       },
       {
-        "tripId": "43",
-        "podSchedule": "48",
-        "statusId": "3",
+        "tripId": 43,
+        "podSchedule": 48,
+        "statusId": 3,
         "dateCreated": "2022-03-07 13:32:36.693",
         "dateUpdated": "2022-03-07 13:32:36.693"
       },
       {
-        "tripId": "44",
-        "podSchedule": "1372",
-        "statusId": "3",
+        "tripId": 44,
+        "podSchedule": 1372,
+        "statusId": 3,
         "dateCreated": "2022-03-07 17:48:44.483",
         "dateUpdated": "2022-03-07 17:48:44.487"
       }
@@ -261,18 +261,11 @@
     "phone": "8675309234",
     "trips": [
       {
-        "tripId": "40",
-        "podSchedule": "711",
-        "statusId": "3",
+        "tripId": 40,
+        "podSchedule": 711,
+        "statusId": 3,
         "dateCreated": "2022-03-07 04:07:02.840",
         "dateUpdated": "2022-03-07 04:07:02.840"
-      },
-      {
-        "tripId": "41",
-        "podSchedule": "711",
-        "statusId": "2",
-        "dateCreated": "2022-03-07 04:07:54.223",
-        "dateUpdated": "2022-03-07 04:07:54.223"
       }
     ]
   },
@@ -290,30 +283,30 @@
     "phone": "15013723439",
     "trips": [
       {
-        "tripId": "13",
-        "podSchedule": "304",
-        "statusId": "3",
+        "tripId": 13,
+        "podSchedule": 304,
+        "statusId": 3,
         "dateCreated": "2022-02-28 04:08:43.000",
         "dateUpdated": "2022-03-01 01:18:06.800"
       },
       {
-        "tripId": "15",
-        "podSchedule": "281",
-        "statusId": "3",
+        "tripId": 15,
+        "podSchedule": 281,
+        "statusId": 3,
         "dateCreated": "2022-03-01 01:17:56.807",
         "dateUpdated": "2022-03-01 01:18:13.993"
       },
       {
-        "tripId": "45",
-        "podSchedule": "1569",
-        "statusId": "2",
+        "tripId": 45,
+        "podSchedule": 1569,
+        "statusId": 2,
         "dateCreated": "2022-03-07 18:05:29.063",
         "dateUpdated": "2022-03-07 18:05:29.063"
       },
       {
-        "tripId": "48",
-        "podSchedule": "988",
-        "statusId": "2",
+        "tripId": 48,
+        "podSchedule": 988,
+        "statusId": 2,
         "dateCreated": "2022-03-07 20:38:43.047",
         "dateUpdated": "2022-03-07 20:38:43.047"
       }
@@ -333,9 +326,9 @@
     "phone": "123456789",
     "trips": [
       {
-        "tripId": "6",
-        "podSchedule": "24",
-        "statusId": "2",
+        "tripId": 6,
+        "podSchedule": 24,
+        "statusId": 2,
         "dateCreated": "2022-02-24 00:00:00.000",
         "dateUpdated": "2022-02-24 00:00:00.000"
       }

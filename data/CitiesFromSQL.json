@@ -1,182 +1,182 @@
 [
   {
-    "Id": 1,
-    "Name": "New York",
-    "Longitude": "-73.9248962",
-    "Latitude": "40.6943016"
+    "id": 1,
+    "name": "New York",
+    "longitude": "-73.9248962",
+    "latitude": "40.6943016"
   },
   {
-    "Id": 2,
-    "Name": "Los Angeles",
-    "Longitude": "-118.406799",
-    "Latitude": "34.1138992"
+    "id": 2,
+    "name": "Los Angeles",
+    "longitude": "-118.406799",
+    "latitude": "34.1138992"
   },
   {
-    "Id": 3,
-    "Name": "Chicago",
-    "Longitude": "-87.686203",
-    "Latitude": "41.8372993"
+    "id": 3,
+    "name": "Chicago",
+    "longitude": "-87.686203",
+    "latitude": "41.8372993"
   },
   {
-    "Id": 4,
-    "Name": "Miami",
-    "Longitude": "-80.2101974",
-    "Latitude": "25.7838993"
+    "id": 4,
+    "name": "Miami",
+    "longitude": "-80.2101974",
+    "latitude": "25.7838993"
   },
   {
-    "Id": 5,
-    "Name": "Dallas",
-    "Longitude": "-96.7661972",
-    "Latitude": "32.7935982"
+    "id": 5,
+    "name": "Dallas",
+    "longitude": "-96.7661972",
+    "latitude": "32.7935982"
   },
   {
-    "Id": 6,
-    "Name": "Philadelphia",
-    "Longitude": "-75.1339035",
-    "Latitude": "40.0077019"
+    "id": 6,
+    "name": "Philadelphia",
+    "longitude": "-75.1339035",
+    "latitude": "40.0077019"
   },
   {
-    "Id": 7,
-    "Name": "Houston",
-    "Longitude": "-95.3889008",
-    "Latitude": "29.7863007"
+    "id": 7,
+    "name": "Houston",
+    "longitude": "-95.3889008",
+    "latitude": "29.7863007"
   },
   {
-    "Id": 8,
-    "Name": "Atlanta",
-    "Longitude": "-84.4224014",
-    "Latitude": "33.7626991"
+    "id": 8,
+    "name": "Atlanta",
+    "longitude": "-84.4224014",
+    "latitude": "33.7626991"
   },
   {
-    "Id": 9,
-    "Name": "Washington",
-    "Longitude": "-77.0162964",
-    "Latitude": "38.9047012"
+    "id": 9,
+    "name": "Washington",
+    "longitude": "-77.0162964",
+    "latitude": "38.9047012"
   },
   {
-    "Id": 10,
-    "Name": "Boston",
-    "Longitude": "-71.0846024",
-    "Latitude": "42.3188019"
+    "id": 10,
+    "name": "Boston",
+    "longitude": "-71.0846024",
+    "latitude": "42.3188019"
   },
   {
-    "Id": 11,
-    "Name": "Phoenix",
-    "Longitude": "-112.089104",
-    "Latitude": "33.5722008"
+    "id": 11,
+    "name": "Phoenix",
+    "longitude": "-112.089104",
+    "latitude": "33.5722008"
   },
   {
-    "Id": 12,
-    "Name": "Seattle",
-    "Longitude": "-122.324402",
-    "Latitude": "47.6211014"
+    "id": 12,
+    "name": "Seattle",
+    "longitude": "-122.324402",
+    "latitude": "47.6211014"
   },
   {
-    "Id": 13,
-    "Name": "San Francisco",
-    "Longitude": "-122.443001",
-    "Latitude": "37.7561989"
+    "id": 13,
+    "name": "San Francisco",
+    "longitude": "-122.443001",
+    "latitude": "37.7561989"
   },
   {
-    "Id": 14,
-    "Name": "Detroit",
-    "Longitude": "-83.1024017",
-    "Latitude": "42.3834"
+    "id": 14,
+    "name": "Detroit",
+    "longitude": "-83.1024017",
+    "latitude": "42.3834"
   },
   {
-    "Id": 15,
-    "Name": "San Diego",
-    "Longitude": "-117.122498",
-    "Latitude": "32.8311996"
+    "id": 15,
+    "name": "San Diego",
+    "longitude": "-117.122498",
+    "latitude": "32.8311996"
   },
   {
-    "Id": 16,
-    "Name": "Minneapolis",
-    "Longitude": "-93.2677994",
-    "Latitude": "44.963501"
+    "id": 16,
+    "name": "Minneapolis",
+    "longitude": "-93.2677994",
+    "latitude": "44.963501"
   },
   {
-    "Id": 17,
-    "Name": "Tampa",
-    "Longitude": "-82.4450989",
-    "Latitude": "27.9941998"
+    "id": 17,
+    "name": "Tampa",
+    "longitude": "-82.4450989",
+    "latitude": "27.9941998"
   },
   {
-    "Id": 18,
-    "Name": "Denver",
-    "Longitude": "-104.8759",
-    "Latitude": "39.7621002"
+    "id": 18,
+    "name": "Denver",
+    "longitude": "-104.8759",
+    "latitude": "39.7621002"
   },
   {
-    "Id": 19,
-    "Name": "Las Vegas",
-    "Longitude": "-115.265404",
-    "Latitude": "36.2332993"
+    "id": 19,
+    "name": "Las Vegas",
+    "longitude": "-115.265404",
+    "latitude": "36.2332993"
   },
   {
-    "Id": 20,
-    "Name": "Portland",
-    "Longitude": "-122.650002",
-    "Latitude": "45.5372009"
+    "id": 20,
+    "name": "Portland",
+    "longitude": "-122.650002",
+    "latitude": "45.5372009"
   },
   {
-    "Id": 21,
-    "Name": "San Antonio",
-    "Longitude": "-98.5252991",
-    "Latitude": "29.4657993"
+    "id": 21,
+    "name": "San Antonio",
+    "longitude": "-98.5252991",
+    "latitude": "29.4657993"
   },
   {
-    "Id": 22,
-    "Name": "St. Louis",
-    "Longitude": "-90.2451019",
-    "Latitude": "38.6357994"
+    "id": 22,
+    "name": "St. Louis",
+    "longitude": "-90.2451019",
+    "latitude": "38.6357994"
   },
   {
-    "Id": 23,
-    "Name": "Sacramento",
-    "Longitude": "-121.4683",
-    "Latitude": "38.5667"
+    "id": 23,
+    "name": "Sacramento",
+    "longitude": "-121.4683",
+    "latitude": "38.5667"
   },
   {
-    "Id": 24,
-    "Name": "Orlando",
-    "Longitude": "-81.3368988",
-    "Latitude": "28.4771996"
+    "id": 24,
+    "name": "Orlando",
+    "longitude": "-81.3368988",
+    "latitude": "28.4771996"
   },
   {
-    "Id": 25,
-    "Name": "Austin",
-    "Longitude": "-97.7521973",
-    "Latitude": "30.3003998"
+    "id": 25,
+    "name": "Austin",
+    "longitude": "-97.7521973",
+    "latitude": "30.3003998"
   },
   {
-    "Id": 26,
-    "Name": "Cincinnati",
-    "Longitude": "-84.5061035",
-    "Latitude": "39.1413002"
+    "id": 26,
+    "name": "Cincinnati",
+    "longitude": "-84.5061035",
+    "latitude": "39.1413002"
   },
   {
-    "Id": 27,
-    "Name": "Nashville",
-    "Longitude": "-86.7843018",
-    "Latitude": "36.1715012"
+    "id": 27,
+    "name": "Nashville",
+    "longitude": "-86.7843018",
+    "latitude": "36.1715012"
   },
   {
-    "Id": 28,
-    "Name": "Raleigh",
-    "Longitude": "-78.6435013",
-    "Latitude": "35.8325005"
+    "id": 28,
+    "name": "Raleigh",
+    "longitude": "-78.6435013",
+    "latitude": "35.8325005"
   },
   {
-    "Id": 29,
-    "Name": "New Orleans",
-    "Longitude": "-89.9288025",
-    "Latitude": "30.0687008"
+    "id": 29,
+    "name": "New Orleans",
+    "longitude": "-89.9288025",
+    "latitude": "30.0687008"
   },
   {
-    "Id": 30,
-    "Name": "Salt Lake City",
-    "Longitude": "-111.876183",
-    "Latitude": "40.7587013"
+    "id": 30,
+    "name": "Salt Lake City",
+    "longitude": "-111.876183",
+    "latitude": "40.7587013"
   }
 ]

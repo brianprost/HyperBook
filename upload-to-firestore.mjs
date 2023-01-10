@@ -78,27 +78,51 @@ admin.initializeApp({
 //   });
 // });
 
-// // add the data to the "usersWithTrips" collection
-// import data from "./data/UserWithTrips.json" assert { type: "json" };
-// data.forEach(item => {
-//   admin.firestore().collection("usersWithTrips").add({
-//     userId: item.userId,
-//     email: item.email,
-//     password: item.password,
-//     firstName: item.firstName,
-//     lastName: item.lastName,
-//     addressLine1: item.addressLine1,
-//     addressLine2: item.addressLine2,
-//     city: item.city,
-//     state: item.state,
-//     zip: item.zip,
-//     phone: item.phone,
-//     trips: item.trips.map(trip => ({
-//       tripId: Number(trip.id),
-//       podSchedule: Number(trip.podSchedule),
-//       statusId: Number(trip.statusId),
-//       dateCreated: admin.firestore.Timestamp.fromDate(new Date(trip.dateCreated)),
-//       dateUpdated: admin.firestore.Timestamp.fromDate(new Date(trip.dateUpdated)),
-//     })),
-//   });
-// })
+// add the data to the "usersWithTrips" collection
+import data from "./data/UserWithTrips.json" assert { type: "json" };
+import podSchedules from "./data/PodScheduleFromSQL.json" assert { type: "json" };
+import cities from "./data/CitiesFromSQL.json" assert { type: "json" };
+data.forEach((item) => {
+  admin
+    .firestore()
+    .collection("users")
+    .add({
+      userId: item.userId,
+      email: item.email,
+      password: item.password,
+      firstName: item.firstName,
+      lastName: item.lastName,
+      addressLine1: item.addressLine1,
+      addressLine2: item.addressLine2,
+      city: item.city,
+      state: item.state,
+      zip: item.zip,
+      phone: item.phone,
+      trips: item.trips.map((trip) => ({
+        tripId: Number(trip.tripId),
+        podSchedule: getPodSchedule(trip.podSchedule),
+        statusId: Number(trip.statusId),
+        dateCreated: admin.firestore.Timestamp.fromDate(
+          new Date(trip.dateCreated)
+        ),
+        dateUpdated: admin.firestore.Timestamp.fromDate(
+          new Date(trip.dateUpdated)
+        ),
+      })),
+    });
+});
+
+function getPodSchedule(podScheduleId) {
+  let podSchedule = podSchedules.find(
+    (podSchedule) => podSchedule.id === podScheduleId
+  );
+  // get city names for CityFrom and CityTo from json and set those values
+  podSchedule.cityFrom = cities.find(
+    (city) => city.id === podSchedule.cityFrom
+  ).name;
+  podSchedule.cityTo = cities.find(
+    (city) => city.id === podSchedule.cityTo
+  ).name;
+  podSchedule.price = Number(podSchedule.price);
+  return podSchedule;
+}
