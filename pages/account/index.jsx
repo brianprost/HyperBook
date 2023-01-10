@@ -8,6 +8,7 @@ import { getFirestore, collection, query, where, getDocs } from 'firebase/firest
 import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollection } from 'react-firebase-hooks/firestore';
+import Loading from "../../components/Loading.component.jsx"
 
 const auth = getAuth(firebaseApp);
 
@@ -16,12 +17,14 @@ const AccountPage = () => {
   const [user, loading, error] = useAuthState(auth);
   const [accountName, setAccountName] = useState("");
   // get a list of trips for the user using react-firebase-hooks to get from firestore
-  // for now, we will use a sample user id value of "25F4FFB0-2505-4C7F-93E9-D87F8BBFB5AD"
+  // for now, we will use a sample user id value of "D7A45952-E911-4892-A0C2-C424A43EB270"
   const [userTrips, userTripsLoading, userTripsError] = useCollection(
-    query(collection(getFirestore(), 'trips'), where('userId', '==', '25F4FFB0-2505-4C7F-93E9-D87F8BBFB5AD')
-    )
-  );
+    query(collection(getFirestore(firebaseApp), 'users'), where('userId', '==', user && "D7A45952-E911-4892-A0C2-C424A43EB270"))
+  )
 
+  if (userTripsLoading) {
+    return <Loading />
+  }
 
   return (
     <section id="account-bookings">
@@ -47,21 +50,23 @@ const AccountPage = () => {
                 {error && <strong>Error: {JSON.stringify(error)}</strong>}
                 {loading && <span>Collection: Loading...</span>}
                 {userTrips && userTrips.docs.map((doc) => (
-                    // <Reservation
-                    //   key={index}
-                    //   departureWindow={trip.podSchedule.departureWindow}
-                    //   pricePaid={trip.podSchedule.price}
-                    //   departureCity={trip.podSchedule.cityFrom}
-                    //   destinationCity={trip.podSchedule.cityTo}
-                    //   confirmationCode={
-                    //     accountName.split(" ").pop() + trip.tripId
-                    //   }
-                    //   tripId={trip.tripId}
-                    // />
-                    <div key={doc.id}>
-                      {JSON.stringify(doc.data())},{' '}
-                    </div>
+                  doc.data().trips.map((trip, index) => (
+                    <Reservation
+                      key={index}
+                      departureWindow={trip.podSchedule.departureWindow}
+                      pricePaid={trip.podSchedule.price}
+                      departureCity={trip.podSchedule.cityFrom}
+                      destinationCity={trip.podSchedule.cityTo}
+                      confirmationCode={
+                        "hyper" + trip.tripId
+                      }
+                      // confirmationCode={
+                      //   accountName.split(" ").pop() + trip.tripId
+                      // }
+                      tripId={trip.tripId}
+                    />
                   ))
+                ))
             }
           </div>
         </div>
