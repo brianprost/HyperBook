@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import LoginForm from "../components/login/LoginForm.component";
 import RegisterForm from "../components/login/RegisterForm.component";
 import LoadingComponent from "../components/Loading.component";
+import NoUserAuthMsg from "../components/NoUserAuthMsg.component";
 
 const LoginPage = () => {
+  
   return (
     <div>
       <Head>

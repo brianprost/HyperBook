@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
 
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
-  let isUser = false;
+  let isUser = true;
   let userId = "";
   let departureCity = "";
   let destinationCity = "";

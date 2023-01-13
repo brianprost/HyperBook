@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import LoginButton from "./LoginButton.component";
 import UserNavSection from "./UserNavSection.component";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { firebaseApp } from "../../pages/_app";
+import { getAuth } from "firebase/auth";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -12,7 +15,9 @@ function classNames(...classes) {
 
 export const Navbar = (props) => {
   const showOldNavbar = 0;
-  const isUser = props.isUser;
+  const auth = getAuth(firebaseApp);
+  const [user] = useAuthState(auth);
+  const isUser = user ? true : false;
   const router = useRouter();
 
   const navigation = [
@@ -214,7 +219,7 @@ export const Navbar = (props) => {
           </Link>
           <div className="ml-5 inline-flex lg:ml-0 lg:w-2/5 lg:justify-end">
             {isUser ? (
-              <UserNavSection username={props.username} />
+              <UserNavSection />
             ) : (
               <LoginButton />
             )}
