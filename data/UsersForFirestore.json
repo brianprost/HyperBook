@@ -1,0 +1,281 @@
+[
+  {
+    "userId": "suslYoNjQUPD53dfJKraUYnu4i23",
+    "email": "i_miss_football@nfl.com",
+    "password": "4a211c032408ceef1b946f9d6411ddfb0e7c7805be696c857d4ad38cf3abcc7f78e400ed20bed085c89a05e6e56a92940bf1cb1ce91ea8ef9ae6080049fa67b2",
+    "firstName": "Thomas",
+    "lastName": "Brady",
+    "addressLine1": "123 BillyBillicheck St.",
+    "addressLine2": "",
+    "city": "Boston",
+    "state": "MA",
+    "zip": "09845",
+    "phone": "4048675309",
+    "trips": [
+      {
+        "tripId": 46,
+        "podSchedule": 1371,
+        "statusId": 3,
+        "dateCreated": "2022-03-07 20:04:38.947",
+        "dateUpdated": "2022-03-07 20:04:38.947"
+      },
+      {
+        "tripId": 47,
+        "podSchedule": 1048,
+        "statusId": 2,
+        "dateCreated": "2022-03-07 20:10:31.213",
+        "dateUpdated": "2022-03-07 20:10:31.213"
+      }
+    ]
+  },
+  {
+    "userId": "ZpEiDbN5m7gUR746szQFmn0a6HW2",
+    "email": "prachet@test.com",
+    "password": "5e66902a147cad6b52f18960a38535842543bfb195296f47e457a4ddfa9accb054932c21e7fc9ffb18cb4ba198a8e71c21a0a6883f4f76e12bfaf0f24999e728",
+    "firstName": "Prachet",
+    "lastName": "Agrawal",
+    "addressLine1": "10/2, IT Park, Behind Infotech Tower, Parsodi",
+    "addressLine2": "",
+    "city": "College Park",
+    "state": "MD",
+    "zip": "20740",
+    "phone": "8669680625",
+    "trips": []
+  },
+  {
+    "userId": "9Gnsf7lRUjbLPXJXywUUkTiDY382",
+    "email": "zepzom@test.com",
+    "password": "testpass",
+    "firstName": "testuser",
+    "lastName": "usertest",
+    "addressLine1": "1234 test ave",
+    "addressLine2": "",
+    "city": "Washington",
+    "state": "DC",
+    "zip": "23456",
+    "phone": "1234567890",
+    "trips": [
+      {
+        "tripId": 3,
+        "podSchedule": 10,
+        "statusId": 1,
+        "dateCreated": "2022-02-24 00:00:00.000",
+        "dateUpdated": "2022-02-24 00:00:00.000"
+      },
+      {
+        "tripId": 8,
+        "podSchedule": 1692,
+        "statusId": 2,
+        "dateCreated": "2022-02-25 20:03:36.303",
+        "dateUpdated": "2022-02-25 20:03:36.303"
+      },
+      {
+        "tripId": 9,
+        "podSchedule": 1885,
+        "statusId": 2,
+        "dateCreated": "2022-02-28 11:49:44.763",
+        "dateUpdated": "2022-02-28 11:49:44.763"
+      }
+    ]
+  },
+  {
+    "userId": "Vtm3OmaYvqQst2qU9dySpjPwo6N2",
+    "email": "jcidras@humrro.org",
+    "password": "a9ab9db7e903d308b61d746282d776742bd70f63d281915847ce729b694d971c683abf2bed9acaa0254830765681b94801a8adc0aac7c325e09bf54e89f97773",
+    "firstName": "Jason",
+    "lastName": "TooGood",
+    "addressLine1": "123 Main St",
+    "addressLine2": "",
+    "city": "Here",
+    "state": "VA",
+    "zip": "12345",
+    "phone": "1231231234",
+    "trips": []
+  },
+  {
+    "userId": "xVYyoMpab8Q8fvy06qNCS492i8U2",
+    "email": "bill@biden.com",
+    "password": "180b9cfc289e9907d4c29ebcf434e2d8202b398dd6b9266eab402a2084853ec299010056bf62fe9dbe9095a395757c4d164fa2c1f8ab1d5e298853f45f0bc5d5",
+    "firstName": "Bill",
+    "lastName": "Clinton",
+    "addressLine1": "1600 Pennsylvania Ave.",
+    "addressLine2": "",
+    "city": "Washington",
+    "state": "DC",
+    "zip": "20001",
+    "phone": "2024567890",
+    "trips": []
+  },
+  {
+    "userId": "bVWVyCBfLfPoTm0i7RlOcQ0cWqy1",
+    "email": "videh@test.com",
+    "password": "5e66902a147cad6b52f18960a38535842543bfb195296f47e457a4ddfa9accb054932c21e7fc9ffb18cb4ba198a8e71c21a0a6883f4f76e12bfaf0f24999e728",
+    "firstName": "Videh",
+    "lastName": "Agrawal",
+    "addressLine1": "8150 Baltimore Ave",
+    "addressLine2": "",
+    "city": "College Park",
+    "state": "MD",
+    "zip": "20740",
+    "phone": "3013324879",
+    "trips": []
+  },
+  {
+    "userId": "GRqFn5cEfceWQysGI59t0iJYn593",
+    "email": "bprost94@gmail.com",
+    "password": "a30a94c8a866befbd7d339a08e286bd1542f55dbd274ba52f135f303eb4ee92cd69cb6f317b2ad14dfc7f8e7ea4aa191afae46a6b22736354d4de95ad4e738cb",
+    "firstName": "Brian",
+    "lastName": "Prost",
+    "addressLine1": "1217 Wildhorse Meadows Dr.",
+    "addressLine2": "",
+    "city": "Kitsap",
+    "state": "WA",
+    "zip": "98765",
+    "phone": "8084638711",
+    "trips": []
+  },
+  {
+    "userId": "E1aIfg6xUeSihn51VCUT0GSUAL93",
+    "email": "paul_test_hb@mailinator.com",
+    "password": "bed4efa1d4fdbd954bd3705d6a2a78270ec9a52ecfbfb010c61862af5c76af1761ffeb1aef6aca1bf5d02b3781aa854fabd2b69c790de74e17ecfec3cb6ac4bf",
+    "firstName": "paul",
+    "lastName": "davison",
+    "addressLine1": "No address",
+    "addressLine2": "",
+    "city": "No City",
+    "state": "AK",
+    "zip": "12",
+    "phone": "1235551234",
+    "trips": []
+  },
+  {
+    "userId": "Ss5THXBswRQKphJH6vdS7wPKKmi2",
+    "email": "test.hash@test.com",
+    "password": "78ddc8555bb1677ff5af75ba5fc02cb30bb592b0610277ae15055e189b77fe3fda496e5027a3d99ec85d54941adee1cc174b50438fdc21d82d0a79f85b58cf44",
+    "firstName": "Prachet",
+    "lastName": "Agrawal",
+    "addressLine1": "123 Fake Street",
+    "addressLine2": "",
+    "city": "Springfield",
+    "state": "IL",
+    "zip": "12345",
+    "phone": "1235556789",
+    "trips": [
+      {
+        "tripId": 39,
+        "podSchedule": 1317,
+        "statusId": 3,
+        "dateCreated": "2022-03-07 03:38:35.290",
+        "dateUpdated": "2022-03-07 03:38:35.290"
+      },
+      {
+        "tripId": 42,
+        "podSchedule": 791,
+        "statusId": 3,
+        "dateCreated": "2022-03-07 04:51:53.710",
+        "dateUpdated": "2022-03-07 04:51:53.717"
+      },
+      {
+        "tripId": 43,
+        "podSchedule": 48,
+        "statusId": 3,
+        "dateCreated": "2022-03-07 13:32:36.693",
+        "dateUpdated": "2022-03-07 13:32:36.693"
+      },
+      {
+        "tripId": 44,
+        "podSchedule": 1372,
+        "statusId": 3,
+        "dateCreated": "2022-03-07 17:48:44.483",
+        "dateUpdated": "2022-03-07 17:48:44.487"
+      }
+    ]
+  },
+  {
+    "userId": "HuulScMGsrOs9ixnDiGZEeGASb32",
+    "email": "testuser@thedeeks.com",
+    "password": "b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86",
+    "firstName": "Dushyant",
+    "lastName": "Kumar",
+    "addressLine1": "6789 Water Street",
+    "addressLine2": "string",
+    "city": "Washington",
+    "state": "DC",
+    "zip": "20010",
+    "phone": "8675309234",
+    "trips": [
+      {
+        "tripId": 40,
+        "podSchedule": 711,
+        "statusId": 3,
+        "dateCreated": "2022-03-07 04:07:02.840",
+        "dateUpdated": "2022-03-07 04:07:02.840"
+      }
+    ]
+  },
+  {
+    "userId": "vsqnBO6mrmUJUgy0JbJyTMwUJl63",
+    "email": "chillary@clinton.org",
+    "password": "7e3e862c0a274cef75e474cfe2c88116e19a19e1783b8e6c8ccf86a4e17d6d96bdd16562ebb009afd148a35b6c210ab7c42723c503ab0875cb92efc39e8aff68",
+    "firstName": "Chillary",
+    "lastName": "Clinton",
+    "addressLine1": "3 HyperAirport Rd.",
+    "addressLine2": "",
+    "city": "Little Rock",
+    "state": "AK",
+    "zip": "72202",
+    "phone": "15013723439",
+    "trips": [
+      {
+        "tripId": 13,
+        "podSchedule": 304,
+        "statusId": 3,
+        "dateCreated": "2022-02-28 04:08:43.000",
+        "dateUpdated": "2022-03-01 01:18:06.800"
+      },
+      {
+        "tripId": 15,
+        "podSchedule": 281,
+        "statusId": 3,
+        "dateCreated": "2022-03-01 01:17:56.807",
+        "dateUpdated": "2022-03-01 01:18:13.993"
+      },
+      {
+        "tripId": 45,
+        "podSchedule": 1569,
+        "statusId": 2,
+        "dateCreated": "2022-03-07 18:05:29.063",
+        "dateUpdated": "2022-03-07 18:05:29.063"
+      },
+      {
+        "tripId": 48,
+        "podSchedule": 988,
+        "statusId": 2,
+        "dateCreated": "2022-03-07 20:38:43.047",
+        "dateUpdated": "2022-03-07 20:38:43.047"
+      }
+    ]
+  },
+  {
+    "userId": "5AFE3A6C-73DA-4732-8575-E2D4B705F6FB",
+    "email": "testexample@test.com",
+    "password": "testuserpass",
+    "firstName": "chad",
+    "lastName": "jones",
+    "addressLine1": "4321 fake street",
+    "addressLine2": "",
+    "city": "Washington",
+    "state": "DC",
+    "zip": "12345",
+    "phone": "123456789",
+    "trips": [
+      {
+        "tripId": 6,
+        "podSchedule": 24,
+        "statusId": 2,
+        "dateCreated": "2022-02-24 00:00:00.000",
+        "dateUpdated": "2022-02-24 00:00:00.000"
+      }
+    ]
+  }
+]

@@ -16,18 +16,16 @@ const AccountPage = () => {
   // for now, we will use a sample user id value of "D7A45952-E911-4892-A0C2-C424A43EB270"
   
   const [user, loading, error] = useAuthState(auth);
-  const [accountName, setAccountName] = useState("");
   const [userAccount, userAccountLoading, userAccountError] = 
     useDocumentData(
       doc(
         getFirestore(firebaseApp),
         "users",
-        "D7A45952-E911-4892-A0C2-C424A43EB270"
+        user && user.uid
       ),
       {
         snapshotListenOptions: { includeMetadataChanges: true },
       }
-
     );
 
   if (userAccountLoading) {
@@ -39,7 +37,7 @@ const AccountPage = () => {
     <section id="account-bookings">
       <div className="relative mx-auto h-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-24 ">
         <h2 className="mb-4 text-right text-4xl font-bold text-indigo-500">
-          Hi, <span className="font-extrabold text-red-500">{user && user.email}</span>
+          Hi, <span className="font-extrabold text-red-500">{user && userAccount.firstName}</span>
         </h2>
         <Link href={`/account/edit`}>
           <a>
@@ -58,7 +56,6 @@ const AccountPage = () => {
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
                 {error && <strong>Error: {JSON.stringify(error)}</strong>}
                 {loading && <span>Collection: Loading...</span>}
-                {/* {userAccount && JSON.stringify(userAccount.trips, null, 4)} */}
                 {userAccount && userAccount.trips.map((trip, index) => (
                     <Reservation
                       key={index}
@@ -82,22 +79,5 @@ const AccountPage = () => {
     </section>
   );
 };
-
-export async function getServerSideProps(context) {
-  const cookies = Cookies(context.req, context.res);
-  const isUser = cookies.get("isAuthenticated") ? true : false;
-  //const isUser = localStorage.getItem("isAuthenticated");
-  // if (!isUser || isUser === "false") {
-  //   return {
-  //     redirect: {
-  //       destination: "/login",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
-  return {
-    props: {}, // will be passed to the page component as props
-  };
-}
 
 export default AccountPage;
