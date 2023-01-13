@@ -110,39 +110,10 @@ for (let item of data) {
   // set the document
   await admin
     .firestore()
-    .collection("usersWithTrips")
+    .collection("users")
     .doc(item.userId)
     .set(docData);
 }
-// data.forEach((item) => {
-//   admin
-//     .firestore()
-//     .collection("users").doc(item.userId)
-//     .add({
-//       userId: item.userId,
-//       email: item.email,
-//       password: item.password,
-//       firstName: item.firstName,
-//       lastName: item.lastName,
-//       addressLine1: item.addressLine1,
-//       addressLine2: item.addressLine2,
-//       city: item.city,
-//       state: item.state,
-//       zip: item.zip,
-//       phone: item.phone,
-//       trips: item.trips.map((trip) => ({
-//         tripId: Number(trip.tripId),
-//         podSchedule: getPodSchedule(trip.podSchedule),
-//         statusId: Number(trip.statusId),
-//         dateCreated: admin.firestore.Timestamp.fromDate(
-//           new Date(trip.dateCreated)
-//         ),
-//         dateUpdated: admin.firestore.Timestamp.fromDate(
-//           new Date(trip.dateUpdated)
-//         ),
-//       })),
-//     });
-// });
 
 function getPodSchedule(podScheduleId) {
   let podSchedule = podSchedules.find(
