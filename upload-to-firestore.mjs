@@ -10,28 +10,22 @@ admin.initializeApp({
 });
 
 // // Add the data to the "cities" collection
-// data.forEach((item) => {
-//   admin.firestore().collection("cities").add({
-//     id: item.id,
-//     name: item.name,
-//     longitude: item.longitude,
-//     latitude: item.latitude,
-//   });
-// });
+// import data from "./data/CitiesFromSQL.json" assert { type: "json" };
+// for (let item of data) {
+//   let docData = {
+//     "name": item.name,
+//     "longitude": Number(item.longitude),
+//     "latitude": Number(item.latitude),
+//   }
+  
+//   admin
+//     .firestore()
+//     .collection("citiesNew")
+//     .doc(docData, )
+// }
 
 // // Add the data to the "trips" collection
-// data.forEach((item) => {
-//   admin.firestore().collection("trips").add({
-//     id: item.id,
-//     userId: item.userId,
-//     podSchedule: item.podSchedule,
-//     statusId: item.statusId,
-//     dateCreated: admin.firestore.Timestamp.fromDate(new Date(item.dateCreated)),
-//     dateUpdated: admin.firestore.Timestamp.fromDate(new Date(item.dateUpdated)),
-//   });
-// });
-
-// // Add the data to the "trips" collection
+// import data from "./data/TripsFromSQL.json" assert { type: "json" };
 // data.forEach((item) => {
 //   admin
 //     .firestore()
@@ -78,7 +72,7 @@ admin.initializeApp({
 //   });
 // });
 
-// add the data to the "usersWithTrips" collection
+// add the data to the "users" collection
 import data from "./data/UserWithTrips.json" assert { type: "json" };
 import podSchedules from "./data/PodScheduleFromSQL.json" assert { type: "json" };
 import cities from "./data/CitiesFromSQL.json" assert { type: "json" };
