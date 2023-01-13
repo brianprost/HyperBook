@@ -4,29 +4,38 @@ import Cookies from "cookies";
 import { Reservation } from "../../components/account/Reservation.component";
 import { getTrips, getUser } from "../../services/AzureUserService";
 import { firebaseApp } from "../_app";
-import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, query, where, getDocs, doc } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useCollection } from 'react-firebase-hooks/firestore';
+import { useCollection, useDocument, useDocumentData } from 'react-firebase-hooks/firestore';
 import Loading from "../../components/Loading.component.jsx"
 
 const auth = getAuth(firebaseApp);
 
 const AccountPage = () => {
+  // for now, we will use a sample user id value of "D7A45952-E911-4892-A0C2-C424A43EB270"
   
   const [user, loading, error] = useAuthState(auth);
   const [accountName, setAccountName] = useState("");
-  // get a list of trips for the user using react-firebase-hooks to get from firestore
-  // for now, we will use a sample user id value of "D7A45952-E911-4892-A0C2-C424A43EB270"
-  const [userTrips, userTripsLoading, userTripsError] = useCollection(
-    query(collection(getFirestore(firebaseApp), 'users'), where('userId', '==', user && "D7A45952-E911-4892-A0C2-C424A43EB270"))
-  )
+  const [userAccount, userAccountLoading, userAccountError] = 
+    useDocumentData(
+      doc(
+        getFirestore(firebaseApp),
+        "users",
+        "D7A45952-E911-4892-A0C2-C424A43EB270"
+      ),
+      {
+        snapshotListenOptions: { includeMetadataChanges: true },
+      }
 
-  if (userTripsLoading) {
+    );
+
+  if (userAccountLoading) {
     return <Loading />
   }
 
   return (
+    console.log(userAccount),
     <section id="account-bookings">
       <div className="relative mx-auto h-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-24 ">
         <h2 className="mb-4 text-right text-4xl font-bold text-indigo-500">
@@ -49,8 +58,8 @@ const AccountPage = () => {
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
                 {error && <strong>Error: {JSON.stringify(error)}</strong>}
                 {loading && <span>Collection: Loading...</span>}
-                {userTrips && userTrips.docs.map((doc) => (
-                  doc.data().trips.map((trip, index) => (
+                {/* {userAccount && JSON.stringify(userAccount.trips, null, 4)} */}
+                {userAccount && userAccount.trips.map((trip, index) => (
                     <Reservation
                       key={index}
                       departureWindow={trip.podSchedule.departureWindow}
@@ -65,7 +74,6 @@ const AccountPage = () => {
                       // }
                       tripId={trip.tripId}
                     />
-                  ))
                 ))
             }
           </div>
