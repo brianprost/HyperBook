@@ -2,7 +2,7 @@ import React from "react";
 
 const NoUserAuthMsg = () => {
   const msg =
-    "Unfortunately, the old database was taken offline by one of Brian's classmates, so we can't guide you through the authentication process right now until Brian finds some time to address adding new authentication.";
+    "Unfortunately, the old database was taken offline by one of Brian's classmates, so while Brian finds some time that doesn't exist to finish the migration to the new database, new user sign ups are disabled. Yeah...it sucks.";
   return (
     <div className="mt-32 flex flex-col items-center justify-center">
       <img
