@@ -8,7 +8,7 @@ const PodTime = ({ time, firstOrLast }) => {
         <GiApolloCapsule className="text-center text-xl" />
         <p className="font-semibold group-hover:text-red-500">{firstOrLast}</p>
       </div>
-      <span className="w-2/3 select-all rounded-xl border-[3px] border-red-500 bg-neutral-300 p-2 text-center text-3xl font-bold tracking-wide text-black-500">
+      <span className="w-2/3 select-all rounded-xl border-[3px] border-red-500 bg-neutral-300 p-2 text-center text-3xl lg:text-xl font-bold tracking-wide text-black-500">
         {time}
       </span>
     </div>

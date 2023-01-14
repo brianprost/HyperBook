@@ -5,6 +5,19 @@ import { loginUser } from "../../services/AzureUserService";
 import router from "next/router";
 import { useState } from "react";
 import { setCookies } from "cookies-next";
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { firebaseApp } from "../../pages/_app"
+
+const auth = getAuth(firebaseApp);
+
+const login = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password);
+}
+
+const logout = () => {
+  signOut(auth);
+}
 
 const LoginValidation = yup.object().shape({
   email: yup.string().email().required(),
@@ -17,6 +30,9 @@ const LoginValidation = yup.object().shape({
 });
 
 const LoginForm = () => {
+
+  const [user, loading, error] = useAuthState(auth);
+  
   const [isError, setIsError] = useState(false);
 
   const formik = useFormik({
@@ -26,21 +42,7 @@ const LoginForm = () => {
     },
     validationSchema: LoginValidation,
     onSubmit: (values) => {
-      let email = values.email;
-      let password = values.password;
-      loginUser(email, password)
-        .then((res) => {
-          if (res.status == 200 && res.statusText === "OK") {
-            setCookies("isAuthenticated", "true");
-            setCookies("userId", res.data.userId);
-            localStorage?.setItem("isAuthenticated", "true");
-            router.push("/book");
-          }
-        })
-        .catch((err) => {
-          setIsError(true);
-          console.error(err);
-        });
+      login(values.email, values.password);
     },
   });
   return (

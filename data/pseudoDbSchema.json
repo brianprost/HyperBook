@@ -1,0 +1,42 @@
+{
+    "trips": [
+        {
+            "id": number,
+            dateCreated: date,
+            dateUpdated: date,
+            podSchedule: number,
+            statusId: number,
+
+        }
+    ],
+    "cities": [
+        {
+            "id": number,
+            "name": string,
+            "longitude":  string,
+            "latitude": string,
+        },
+    ],
+    "podSchedules": [
+        cityFrom: number,
+        cityTo: number,
+        departureWindow: string,
+        id: number,
+        price: number
+    ],
+    "users": [
+        {
+            "id": string,
+            "email": string,
+            "password": string,
+            "firstName": string,
+            "lastName": string,
+            "addressLine1": string,
+            "addressLine2": string,
+            "city": string,
+            "state": string,
+            "zip": string,
+            "phone": string,
+          },
+    ]
+}

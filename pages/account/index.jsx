@@ -3,47 +3,41 @@ import Link from "next/link";
 import Cookies from "cookies";
 import { Reservation } from "../../components/account/Reservation.component";
 import { getTrips, getUser } from "../../services/AzureUserService";
+import { firebaseApp } from "../_app";
+import { getFirestore, collection, query, where, getDocs, doc } from 'firebase/firestore';
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollection, useDocument, useDocumentData } from 'react-firebase-hooks/firestore';
+import Loading from "../../components/Loading.component.jsx"
+
+const auth = getAuth(firebaseApp);
 
 const AccountPage = () => {
-  const [accountName, setAccountName] = useState("");
-  const [trips, setTrips] = useState([]);
+  // for now, we will use a sample user id value of "D7A45952-E911-4892-A0C2-C424A43EB270"
+  
+  const [user, loading, error] = useAuthState(auth);
+  const [userAccount, userAccountLoading, userAccountError] = 
+    useDocumentData(
+      doc(
+        getFirestore(firebaseApp),
+        "users",
+        user && user.uid
+      ),
+      {
+        snapshotListenOptions: { includeMetadataChanges: true },
+      }
+    );
 
-  useEffect(() => {
-    let id = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("userId="))
-      .split("=")[1];
-    getUser(id)
-      .then((res) => {
-        setAccountName(
-          res.data.firstName.toUpperCase() +
-            " " +
-            res.data.lastName.toUpperCase()
-        );
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-    getTrips(id)
-      .then((res) => {
-        const tempTrips = [];
-        res.data.forEach((item) => {
-          if (item.refStatus === "Booked") {
-            tempTrips.push(item);
-          }
-        });
-        setTrips(tempTrips);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  if (userAccountLoading) {
+    return <Loading />
+  }
 
   return (
+    console.log(userAccount),
     <section id="account-bookings">
       <div className="relative mx-auto h-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-24 ">
         <h2 className="mb-4 text-right text-4xl font-bold text-indigo-500">
-          Hi, <span className="font-extrabold text-red-500">{accountName}</span>
+          Hi, <span className="font-extrabold text-red-500">{user && userAccount.firstName}</span>
         </h2>
         <Link href={`/account/edit`}>
           <a>
@@ -60,9 +54,9 @@ const AccountPage = () => {
         </div>
         <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto mt-12 grid max-w-lg gap-12 lg:max-w-none lg:grid-cols-3">
-            {
-              trips.length >= 1
-                ? trips.map((trip, index) => (
+                {error && <strong>Error: {JSON.stringify(error)}</strong>}
+                {loading && <span>Collection: Loading...</span>}
+                {userAccount && userAccount.trips.map((trip, index) => (
                     <Reservation
                       key={index}
                       departureWindow={trip.podSchedule.departureWindow}
@@ -70,13 +64,14 @@ const AccountPage = () => {
                       departureCity={trip.podSchedule.cityFrom}
                       destinationCity={trip.podSchedule.cityTo}
                       confirmationCode={
-                        accountName.split(" ").pop() + trip.tripId
+                        "hyper" + trip.tripId
                       }
+                      // confirmationCode={
+                      //   accountName.split(" ").pop() + trip.tripId
+                      // }
                       tripId={trip.tripId}
                     />
-                  ))
-                : "No trips have been currently booked!"
-              //Write code for when no trips are there for the user
+                ))
             }
           </div>
         </div>
@@ -84,23 +79,5 @@ const AccountPage = () => {
     </section>
   );
 };
-
-export async function getServerSideProps(context) {
-  const cookies = Cookies(context.req, context.res);
-  const isUser = cookies.get("isAuthenticated") ? true : false;
-  //const isUser = localStorage.getItem("isAuthenticated");
-  if (!isUser || isUser === "false") {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  } else {
-    return {
-      props: {}, // will be passed to the page component as props
-    };
-  }
-}
 
 export default AccountPage;
