@@ -8,10 +8,11 @@ import { Map } from "./Map.component";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, getFirestore } from "firebase/firestore";
 import { firebaseApp } from "../../pages/_app";
+import { supabase } from "../../services/supabase";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
-const MapSection = () => {
+export function MapSection() {
   const [cities, setCities] = useState(null);
   const [destinations, setDestinations] = useState(null);
   const [isLoading, setLoading] = useState(true);
@@ -22,19 +23,15 @@ const MapSection = () => {
   const [titleText, setTitleText] = useState("Destinations");
   const [tooltipContent, setTooltipContent] = useState("");
 
-  // set cities to value from firestore
-  const [value, loading, error] = useCollection(
-    collection(getFirestore(firebaseApp), "cities")
-  );
   useEffect(() => {
-    if (value) {
-      setCities(value.docs.map((doc) => doc.data()));
+    getCities().then((data) => {
+      setCities(data);
       setLoading(false);
-    }
-  }, [value]);
-
+    });
+  }, []);
+  
   if (isLoading) return <Loading />;
-  if (!cities) return <p>No cities :(</p>;
+  // if (!cities) return <p>No cities :(</p>;
 
   if (destinationCity) {
     return (
@@ -77,3 +74,9 @@ const MapSection = () => {
 };
 
 export default MapSection;
+
+async function getCities() {
+  const { data, error } = await supabase.from("cities").select("*");
+  if (error) console.log(error);
+  return data;
+}
